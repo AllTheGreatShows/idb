@@ -67,5 +67,4 @@ Points  | Assets  | Notes
 ### UT Box: https://utexas.app.box.com
 Points | Assets | Notes
 --- | --- | ---
-20 pts | Report.pdf | Quality of the technical report: Write a technical report (2,500 words);
-{motivation, use cases, RESTful API, models, tools, hosting}; The audience comprises other software developers, as opposed to users. Format the report clearly, attractively, and consistently, using good sections, multiple pages, good headers, figures, and grammar. Use https://www.grammarly.com.
+20 pts | Report.pdf | Quality of the technical report: Write a technical report (2,500 words); {motivation, use cases, RESTful API, models, tools, hosting}; The audience comprises other software developers, as opposed to users. Format the report clearly, attractively, and consistently, using good sections, multiple pages, good headers, figures, and grammar. Use https://www.grammarly.com.
