@@ -10,7 +10,7 @@ A Podcast website and directory database
 
 First, clone the repo to your local machine. **It's important that the path to your local copy of the repo does not include any spaces**.
 
-> git clone https://GitHub.com/SanatSharma/AllTheGreatShows.git
+> git clone https://GitHub.com/AllTheGreatShows/allthegreatshows.git
 > cd AllTheGreatShows
 
 Next (assuming you have Python 3), install virtualenv if you don't already have it. (You may have to use `sudo`.)
