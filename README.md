@@ -10,28 +10,28 @@ A Podcast website and directory database
 
 First, clone the repo to your local machine. **It's important that the path to your local copy of the repo does not include any spaces**.
 
-> git clone https://GitHub.com/AllTheGreatShows/allthegreatshows.git
-> cd AllTheGreatShows
+    $ git clone https://GitHub.com/AllTheGreatShows/allthegreatshows.git
+    $ cd AllTheGreatShows
 
 Next (assuming you have Python 3), install virtualenv if you don't already have it. (You may have to use `sudo`.)
 
-> pip3 install virtualenv
+    $ pip3 install virtualenv
 
 Next, create your virtual environment. Please name your virtual environment `env`, as that name will be ignored by git.
 
-> virtualenv env
+    $ virtualenv env
 
 To enter your virtual environment, run the following command:
 
-> source env/bin/activate
+    $ source env/bin/activate
 
 You command prompt should now have the prefix `(env)`. Next, install the required Python packages with this command:
 
-> pip3 install -r requirements.txt
+    $ pip3 install -r requirements.txt
 
 Once you have the required Python packages, you can now run the project locally! Running is as simple as this command:
 
-> python3 app.py
+    $ python3 app.py
 
 You can quit the server using ^C.
 
