@@ -35,6 +35,36 @@ Once you have the required Python packages, you can now run the project locally!
 
 You can quit the server using ^C.
 
+## Testing and Deploying to GCP
+
+First, Install and initialize the Google Cloud SDK (https://cloud.google.com/sdk/docs/)
+
+**Test the application** using the local development server (dev_appserver.py), which is included with the SDK.
+
+From within the root directory where the app's app.yaml configuration file is located, start the local development server with the following command:
+
+    $ dev_appserver.py app.yaml
+
+The local development server is now running and listening for requests on **port 8080**.
+
+**Deploying the Application**
+
+To upload the app, run the following command from within the root directory of your project where the app.yaml file is located:
+
+    $ gcloud app deploy
+
+Optional flags:
+Include the --project flag to specify an alternate Cloud Platform Console project ID to what you initialized as the default in the gcloud tool. Example: --project allthegreatshows-180700
+Include the -v flag to specify a version ID, otherwise one is generated for you. Example: -v [YOUR_VERSION_ID]
+
+**Viewing Your Application**
+
+Open your browser and view your app at https://allthegreatshows-180700.appspot.com/
+
+Alternatively, you can use
+
+    $ gcloud app browse
+
 ## Git Workflow
 
 **1. Create a working branch**
