@@ -1,6 +1,9 @@
-runtime: python27
+runtime: python
 api_version: 1
 threadsafe: true
+
+runtime_config:
+    python_version: 3
 
 # [START handlers]
 handlers:
