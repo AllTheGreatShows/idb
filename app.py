@@ -30,7 +30,11 @@ podcasts = [
 
 @app.route("/podcasts")
 def podcasts_page():
-	return render_template('cards.html', items=podcasts)
+	return render_template("cards.html", items=podcasts)
+
+@app.route("/podcast/<int:podcast_id>")
+def podcast(podcast_id):
+	return render_template("podcast.html", podcast=podcasts[podcast_id - 1])
 
 if __name__ == "__main__":
     app.run()
