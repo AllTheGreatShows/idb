@@ -1,0 +1,37 @@
+Podcast
+Name, genres, artist, podcast-url, release-date
+Artist
+Name, podcasts, genres,  artist-url, Country
+Genre
+Name, podcasts, artists, genre-id, number_of_podcasts
+Release Date
+Date, podcasts, artists, genres, number-of-podcasts,
+
+Records:
+
+1) 
+Name: The Joe Rogan Experience
+Artist: Joe Rogan
+Genres: Comedy (ID:1303) , Podcasts (ID:26) , Technology (1318), Society & Culture (1324)
+Podcast-url: "https://itunes.apple.com/us/podcast/the-joe-rogan-experience/id360084272?mt=2"
+Release Date: 2017-09-17
+Artist URL: https://itunes.apple.com/us/artist/joe-rogan/id974891224?mt=2
+Country: USA
+
+2) 
+Name: The Splendid Table
+Artist: American Public Media
+Genres: Food (ID: 1306), Podcasts (ID:26), Arts (1301)
+Podcast-url: "https://itunes.apple.com/us/podcast/the-splendid-table/id86997870?mt=2&uo=4"
+Release Date: 2017-09-15
+Artist URL: https://itunes.apple.com/us/artist/american-public-media/id127439791?mt=2&uo=4
+Country: USA
+
+3) 
+Name: Rough Translation
+Artist: NPR
+Genres: News & Politics (1311), Podcasts (26)
+Podcast-url: https://itunes.apple.com/us/podcast/rough-translation/id1268047665?mt=2
+Release Date: 2017-09-18
+Artist URL: https://itunes.apple.com/us/artist/npr/id125443881?mt=2
+Country: USA
