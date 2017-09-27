@@ -28,6 +28,30 @@ podcasts = [
 	},
 ]
 
+episodes = [
+	{
+		"title": "Episode 69: Wide Open",
+		"text": "The sky is full of mystery. It’s big, expansive, and—despite a century of powered human flight—outside our realm of control. Which is why, for centuries, humans have expected things to come down from the sky and harm us. It might sound crazy now, but the possibilities are wide open. And that might not be a good thing.",
+		"file_url": "http://traffic.libsyn.com/lorepodcast/Lore69.mp3",
+		"podcast_id": "1",
+		"detail_path": "/episode/1",
+	},
+	{
+		"title": "Ep. 258: Ambition Hour",
+		"text": "The Problem: What constitutes a good cake?",
+		"file_url": "http://www.podtrac.com/pts/redirect.mp3/www.merlinmann.com/storage/rotl/rotl_0258.mp3",
+		"podcast_id": "2",
+		"detail_path": "episode/2",
+	},
+	{
+		"title": "#29: Please, Sir. Can I Have Some Snow?",
+		"text": "Never look at the Wikipedia pages of child actors.",
+		"file_url": "http://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/bonanza/BONANZA_29.mp3",
+		"podcast_id": "3",
+		"detail_path": "episode/3",
+	},
+]
+
 @app.route("/podcasts")
 def podcasts_page():
 	return render_template("cards.html", items=podcasts)
@@ -35,6 +59,17 @@ def podcasts_page():
 @app.route("/podcast/<int:podcast_id>")
 def podcast(podcast_id):
 	return render_template("podcast.html", podcast=podcasts[podcast_id - 1])
+
+@app.route("/episodes")
+def episode_page():
+	items = episodes
+	for item in items:
+		item["image_src"] = podcasts[int(item["podcast_id"]) - 1]["image_src"]
+	return render_template("cards.html", items=items)
+
+@app.route("/episode/<int:episode_id>")
+def episode(episode_id):
+	return render_template("episode.html", episode=episodes[episode_id - 1])
 
 if __name__ == "__main__":
     app.run()
