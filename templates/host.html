@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	<h1>{{ podcast.title }}</h1>
+	<p>{{ podcast.text }}</p>
+	<img src="{{ podcast.image_src }}" />
+	
+{% endblock body %}
