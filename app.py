@@ -16,7 +16,7 @@ podcasts = [
 		"release_date": "2017-09-18",
 		"artist_url": "https://itunes.apple.com/us/artist/aaron-mahnke/id1009389857?mt=2",
 		"country": "USA",
-		"image-src": "http://is1.mzstatic.com/image/thumb/Music62/v4/2d/3a/00/2d3a00e9-315f-d21c-8af2-6ff591d2f864/source/200x200bb.png",
+		"image_src": "http://is1.mzstatic.com/image/thumb/Music62/v4/2d/3a/00/2d3a00e9-315f-d21c-8af2-6ff591d2f864/source/200x200bb.png",
 		"text": "TODO: Add description here",
 		"detail_path": "/podcast/1"
 	},
@@ -28,7 +28,7 @@ podcasts = [
 		"release_date": "2017-09-17",
 		"artist_url": "https://itunes.apple.com/us/artist/joe-rogan/id974891224?mt=2",
 		"country": "USA",
-		"image-src": "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png",
+		"image_src": "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png",
 		"text": "TODO: Add description here",
 		"detail_path": "/podcast/2"
 	},
@@ -40,7 +40,7 @@ podcasts = [
 		"release_date": "2017-09-15",
 		"artist_url": "https://itunes.apple.com/us/artist/american-public-media/id127439791?mt=2&uo=4",
 		"country": "USA",
-		"image-src": "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/30x30bb.jpg",
+		"image_src": "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg",
 		"text": "TODO: Add description here",
 		"detail_path": "/podcast/3"
 	},
@@ -55,7 +55,7 @@ hosts = [
 		"release_date": "2017-09-18",
 		"artist_url": "https://itunes.apple.com/us/artist/aaron-mahnke/id1009389857?mt=2",
 		"country": "USA",
-		"image-src": "http://is1.mzstatic.com/image/thumb/Music62/v4/2d/3a/00/2d3a00e9-315f-d21c-8af2-6ff591d2f864/source/200x200bb.png",
+		"image_src": "http://is1.mzstatic.com/image/thumb/Music62/v4/2d/3a/00/2d3a00e9-315f-d21c-8af2-6ff591d2f864/source/200x200bb.png",
 		"text": "TODO: Add description here",
 		"detail_path": "/host/1"
 	},
@@ -67,7 +67,7 @@ hosts = [
 		"release_date": "2017-09-17",
 		"artist_url": "https://itunes.apple.com/us/artist/joe-rogan/id974891224?mt=2",
 		"country": "USA",
-		"image-src": "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png",
+		"image_src": "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png",
 		"text": "TODO: Add description here",
 		"detail_path": "/host/2"
 	},
@@ -79,7 +79,7 @@ hosts = [
 		"release_date": "2017-09-15",
 		"artist_url": "https://itunes.apple.com/us/artist/american-public-media/id127439791?mt=2&uo=4",
 		"country": "USA",
-		"image-src": "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/30x30bb.jpg",
+		"image_src": "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg",
 		"text": "TODO: Add description here",
 		"detail_path": "/host/3"
 	},
@@ -101,11 +101,13 @@ def episode_page():
 	return render_template("cards.html", items=items)
 
 @app.route("/hosts")
-def host():
-	items = hosts
-	for item in items:
-		item["image_src"] = hosts[int(item["host_id"]) - 1]["image_src"]
-		return render_template("cards.html", items=items)
+def host_page():
+	return render_template("cards.html", items=hosts)
+
+@app.route("/host/<int:host_id>")
+def host(host_id):
+	return render_template("host.html", host=hosts[host_id - 1])
+
 
 @app.route("/episode/<int:episode_id>")
 def episode(episode_id):
