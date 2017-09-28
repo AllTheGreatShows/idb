@@ -46,6 +46,31 @@ podcasts = [
 	},
 ]
 
+episodes = [
+	{
+		"title": "Episode 69: Wide Open",
+		"text": "The sky is full of mystery. It’s big, expansive, and—despite a century of powered human flight—outside our realm of control. Which is why, for centuries, humans have expected things to come down from the sky and harm us. It might sound crazy now, but the possibilities are wide open. And that might not be a good thing.",
+		"file_url": "http://traffic.libsyn.com/lorepodcast/Lore69.mp3",
+		"podcast_id": "1",
+		"detail_path": "/episode/1",
+	},
+	{
+		"title": "#1016 - Whitney Cummings",
+		"text": "Whitney Cummings is a stand up comedian and actress. She is best known as the creator and star of the NBC sitcom Whitney, as well as the co-creator of the CBS sitcom 2 Broke Girls. Her new book \"I'm Fine.... and Other Lies\" will be released on October 3.",
+		"file_url": "http://traffic.libsyn.com/joeroganexp/p1016.mp3",
+		"podcast_id": "2",
+		"detail_path": "episode/2",
+	},
+	{
+		"title": "Episode 639: Filipino Food",
+		"text": "This week, we devote our entire show the wonderfully multifaceted food of the Philippines. Amy Besa, author of the award-winning Memories of Philippine Kitchens tells us about the unusual mix of Spanish, Chinese, Mexican, and American influences on Filipino food. Francis Lam goes into the home kitchen of chef King Phojanakong and his mother Emma for a lesson in the delicious seafood sinigang stew. We get an expert list of where to eat great Filipino food across the United States from Joanne Boston of the Filipino Food Movement. We talk to chef Chad Valencia of LASA in Los Angeles about the key ingredients for the Filipino pantry. America's Test Kitchen gives us the recipe and advice for making Filipino-style chicken adobo. And author Jessica Hagedorn reads an excerpt about enjoying the food you love most -- while there's still time -- from her book Dogeaters.",
+		"file_url": "http://play.publicradio.org/default/d/podcast/splendid_table/2017/09/22/splendidtable_20170922_64.mp3",
+		"podcast_id": "3",
+		"detail_path": "episode/3",
+	},
+]
+
+
 hosts = [
 	{
 		"podcast": ["Lore"],
@@ -125,6 +150,17 @@ def podcasts_page():
 @app.route("/podcast/<int:podcast_id>")
 def podcast(podcast_id):
 	return render_template("podcast.html", podcast=podcasts[podcast_id - 1])
+
+@app.route("/episodes")
+def episode_page():
+	items = episodes
+	for item in items:
+		item["image_src"] = podcasts[int(item["podcast_id"]) - 1]["image_src"]
+	return render_template("cards.html", items=items)
+
+@app.route("/episode/<int:episode_id>")
+def episode(episode_id):
+	return render_template("episode.html", episode=episodes[episode_id - 1])
 
 @app.route("/genres")
 def genre_page():
