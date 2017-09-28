@@ -10,21 +10,39 @@ def index():
 podcasts = [
 	{
 		"title": "Lore",
-		"text": "Because sometimes the truth is more frightening than fiction.",
-		"image_src": "http://static1.squarespace.com/static/53bc57f0e4b00052ff4d7ccd/t/582efd6d8419c28d0b7c0618/1479474542994/lore-logo-light.png?format=1000w",
-		"detail_path": "/podcast/1",
+		"artist": "Aaron Mahnke",
+		"genres": {"Comedy":1303, "Podcasts":26, "Technology":1318, "Society & Culture":1324},
+		"podcast_url": "https://itunes.apple.com/us/podcast/lore/id978052928?mt=2",
+		"release_date": "2017-09-18",
+		"artist_url": "https://itunes.apple.com/us/artist/aaron-mahnke/id1009389857?mt=2",
+		"country": "USA",
+		"image_src": "http://is1.mzstatic.com/image/thumb/Music62/v4/2d/3a/00/2d3a00e9-315f-d21c-8af2-6ff591d2f864/source/200x200bb.png",
+		"text": "TODO: Add description here",
+		"detail_path": "/podcast/1"
 	},
 	{
-		"title": "Roderick on the Line",
-		"text": "Merlin Mann's frank and candid weekly call with John Roderick of the Long Winters.",
-		"image_src": "https://pbs.twimg.com/profile_images/1550319029/roderick_on_the_line_sq_400x400.jpg",
-		"detail_path": "/podcast/2",
+		"title": "The Joe Rogan Experience",
+		"artist": "Joe Rogan",
+		"genres": {"Comedy":1303, "Podcasts":26, "Technology":1318, "Society & Culture":1324},
+		"podcast_url": "https://itunes.apple.com/us/podcast/the-joe-rogan-experience/id360084272?mt=2",
+		"release_date": "2017-09-17",
+		"artist_url": "https://itunes.apple.com/us/artist/joe-rogan/id974891224?mt=2",
+		"country": "USA",
+		"image_src": "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png",
+		"text": "TODO: Add description here",
+		"detail_path": "/podcast/2"
 	},
 	{
-		"title": "BONANZA: The Wedding Year",
-		"text": "BONANZA has long been considered an important show about nothing in particular. Now, that all changes with a life-altering project. With his wedding on the horizon, Myke has turned to Matt for life coaching leading up to the big day. Will it be helpful? Maybe. (But probably not.)",
-		"image_src": "https://relayfm.s3.amazonaws.com/uploads/broadcast/image_3x/13/bonanza_artwork.png",
-		"detail_path": "/podcast/3",
+		"title": "The Splendid Table",
+		"artist": "American Public Media",
+		"genres": {"Food":1306, "Podcasts":26, "Arts":1301},
+		"podcast_url": "https://itunes.apple.com/us/podcast/the-splendid-table/id86997870?mt=2&uo=4",
+		"release_date": "2017-09-15",
+		"artist_url": "https://itunes.apple.com/us/artist/american-public-media/id127439791?mt=2&uo=4",
+		"country": "USA",
+		"image_src": "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg",
+		"text": "TODO: Add description here",
+		"detail_path": "/podcast/3"
 	},
 ]
 
@@ -37,20 +55,93 @@ episodes = [
 		"detail_path": "/episode/1",
 	},
 	{
-		"title": "Ep. 258: Ambition Hour",
-		"text": "The Problem: What constitutes a good cake?",
-		"file_url": "http://www.podtrac.com/pts/redirect.mp3/www.merlinmann.com/storage/rotl/rotl_0258.mp3",
+		"title": "#1016 - Whitney Cummings",
+		"text": "Whitney Cummings is a stand up comedian and actress. She is best known as the creator and star of the NBC sitcom Whitney, as well as the co-creator of the CBS sitcom 2 Broke Girls. Her new book \"I'm Fine.... and Other Lies\" will be released on October 3.",
+		"file_url": "http://traffic.libsyn.com/joeroganexp/p1016.mp3",
 		"podcast_id": "2",
 		"detail_path": "episode/2",
 	},
 	{
-		"title": "#29: Please, Sir. Can I Have Some Snow?",
-		"text": "Never look at the Wikipedia pages of child actors.",
-		"file_url": "http://www.podtrac.com/pts/redirect.mp3/traffic.libsyn.com/bonanza/BONANZA_29.mp3",
+		"title": "Episode 639: Filipino Food",
+		"text": "This week, we devote our entire show the wonderfully multifaceted food of the Philippines. Amy Besa, author of the award-winning Memories of Philippine Kitchens tells us about the unusual mix of Spanish, Chinese, Mexican, and American influences on Filipino food. Francis Lam goes into the home kitchen of chef King Phojanakong and his mother Emma for a lesson in the delicious seafood sinigang stew. We get an expert list of where to eat great Filipino food across the United States from Joanne Boston of the Filipino Food Movement. We talk to chef Chad Valencia of LASA in Los Angeles about the key ingredients for the Filipino pantry. America's Test Kitchen gives us the recipe and advice for making Filipino-style chicken adobo. And author Jessica Hagedorn reads an excerpt about enjoying the food you love most -- while there's still time -- from her book Dogeaters.",
+		"file_url": "http://play.publicradio.org/default/d/podcast/splendid_table/2017/09/22/splendidtable_20170922_64.mp3",
 		"podcast_id": "3",
 		"detail_path": "episode/3",
 	},
 ]
+
+
+hosts = [
+	{
+		"podcast": ["Lore"],
+		"title": "Aaron Mahnke",
+		"genres": {"Society & Culture":1324},
+		"podcast_url": "https://itunes.apple.com/us/podcast/lore/id978052928?mt=2",
+		"release_date": "2017-09-18",
+		"artist_url": "https://itunes.apple.com/us/artist/aaron-mahnke/id1009389857?mt=2",
+		"country": "USA",
+		"image_src": "http://is1.mzstatic.com/image/thumb/Music62/v4/2d/3a/00/2d3a00e9-315f-d21c-8af2-6ff591d2f864/source/200x200bb.png",
+		"text": "TODO: Add description here",
+		"detail_path": "/host/1"
+	},
+	{
+		"podcast": ["The Joe Rogan Experience"],
+		"title": "Joe Rogan",
+		"genres": {"Comedy":1303, "Society & Culture":1324},
+		"podcast_url": "https://itunes.apple.com/us/podcast/the-joe-rogan-experience/id360084272?mt=2",
+		"release_date": "2017-09-17",
+		"artist_url": "https://itunes.apple.com/us/artist/joe-rogan/id974891224?mt=2",
+		"country": "USA",
+		"image_src": "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png",
+		"text": "TODO: Add description here",
+		"detail_path": "/host/2"
+	},
+	{
+		"podcast": ["The Splendid Table"],
+		"title": "American Public Media",
+		"genres": {"Food":1306, "Arts":1301},
+		"podcast_url": "https://itunes.apple.com/us/podcast/the-splendid-table/id86997870?mt=2&uo=4",
+		"release_date": "2017-09-15",
+		"artist_url": "https://itunes.apple.com/us/artist/american-public-media/id127439791?mt=2&uo=4",
+		"country": "USA",
+		"image_src": "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg",
+		"text": "TODO: Add description here",
+		"detail_path": "/host/3"
+	},
+]
+
+genres = [
+	{
+		"name": "Comedy",
+		"podcasts": ["The Joe Rogan Experience","Lore"],
+		"artists": ["Joe Rogan", "Aaron Mahnke"],
+		"genre_id": 1303,
+		"number_of_podcasts": 2,
+		"image_src": "http://ucwbling.chicagolandwritingcenters.org/wp-content/uploads/2016/03/Comedyscrawl.jpg",
+		"detail_path": "/genre/1"
+
+	},
+	{
+		"name": "Technology",
+		"podcasts": ["The Joe Rogan Experience","Lore"],
+		"artists": ["Joe Rogan", "Aaron Mahnke"],
+		"genre_id": 1318,
+		"number_of_podcasts": 2,
+		"detail_path": "/genre/2",
+		"image_src": "https://medicine.llu.edu/sites/medicine.llu.edu/files/images/Technology.jpg"
+	},
+	{
+		"name":"Food",
+		"podcasts": ["The Splendid Table",],
+		"artists": ["American Public Media",],
+		"genre_id": 1306,
+		"number_of_podcasts": 1,
+		"detail_path": "/genre/3",
+		"image_src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1024px-Good_Food_Display_-_NCI_Visuals_Online.jpg"
+
+	},
+]
+
 
 @app.route("/podcasts")
 def podcasts_page():
@@ -69,7 +160,27 @@ def episode_page():
 
 @app.route("/episode/<int:episode_id>")
 def episode(episode_id):
-	return render_template("episode.html", episode=episodes[episode_id - 1])
+	e = episodes[episode_id - 1]
+	g = list(podcasts[int(e["podcast_id"]) - 1]["genres"].keys())[0]
+	return render_template("episode.html", episode=e, genre=g)
+
+@app.route("/genres")
+def genre_page():
+	return render_template("cards.html", items=genres)
+
+@app.route("/genre/<int:genre_id>")
+def genre(genre_id):
+	return render_template("genre.html", genre=genres[genre_id - 1])
+
+@app.route("/hosts")
+def host_page():
+	return render_template("cards.html", items=hosts)
+
+@app.route("/host/<int:host_id>")
+def host(host_id):
+	return render_template("host.html", host=hosts[host_id - 1])
+
+
 
 if __name__ == "__main__":
     app.run()

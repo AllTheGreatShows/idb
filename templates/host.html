@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	<p>Host: {{ host.title }}</p>
+	<p>Podcasts: {{ host.podcast }}</p>
+	<p>Genres: {{ host.genres }}</p>
+	<p>Artist url: {{ host.artist_url }}</p>
+	<p>Country: {{ host.country }}</p>
+	<img src="{{ host.image_src }}" />
+	
+{% endblock body %}
