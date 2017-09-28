@@ -75,7 +75,7 @@ hosts = [
 	{
 		"podcast": ["Lore"],
 		"title": "Aaron Mahnke",
-		"genres": {"Comedy":1303, "Podcasts":26, "Technology":1318, "Society & Culture":1324},
+		"genres": {"Society & Culture":1324},
 		"podcast_url": "https://itunes.apple.com/us/podcast/lore/id978052928?mt=2",
 		"release_date": "2017-09-18",
 		"artist_url": "https://itunes.apple.com/us/artist/aaron-mahnke/id1009389857?mt=2",
@@ -87,7 +87,7 @@ hosts = [
 	{
 		"podcast": ["The Joe Rogan Experience"],
 		"title": "Joe Rogan",
-		"genres": {"Comedy":1303, "Podcasts":26, "Technology":1318, "Society & Culture":1324},
+		"genres": {"Comedy":1303, "Society & Culture":1324},
 		"podcast_url": "https://itunes.apple.com/us/podcast/the-joe-rogan-experience/id360084272?mt=2",
 		"release_date": "2017-09-17",
 		"artist_url": "https://itunes.apple.com/us/artist/joe-rogan/id974891224?mt=2",
@@ -99,7 +99,7 @@ hosts = [
 	{
 		"podcast": ["The Splendid Table"],
 		"title": "American Public Media",
-		"genres": {"Food":1306, "Podcasts":26, "Arts":1301},
+		"genres": {"Food":1306, "Arts":1301},
 		"podcast_url": "https://itunes.apple.com/us/podcast/the-splendid-table/id86997870?mt=2&uo=4",
 		"release_date": "2017-09-15",
 		"artist_url": "https://itunes.apple.com/us/artist/american-public-media/id127439791?mt=2&uo=4",
@@ -112,7 +112,7 @@ hosts = [
 
 genres = [
 	{
-		"name":"Comedy",
+		"name": "Comedy",
 		"podcasts": ["The Joe Rogan Experience","Lore"],
 		"artists": ["Joe Rogan", "Aaron Mahnke"],
 		"genre_id": 1303,
@@ -122,7 +122,7 @@ genres = [
 
 	},
 	{
-		"name":"Technology",
+		"name": "Technology",
 		"podcasts": ["The Joe Rogan Experience","Lore"],
 		"artists": ["Joe Rogan", "Aaron Mahnke"],
 		"genre_id": 1318,
@@ -160,7 +160,9 @@ def episode_page():
 
 @app.route("/episode/<int:episode_id>")
 def episode(episode_id):
-	return render_template("episode.html", episode=episodes[episode_id - 1])
+	e = episodes[episode_id - 1]
+	g = list(podcasts[int(e["podcast_id"]) - 1]["genres"].keys())[0]
+	return render_template("episode.html", episode=e, genre=g)
 
 @app.route("/genres")
 def genre_page():
