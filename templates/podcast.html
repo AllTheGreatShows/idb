@@ -2,8 +2,11 @@
 
 {% block body %}
 
-	<h1>{{ podcast.title }}</h1>
-	<p>{{ podcast.text }}</p>
+	<p>Podcast: {{ podcast.title }}</p>
+	<p>Host: {{ podcast.artist }}</p>
+	<p>Genres: {{ podcast.genres }}</p>
+	<p>Podcast Url: {{ podcast.podcast_url }}</p>
+	<p>Release date: {{ podcast.release_date }}</p>
 	<img src="{{ podcast.image_src }}" />
 	
 {% endblock body %}
