@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	<img src="{{ episode.image_src }}" />
+	<h1>{{ episode.title }}</h1>
+	<p>{{ episode.text }}</p>
+	<p>Genre: {{ genre }}</p>
+	<audio controls>
+	  <source src="{{ episode.file_url }}" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	
+{% endblock body %}
