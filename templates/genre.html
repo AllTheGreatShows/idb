@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	<p>Genre: {{ genre.name }}</p>
+	<p>Genre id: {{ genre.genre_id }}</p>
+	<p>Number of podcasts: {{ genre.number_of_podcasts }}</p>
+
+	<!-- TODO: These both need to be lists of titles/artists -->
+	<p>podcasts: {{ genre.podcasts }}</p>
+	<p>artists: {{ genre.artists }}</p>
+	
+{% endblock body %}

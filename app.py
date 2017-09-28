@@ -85,6 +85,39 @@ hosts = [
 	},
 ]
 
+genres = [
+	{
+		"name":"Comedy",
+		"podcasts": ["The Joe Rogan Experience","Lore"],
+		"artists": ["Joe Rogan", "Aaron Mahnke"],
+		"genre_id": 1303,
+		"number_of_podcasts": 2,
+		"image_src": "http://ucwbling.chicagolandwritingcenters.org/wp-content/uploads/2016/03/Comedyscrawl.jpg",
+		"detail_path": "/genre/1"
+
+	},
+	{
+		"name":"Technology",
+		"podcasts": ["The Joe Rogan Experience","Lore"],
+		"artists": ["Joe Rogan", "Aaron Mahnke"],
+		"genre_id": 1318,
+		"number_of_podcasts": 2,
+		"detail_path": "/genre/2",
+		"image_src": "https://medicine.llu.edu/sites/medicine.llu.edu/files/images/Technology.jpg"
+	},
+	{
+		"name":"Food",
+		"podcasts": ["The Splendid Table",],
+		"artists": ["American Public Media",],
+		"genre_id": 1306,
+		"number_of_podcasts": 1,
+		"detail_path": "/genre/3",
+		"image_src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1024px-Good_Food_Display_-_NCI_Visuals_Online.jpg"
+
+	},
+]
+
+
 @app.route("/podcasts")
 def podcasts_page():
 	return render_template("cards.html", items=podcasts)
@@ -93,12 +126,13 @@ def podcasts_page():
 def podcast(podcast_id):
 	return render_template("podcast.html", podcast=podcasts[podcast_id - 1])
 
-@app.route("/episodes")
-def episode_page():
-	items = episodes
-	for item in items:
-		item["image_src"] = podcasts[int(item["podcast_id"]) - 1]["image_src"]
-	return render_template("cards.html", items=items)
+@app.route("/genres")
+def genre_page():
+	return render_template("cards.html", items=genres)
+
+@app.route("/genre/<int:genre_id>")
+def genre(genre_id):
+	return render_template("genre.html", genre=genres[genre_id - 1])
 
 @app.route("/hosts")
 def host_page():
@@ -109,9 +143,6 @@ def host(host_id):
 	return render_template("host.html", host=hosts[host_id - 1])
 
 
-@app.route("/episode/<int:episode_id>")
-def episode(episode_id):
-	return render_template("episode.html", episode=episodes[episode_id - 1])
 
 if __name__ == "__main__":
     app.run()
