@@ -142,6 +142,9 @@ genres = [
 	},
 ]
 
+@app.route("/about")
+def about():
+	return render_template("about.html")
 
 @app.route("/podcasts")
 def podcasts_page():
