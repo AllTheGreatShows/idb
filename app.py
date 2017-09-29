@@ -112,7 +112,7 @@ hosts = [
 
 genres = [
 	{
-		"name": "Comedy",
+		"title": "Comedy",
 		"podcasts": ["The Joe Rogan Experience","Lore"],
 		"artists": ["Joe Rogan", "Aaron Mahnke"],
 		"genre_id": 1303,
@@ -122,7 +122,7 @@ genres = [
 
 	},
 	{
-		"name": "Technology",
+		"title": "Technology",
 		"podcasts": ["The Joe Rogan Experience","Lore"],
 		"artists": ["Joe Rogan", "Aaron Mahnke"],
 		"genre_id": 1318,
@@ -131,7 +131,7 @@ genres = [
 		"image_src": "https://medicine.llu.edu/sites/medicine.llu.edu/files/images/Technology.jpg"
 	},
 	{
-		"name":"Food",
+		"title":"Food",
 		"podcasts": ["The Splendid Table",],
 		"artists": ["American Public Media",],
 		"genre_id": 1306,
