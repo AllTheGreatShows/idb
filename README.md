@@ -31,7 +31,7 @@ You command prompt should now have the prefix `(env)`. Next, install the require
 
 Once you have the required Python packages, you can now run the project locally! Running is as simple as this command:
 
-    $ python3 app.py
+    $ python3 run.py
 
 You can quit the server using ^C.
 
