@@ -5,7 +5,8 @@ import './index.css';
 import App from './App';
 import Hello from './Hello';
 import Mycard from './Card';
+import Grid from './Grid';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Mycard />, document.getElementById('root'));
+ReactDOM.render(<Grid />, document.getElementById('root'));
 registerServiceWorker();
