@@ -12,6 +12,7 @@ class Podcast(db.Model):
     title = db.Column(db.String(255), unique=True, nullable=False)
     description = db.Column(db.String(255), unique=True, nullable=False)
     image_url = db.Column(db.String(255), unique=True, nullable=False)
+    feed_url = db.Column(db.String(255), unique=True, nullable=False, default="")
     episodes = db.relationship('Episode', backref='podcast', lazy=True)
     provider_id = db.Column(db.Integer, db.ForeignKey('provider.id'), nullable=False)
 
