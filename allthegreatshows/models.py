@@ -10,7 +10,7 @@ genres = db.Table(
 class Podcast(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), unique=True, nullable=False)
-    description = db.Column(db.String(255), unique=True, nullable=False)
+    description = db.Column(db.String(255), nullable=False)
     image_url = db.Column(db.String(255), unique=True, nullable=False)
     feed_url = db.Column(db.String(255), unique=True, nullable=False, default="")
     episodes = db.relationship('Episode', backref='podcast', lazy=True)
