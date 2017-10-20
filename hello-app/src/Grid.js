@@ -1,26 +1,47 @@
 import React, { Component } from 'react';
-import Mycard from './Card';
-import {Row, Col} from 'reactstrap';
+import Mycard, {Fcard} from './Card';
+import {Row, Col, CardDeck} from 'reactstrap';
 
 
 class Grid extends React.Component {
+	constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null),
+    };
+  }
+
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    squares[i] = 'X';
+    this.setState({squares: squares});
+  }
+
 	renderCard (i) {
-		return <Col sm="4"><Mycard value={i}/></Col>;
+		return <Fcard 
+			value={this.state.squares[i]}
+			onClick={() => this.handleClick(i)}/>;
 	}
 
 	render () {
 		return (
 			<div>
-				<Row>
+				<CardDeck>
 					{this.renderCard(1)}
 					{this.renderCard(2)}
 					{this.renderCard(3)}
-				</Row>
-				<Row>
+				</CardDeck>
+				<CardDeck>
 					{this.renderCard(4)}
 					{this.renderCard(5)}
 					{this.renderCard(6)}
-				</Row>
+				</CardDeck>
+				<CardDeck>
+					{this.renderCard(7)}
+					{this.renderCard(8)}
+					{this.renderCard(9)}
+
+				</CardDeck>
 			</div>
 			);
 	}
