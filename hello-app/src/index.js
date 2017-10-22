@@ -5,8 +5,9 @@ import './index.css';
 import App from './App';
 import Hello from './Hello';
 import Mycard from './Card';
+import Mycarousel from './Carousel';
 import Grid from './Grid';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Grid />, document.getElementById('root'));
+ReactDOM.render(<Mycarousel />, document.getElementById('root'));
 registerServiceWorker();
