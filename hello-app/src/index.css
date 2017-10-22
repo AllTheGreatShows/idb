@@ -9,6 +9,9 @@ body {
 	margin: auto;
 }
 
+.Acard .card-img-top {
+	max-width: 300px;
+}
 
 	.carousel {
 		/* Black at least temporarily */

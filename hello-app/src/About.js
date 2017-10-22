@@ -24,8 +24,8 @@ var members = [
 
 function Acard(props) {
 	return (
-		<Card>
-        <CardImg top max-width="300px" src={props.image} alt="Card image cap" />
+		<Card className="Acard">
+        <CardImg top width="300px" src={props.image} alt="Card image cap" />
 	        <CardBody>
 		        <CardTitle>{props.title}</CardTitle>
 				   	<CardSubtitle>{props.subtitle}</CardSubtitle>
@@ -76,110 +76,81 @@ render() {
 			<p>All The Great Shows is a podcast database that allows users to search and discover popular podcasts on the internet.  It scrapes data from popular platforms in the podcast community such as the iTunes Store API and the Mixcloud API.  Users can discover new podcast series by genre as well as query results by artist, location, and and topic.
 				Our website is designed to be used by anyone and we do mean anyone.  We truly believe that there is a podcast series out there for everyone to discover and learn something new.  Podcasts can be listened to in the car, during a break at work, while waiting in line, or to wind down after a long day.  Podcasts range in subjects from politics to arts, entertainment. innovation, travel, and practically any topic that you can think of.</p>
 
-			<h2>Meet our members</h2>
+			<h2>Meet our Team</h2>
 			{this.renderCard(0)}
 			{this.renderCard(1)}
 			{this.renderCard(2)}
 			{this.renderCard(3)}
 			{this.renderCard(4)}
 
+			<h2>Phase 1 Statistics</h2>
+			<ul>
+				<li>Total number of commits: 39</li>
+				<li>Total number of issues: 15</li>
+				<li>Total number of unit tests: n/a</li>
+				<li><a href="http://docs.allthegreatshows.apiary.io"> Apiary API </a></li>
+				<li><a href="https://github.com/AllTheGreatShows/allthegreatshows"> Github Repository </a></li>
+				<li><a href="https://trello.com/allthegreatshows"> Trello </a> </li>
+			</ul>
+
+			<h2>The Data</h2>
+			<ul>
+				<li><a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/">iTunes Store API</a></li>
+				<p>Data from the top 100 trending podcasts was scraped from the iTunes Store API. 
+				We scraped this data by running this query through the search API:
+				https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/explicit.json</p>
+				<li><a href="https://www.mixcloud.com/developers/"> Mixcloud API</a></li>
+					<p>Data from the top 100 trending podcasts was scraped from the Mixcloud API.  An example search being http://api.mixcloud.com/popular/</p>
+			</ul>
+
+			<h2>Phase 1 Tools Used</h2>
+				<h3>Project Planning Tools</h3>
+				<ul>
+					<li>Github</li>
+						<p>Github was used for version control and to collaborate while editing the source code.</p>
+					<li>Slack</li>
+						<p>Slack was utilized to communicate with other members about our schedule availability and the current status of the project.</p>
+					<li>Trello</li>
+						<p>Trello was used to group issues together on boards to keep track of our progress throughout the workflow. </p>
+					<li>Plan it Poker</li>
+						<p>Plan It Poker served as a tool to gauge and log the approximate time it took to complete tasks in order to stay on schedule</p>
+				</ul>
+				<h3>Front End Development Tools</h3>
+				<ul>
+					<li>Bootstrap</li>
+						<p>Bootstrap is a free open-source web framework that allows developers to design web applications.  It is built on top of HTML, CSS, and JavaScript design templates to be compatible and responsive mobile websites.</p>
+					<li>React JS (future)</li>
+						<p>React JS is a popular JavaScript library for building user interfaces.</p>
+				</ul>
+				<h3>Back End Development Tools</h3>
+				<ul>
+					<li>Python Flask</li>
+					<li>Jinga</li>
+				<p>The Flask application routes to different pages based on the URL visited. The pages are constructed through the Jinja 2 template engine. We define a base HTML file (base.html) which all other pages extend. The base file defines the basic architecture of the HTML that is shared by all pages. Common head elements like metadata, stylesheets, and scripts as well as a container for body content are all define in the base file. The template engine also provides a mechanism for passing data from the Python environment of our Flask app to the individual HTML pages.</p>
+				</ul>
+				<h3>Tools not required by the project</h3>
+				<ul>
+					<li><a href="http://doodle.com/">Doodle Poll: Easy Scheduling</a>
+						<p>Doodle poll was used to coordinate members' availabilities to find when multiple group members could work on the project together in the lab.</p>
+					</li>
+					<li>
+						Google Docs
+						<p>Google docs played a useful role in collaborating on the project report.</p>
+					</li>
+				</ul>
+			<h2><a href="https://utexas.box.com/shared/static/kc88p1yibsogm4nbf093gj5md26k03q0.pdf"> Link to the Project Report</a></h2>
 		</div>
 	);
 }
 
 	
 /*
-	<h2>Phase 1 Statistics</h2>
-	<ul>
-		<li>Total number of commits: 39</li>
-		<li>Total number of issues: 15</li>
-		<li>Total number of unit tests: n/a</li>
-		<li><a href="http://docs.allthegreatshows.apiary.io"> Apiary API </a></li>
-		<li><a href="https://github.com/AllTheGreatShows/allthegreatshows"> Github Repository </a></li>
-		<li><a href="https://trello.com/allthegreatshows"> Trello </a> </li>
 
 	</ul>
 
-	<h2>The Data</h2>
-		<p><a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/">iTunes Store API</a>
-		Data from the top 100 trending podcasts was scraped from the iTunes Store API.
-
-		We scraped this data by running this query through the search API:
-		https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/explicit.json 
-		</p>
-		<p><a href="https://www.mixcloud.com/developers/"> Mixcloud API</a>
-		Data from the top 100 trending podcasts was scraped from the Mixcloud API.  An example search being http://api.mixcloud.com/popular/
-		</p>
 	<ul>
 	</ul>
 
-	<h2>Phase 1 Tools Used</h2>
-	<ul>
-		<h3>Project Planning Tools</h3>
-		<ul>
-			<li>Github</li>
-				<p>
-					Github was used for version control and to collaborate while editing the source code. 
-
-				</p>
-			<li>Slack</li>
-				<p>
-					Slack was utilized to communicate with other members about our schedule availability and the current status of the project.
-				</p>
-			<li>Trello</li>
-				<p>
-					Trello was used to group issues together on boards to keep track of our progress throughout the workflow. 
-				</p>
-			<li>Plan it Poker</li>
-				<p>
-					Plan It Poker served as a tool to gauge and log the approximate time it took to complete tasks in order to stay on schedule
-				</p>
-		</ul>
-
-		<h3>Front End Development Tools</h3>
-		<ul>
-			<li>Bootstrap</li>
-				<p>
-					Bootstrap is a free open-source web framework that allows developers to design web applications.  It is built on top of HTML, CSS, and JavaScript design templates to be compatible and responsive mobile websites.
-				</p>
-			<li>React JS (future)</li>
-				<p>
-					React JS is a popular JavaScript library for building user interfaces.
-				</p>
-		</ul>
-		<h3>Back End Development Tools</h3>
-		<ul>
-			<li>Python Flask</li>
-
-			<li>Jinga</li>
-			<p>
-				The Flask application routes to different pages based on the URL visited. The pages are constructed through the Jinja 2 template engine. We define a base HTML file (base.html) which all other pages extend. The base file defines the basic architecture of the HTML that is shared by all pages. Common head elements like metadata, stylesheets, and scripts as well as a container for body content are all define in the base file. The template engine also provides a mechanism for passing data from the Python environment of our Flask app to the individual HTML pages.
-			</p>
-		</ul>
-
-		<h3>Tools not required by the project</h3>
-		<ul>
-			<li><a href="http://doodle.com/">Doodle Poll: Easy Scheduling</a>
-			<p>
-				Doodle poll was used to coordinate members' availabilities to find when multiple group members could work on the project together in the lab.
-			</p>
-			</li>
-
-			<li>
-				Google Docs
-				<p>
-					Google docs played a useful role in collaborating on the project report.
-				</p>
-			</li>
-		</ul>
-	</ul>
-	<h2><a href="https://utexas.box.com/shared/static/kc88p1yibsogm4nbf093gj5md26k03q0.pdf"> Link to the Project Report</a></h2>
-	<ul>
-
-
-	</ul>
-
-	</ul>
 </body>
 </html>
 }
