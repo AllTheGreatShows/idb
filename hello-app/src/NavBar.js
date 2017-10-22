@@ -17,9 +17,24 @@ class NavBar extends React.Component {
 			<div>
 				<Navbar color="black" light>
         <NavbarBrand href="/">All The Great Shows</NavbarBrand>
-            <Nav navbar justified horizontal>
+            <Nav justified horizontal>
               <NavItem Home>
                 <NavLink disabled href="/Home/">Home</NavLink>
+              </NavItem>
+              <NavItem Podcasts>
+                <NavLink disabled href="/Podcasts/">Podcasts</NavLink>
+              </NavItem>
+              <NavItem Hosts>
+                <NavLink disabled href="/Hosts/">Hosts</NavLink>
+              </NavItem>
+              <NavItem Genre>
+                <NavLink disabled href="/Genre/">Genre</NavLink>
+              </NavItem>
+              <NavItem Episodes>
+                <NavLink disabled href="/Episodes/">Episodes</NavLink>
+              </NavItem>
+              <NavItem About>
+                <NavLink disabled href="/About/">About</NavLink>
               </NavItem>
             </Nav>
         </Navbar>
