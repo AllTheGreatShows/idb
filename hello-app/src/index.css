@@ -8,3 +8,40 @@ body {
 	width: 80vw;
 	margin: auto;
 }
+
+.Acard .card-img-top {
+	max-width: 300px;
+}
+
+	.carousel {
+		/* Black at least temporarily */
+		background: #aaaaaa;
+	}
+	.carousel-item {
+		height: 300px;
+		max-height: 100%;
+	}
+    .carousel-item img {
+        height: 100%; 
+        object-fit: cover;
+        margin: auto;
+    }
+
+    .carousel-caption {
+        background: black;
+        opacity: 0.9;
+    }
+/*
+.CarouselItem {
+	max-height: 100%; 
+        object-fit: fill;
+        margin: auto;
+        text-align: center;
+        background-position: center;
+        position: center;
+}
+/*
+.carousel-inner{
+        max-height: 100%; 
+        object-fit: cover;
+    }*/
