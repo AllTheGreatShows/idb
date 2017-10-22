@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-import Grid from './Grid';
+import Home from './Carousel';
+import About from './About';
 
 class NavBar extends React.Component {
 	constructor(props) {
     super(props);
     
     this.state = {
-      content: <div/>
+      content: <Home/>
     };
   }
 
   getHome() {
-    this.setState({content: <Grid/>});
+    this.setState({content: <Home/>});
+  }
+
+  getAbout() {
+    this.setState({content: <About/>});
   }
 
 	render () {
@@ -25,7 +30,7 @@ class NavBar extends React.Component {
                 <NavItem Home>
                   <NavLink onClick={() => this.getHome()}>Home</NavLink>
                 </NavItem>
-                <NavItem Podcasts>
+                <NavItem disabled Podcasts>
                   <NavLink disabled href="/Podcasts/">Podcasts</NavLink>
                 </NavItem>
                 <NavItem Hosts>
@@ -38,7 +43,7 @@ class NavBar extends React.Component {
                   <NavLink disabled href="/Episodes/">Episodes</NavLink>
                 </NavItem>
                 <NavItem About>
-                  <NavLink disabled href="/About/">About</NavLink>
+                  <NavLink onClick={() => this.getAbout()}>About</NavLink>
                 </NavItem>
               </Nav>
           </Navbar>
