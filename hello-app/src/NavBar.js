@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import Grid from './Grid';
 
 
 class NavBar extends React.Component {
@@ -8,35 +9,18 @@ class NavBar extends React.Component {
 
     this.state = {
         isOpen: true
-        
     };
   }
 
 	render () {
 		return (
 			<div>
-				<Navbar color="faded" dark>
+				<Navbar color="black" light>
         <NavbarBrand href="/">All The Great Shows</NavbarBrand>
-            <Nav navbar>
-              <NavItem>
-                <NavLink href="/Grid/">Home</NavLink>
+            <Nav navbar justified horizontal>
+              <NavItem Home>
+                <NavLink disabled href="/Home/">Home</NavLink>
               </NavItem>
-              {/* <NavItem>
-                <NavLink href="/podcasts.js/">Podcasts</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/genre.js/">Genres</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/host.js/">Hosts</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/episodes.js/">Episodes</NavLink>
-              </NavItem> 
-              <NavItem>
-                <NavLink href="/about.js/">About</NavLink>
-              </NavItem> 
-              */}
             </Nav>
         </Navbar>
 			</div>
