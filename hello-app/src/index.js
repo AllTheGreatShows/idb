@@ -7,7 +7,8 @@ import Hello from './Hello';
 import Mycard from './Card';
 import Mycarousel from './Carousel';
 import Grid from './Grid';
+import About from './About';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Mycarousel />, document.getElementById('root'));
+ReactDOM.render(<About />, document.getElementById('root'));
 registerServiceWorker();
