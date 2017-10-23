@@ -2,7 +2,7 @@ from flask import render_template
 
 from allthegreatshows import app
 from allthegreatshows.hardcoded_data import podcasts, episodes, hosts, genres
-
+from . import api
 
 @app.route("/")
 def index():
