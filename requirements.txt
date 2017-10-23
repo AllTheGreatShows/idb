@@ -1,5 +1,6 @@
 Flask==0.12.2
 Flask-Migrate
 Flask-SQLAlchemy
+Flask-Restless
 gunicorn==19.3.0
 psycopg2
