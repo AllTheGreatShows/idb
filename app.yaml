@@ -7,3 +7,9 @@ handlers:
 - url: /.*
   script: run.app
 # [END handlers]
+
+
+skip_files:
+- env
+- node_modules
+- .git
