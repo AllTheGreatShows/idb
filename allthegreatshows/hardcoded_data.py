@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 podcasts = [
 	{
 		"title": "Lore",
