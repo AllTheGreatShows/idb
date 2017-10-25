@@ -53,16 +53,16 @@ class NavBar extends React.Component {
                   <NavLink onClick={() => this.getHome()}>Home</NavLink>
                 </NavItem>
                 <NavItem disabled Podcasts>
-                  <NavLink disabled href="/Podcasts/">Podcasts</NavLink>
+                  <NavLink onClick={() => this.getPodcasts()}>Podcasts</NavLink>
                 </NavItem>
-                <NavItem Hosts>
-                  <NavLink disabled href="/Hosts/">Hosts</NavLink>
+                <NavItem Providers>
+                  <NavLink onClick={() => this.getProviders()}>Providers</NavLink>
                 </NavItem>
                 <NavItem Genre>
-                  <NavLink disabled href="/Genre/">Genre</NavLink>
+                  <NavLink onClick={() => this.getGenres()}>Genres</NavLink>
                 </NavItem>
                 <NavItem Episodes>
-                  <NavLink disabled href="/Episodes/">Episodes</NavLink>
+                  <NavLink onClick={() => this.getEpisodes()}>Episodes</NavLink>
                 </NavItem>
                 <NavItem About>
                   <NavLink onClick={() => this.getAbout()}>About</NavLink>
