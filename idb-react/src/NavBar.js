@@ -18,6 +18,26 @@ class NavBar extends React.Component {
     this.setState({content: <Home/>});
   }
 
+  getPodcasts(){
+    var v = API.getPodcasts();
+    return this.setState({content: <Grid Data={v} CardTitle={"podcast"} ImageField={""}/>});
+  }
+
+  getProviders(){
+    var v = API.getProviders();
+    return this.setState({content: <Grid Data={v} CardTitle={"host"} ImageField={""}/>});
+  }
+
+  getGenres(){
+    var v = API.getPodcasts();
+    return this.setState({content: <Grid Data={v} CardTitle={"genre"} ImageField={""}/>});
+  }
+
+  getEpisodes(){
+    var v = API.getPodcasts();
+    return this.setState({content: <Grid Data={v} CardTitle={"episode"} ImageField={""}/>});
+  }
+
   getAbout() {
     this.setState({content: <About/>});
   }
