@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import Home from './Carousel';
 import About from './About';
+import API from './Request';
+import Grid from './Grid';
 
 class NavBar extends React.Component {
 	constructor(props) {
