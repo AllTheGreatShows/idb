@@ -11,7 +11,8 @@ import About from './About';
 import Mycarousel from './Carousel';
 */
 import NavBar from './NavBar';
+import Media from './Media';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<NavBar />, document.getElementById('root'));
+ReactDOM.render(<Media />, document.getElementById('root'));
 registerServiceWorker();
