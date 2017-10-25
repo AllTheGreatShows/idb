@@ -4,6 +4,7 @@ function getPodcasts() {
     http_request.open("GET", "http://allthegreatshows/api/podcasts", true);
     http_request.send();
     var response = JSON.parse(http_request.responseText);
+    return response;
 }
 
 function getEpisodes() {
@@ -11,6 +12,7 @@ function getEpisodes() {
     http_request.open("GET", "http://allthegreatshows/api/episodes", true);
     http_request.send();
     var response = JSON.parse(http_request.responseText);
+    return response;
 }
 
 function getGenres() {
@@ -18,6 +20,7 @@ function getGenres() {
     http_request.open("GET", "http://allthegreatshows/api/genres", true);
     http_request.send();
     var response = JSON.parse(http_request.responseText);
+    return response;
 }
 
 function getProviders() {
@@ -25,4 +28,5 @@ function getProviders() {
     http_request.open("GET", "http://allthegreatshows/api/providers", true);
     http_request.send();
     var response = JSON.parse(http_request.responseText);
+    return response;
 }
