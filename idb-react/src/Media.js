@@ -7,15 +7,14 @@ import { Card, CardImg, CardText, CardBody,
 // hosts (plural!)
 // episodes (plural!)
 // genre
-var sampleData = '{"media_type":"podcast", "title": "The Joe Rogan Experience", "image_url":"http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png", "description":"details blah blah blah", "id":"some id", "feed_url":"some feed url", "episodes":"some episodes", "provider_id":"some provider id", "genres":"some genres"}';
+var sampleData = '{"media_type":"podcast", "title": "The Joe Rogan Experience", "image_url":"http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png", "description":"details blah blah blah", "id":"some id", "itunes_id": "some itunes id", "feed_url":"some feed url", "episodes":"some episodes", "provider_id":"some provider id", "genres":"some genres"}';
 
 const obj = JSON.parse(sampleData);
 
 // PODCASTS, runs when media_type == "podcast"
-// required keys in the json for this function to work
 // image_url = db.Column(db.String(255))
 // title = db.Column(db.String(255))
-
+// ********************************************
 // description = db.Column(db.String(255))
 // genres = db.relationship('Genre', secondary=podcast_genre, lazy='subquery', backref=db.backref('podcast_genre', lazy=True))
 // id = db.Column(db.Integer, primary_key=True)
@@ -54,7 +53,7 @@ function renderPodcast(obj) {
 
 // name = db.Column(db.String(255))
 // image_url
-
+// ********************************************
 // id = db.Column(db.Integer, primary_key=True)
 // itunes_id = db.Column(db.Integer)
 // podcasts = db.relationship('Podcast', backref='provider', lazy=True)
@@ -83,7 +82,7 @@ function renderHosts(obj) {
 // image_url attribute
 
 // name = db.Column(db.String(255), unique=True, nullable=False)
-
+// ********************************************
 // podcasts = db.relationship('Podcast', secondary=podcast_genre, lazy='subquery', backref=db.backref('podcast_genre', lazy=True))
 // itunes_id = db.Column(db.Integer)
 // id = db.Column(db.Integer, primary_key=True)
@@ -112,7 +111,7 @@ function renderGenre(obj) {
 
 // title = db.Column(db.String(255))
 // description = db.Column(db.String)
-
+// ********************************************
 // id = db.Column(db.Integer, primary_key=True)
 // published = db.Column(db.DateTime)
 // file_url = db.Column(db.String)
