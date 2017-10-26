@@ -11,7 +11,7 @@ var members = [
 	["Jesse Tipton", "Phase 2 Team Lead", "https://utexas.box.com/shared/static/ntda5bgjr5ghhf8k5i65vidvu0npoxu8.jpg", "Bio: Jesse is a senior in computer science who also works as a part time iOS developer. He is involved with the Mobile Application Development and teaches their iOS workshops.",
 	"Helped set up python Flask", "Updated README.md", "Connected frontend to backend",
 	19, 3, 0],
-	["Ashay Lokhande", "", "https://utexas.box.com/shared/static/yk1pmh6cyi66otf3gursk9z2uaqn2vwu.jpg", "Bio: Ashay is a junior in computer science who tends to prefers backend, infrastructure, and low-level development. He enjoys being a teaching assistant and researcher at UT. Outside the classroom he loves travelining and hiking.",
+	["Ashay Lokhande", "", "https://utexas.box.com/shared/static/yk1pmh6cyi66otf3gursk9z2uaqn2vwu.jpg", "Bio: Ashay is a junior in computer science who tends to prefers backend, infrastructure, and low-level development. He enjoys being a teaching assistant and researcher at UT. Outside the classroom he loves traveling and hiking.",
 	"Helped design the models for our database", "Worked on integrating model instance templates", "Worked on navigation across pages",
 	3, 3, 0],
 	["Claire Dubiel", "", "https://utexas.box.com/shared/static/rhujg9i47kjpq94gh6z9k2jzfpgo51ae.jpg", "Bio: Claire is a junior in computer science. She does bioinformatics research and is involved with community service and computer science outreach to local elementary schools.",
