@@ -11,4 +11,3 @@ manager.create_api(Episode, methods=['GET'], results_per_page=9)
 manager.create_api(Provider, methods=['GET'], results_per_page=9)
 manager.create_api(Genre, methods=['GET'], results_per_page=9)
 
-manager.init_app(app)
