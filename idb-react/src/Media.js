@@ -2,18 +2,9 @@ import React, {Component} from 'react';
 import { Media } from 'reactstrap';
 
 
-var sampleData = '{"type":"podcast", "title": "The Joe Rogan Experience", "link":"http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png", "details":"details blah blah blah"}';
+var sampleData = '{"media_type":"podcast", "title": "The Joe Rogan Experience", "link":"http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png", "details":"details blah blah blah"}';
 
 const obj = JSON.parse(sampleData);
-
-
-// function Example(props) {
-//     const type = ;
-//     switch (props.media_type) {
-//         case "podcast":
-//             return renderPodcast(props);
-//     }
-// };
 
 function renderPodcast(obj) {
     return (
@@ -23,8 +14,7 @@ function renderPodcast(obj) {
             </Media>
             <Media body>
             <Media heading>
-                rendering {obj.media_type}
-                {obj.heading}
+                {obj.title}
             </Media>``
                 {obj.details}
             </Media>
@@ -40,8 +30,7 @@ function renderHosts(obj) {
             </Media>
             <Media body>
             <Media heading>
-                rendering {obj.media_type}
-                {obj.heading}
+                {obj.title}
             </Media>``
                 {obj.details}
             </Media>
@@ -57,8 +46,7 @@ function renderGenre(obj) {
             </Media>
             <Media body>
             <Media heading>
-                rendering {obj.media_type}
-                {obj.heading}
+                {obj.title}
             </Media>``
                 {obj.details}
             </Media>
@@ -74,8 +62,7 @@ function renderEpisode(obj) {
             </Media>
             <Media body>
             <Media heading>
-                rendering {obj.media_type}
-                {obj.heading}
+                {obj.title}
             </Media>``
                 {obj.details}
             </Media>
@@ -86,7 +73,7 @@ function renderEpisode(obj) {
 class MyMedia extends Component {
 
     render() {
-        switch (obj.type) {
+        switch (obj.media_type) {
             case "podcast":
                 return renderPodcast(obj);
             case "hosts":
@@ -96,13 +83,6 @@ class MyMedia extends Component {
             case "episodes":
                 return renderEpisode(obj);
         }
-        // return (<Example 
-        //     media_type={obj.type}
-        //     heading={obj.title}
-        //     link={obj.link}
-        //     details={obj.details}
-        //     />
-        // );
     }
 }
 
