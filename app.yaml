@@ -1,15 +1,25 @@
-runtime: python27
+runtime: python
 api_version: 1
 threadsafe: true
+env: flex
+entrypoint: gunicorn -b :$PORT run:app
+
+runtime_config:
+    python_version: 3
 
 # [START handlers]
-handlers:
-- url: /.*
-  script: run.app
+#handlers:
+#- url: /.*
+#  script: run.app
 # [END handlers]
 
+beta_settings:
+    cloud_sql_instances: allthegreatshows-180700:us-central1:primary 
 
 skip_files:
 - env
 - node_modules
 - .git
+- __pycache__
+- .vscode
+- .pyc
