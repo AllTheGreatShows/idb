@@ -32,9 +32,7 @@ class MyMedia extends Component {
         return (<Example 
             heading={sampleData[i][0]}
             link={sampleData[i][1]}
-            
-            details={sampleData[i][2]}
-            />
+            details={sampleData[i][2]}/>
         );
     }
 

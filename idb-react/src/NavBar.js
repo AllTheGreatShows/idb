@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import Home from './Carousel';
 import About from './About';
-import API from './Request';
+import {getPodcasts, getEpisodes, getGenres, getProviders} from './Request';
 import Grid from './Grid';
 
 class NavBar extends React.Component {
@@ -19,23 +19,23 @@ class NavBar extends React.Component {
   }
 
   getPodcasts(){
-    var v = API.getPodcasts();
-    return this.setState({content: <Grid Data={v} CardTitle={"podcast"} ImageField={""}/>});
+    var v = getPodcasts();
+    return this.setState({content: <Grid Data={v} CardTitle={"title"} ImageField={"image_url"}/>});
   }
 
   getProviders(){
-    var v = API.getProviders();
-    return this.setState({content: <Grid Data={v} CardTitle={"host"} ImageField={""}/>});
+    var v = getProviders();
+    return this.setState({content: <Grid Data={v} CardTitle={"name"} ImageField={""}/>});
   }
 
   getGenres(){
-    var v = API.getPodcasts();
-    return this.setState({content: <Grid Data={v} CardTitle={"genre"} ImageField={""}/>});
+    var v = getGenres();
+    return this.setState({content: <Grid Data={v} CardTitle={"name"} ImageField={""}/>});
   }
 
   getEpisodes(){
-    var v = API.getPodcasts();
-    return this.setState({content: <Grid Data={v} CardTitle={"episode"} ImageField={""}/>});
+    var v = getEpisodes();
+    return this.setState({content: <Grid Data={v} CardTitle={"title"} ImageField={""}/>});
   }
 
   getAbout() {
