@@ -22,7 +22,7 @@ class Mycard extends Component {
 function Fcard(props) {
 	return (
 			<Card className="square" onClick={props.onClick}>
-        <CardImg top width="200px" src={props.image} alt="Card image cap" />
+        <CardImg top width="200px" src={String(props.image)} alt="Card image cap" />
 	        <CardBody>
 		        <CardTitle>{props.title}</CardTitle>
 				    {//<CardSubtitle>Card subtitle</CardSubtitle>

@@ -20,6 +20,7 @@ class NavBar extends React.Component {
 
   getPodcasts(){
     var v = getPodcasts();
+
     return this.setState({content: <Grid Data={v} CardTitle={"title"} ImageField={"image_url"}/>});
   }
 

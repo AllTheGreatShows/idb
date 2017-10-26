@@ -22,12 +22,20 @@ class Grid extends React.Component {
     //titleAttr
     //imgAttr
     const obj = this.props.Data;
+	var hasImg = !(this.props.ImageField === "");
+	console.log(obj);
+    for (var i = obj["objects"].length - 1; i >= 0; i--) {
+		 //obj[i]
+		squaresT[i] = obj["objects"][i][this.props.CardTitle];
 
-    var hasImg = !(this.props.ImageField === "");
-    for (var i = obj.keys.length - 1; i >= 0; i--) {
-     	//obj[i]
-    	squaresT[i] = obj[i];
-    	if (hasImg) squaresI[i] = obj[i];
+		if (hasImg) squaresI[i] = obj["objects"][i][this.props.ImageField];
+		else{
+			if (this.props.CardTitle == "title")
+				squaresI[i] = obj["objects"][i]["podcast"]["image_url"];					
+			else
+				squaresI[i] = obj["objects"][i]["podcasts"][0]["image_url"];
+			
+		}
     }
     
     /*
@@ -35,11 +43,14 @@ class Grid extends React.Component {
     	squaresT[i] = sampleData[i%3+1][0];
     	squaresI[i] = sampleData[i%3+1][1];
     };
-    */
+	*/
+
+	this.state = {
+		squares: squaresT,
+		images: squaresI,
+	}
 
     this.state = {
-      squares: squaresT,
-      images: squaresI, 
       content: <div>
 								<CardDeck>
 									{this.renderCard(1)}
@@ -60,7 +71,6 @@ class Grid extends React.Component {
 							</div>
     };
     
-    
   }
 
   handleClick(i) {
@@ -70,16 +80,16 @@ class Grid extends React.Component {
     squares[i] = i;
     this.setState({squares: squares});
       */
-
     const detail = <MyMedia
     	json={this.props.Data} />
   }
 
 	renderCard (i) {
 		i = i-1;
-		return <Fcard 
-			title={this.state.squares[i]}
-			image={this.state.images[i]}
+		console.log(this.state.squares[1])
+		return <Fcard
+			title={String(this.state.squares[i])}
+			image={String(this.state.images[i])}
 			onClick={() => this.handleClick(i)}/>;
 	}
 
