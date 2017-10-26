@@ -6,8 +6,8 @@ from allthegreatshows import app
 db.create_all()
 
 manager = APIManager(app, flask_sqlalchemy_db=db)
-manager.create_api(Podcast, methods=['GET'], results_per_page=9)
-manager.create_api(Episode, methods=['GET'], results_per_page=9)
-manager.create_api(Provider, methods=['GET'], results_per_page=9)
-manager.create_api(Genre, methods=['GET'], results_per_page=9)
+manager.create_api(Podcast, methods=['GET'], results_per_page=-1)
+manager.create_api(Episode, methods=['GET'], results_per_page=-1)
+manager.create_api(Provider, methods=['GET'], results_per_page=-1)
+manager.create_api(Genre, methods=['GET'], results_per_page=-1)
 
