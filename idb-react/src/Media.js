@@ -2,8 +2,12 @@ import React, {Component} from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Media, Jumbotron, Button} from 'reactstrap';
 
-
-var sampleData = '{"media_type":"hosts", "title": "The Joe Rogan Experience", "image_url":"http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png", "description":"details blah blah blah", "id":"some id", "feed_url":"some feed url", "episodes":"some episodes", "provider_id":"some provider id", "genres":"some genres"}';
+// VALID MEDIA TYPES
+// podcast
+// hosts (plural!)
+// episodes (plural!)
+// genre
+var sampleData = '{"media_type":"podcast", "title": "The Joe Rogan Experience", "image_url":"http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png", "description":"details blah blah blah", "id":"some id", "feed_url":"some feed url", "episodes":"some episodes", "provider_id":"some provider id", "genres":"some genres"}';
 
 const obj = JSON.parse(sampleData);
 
@@ -27,7 +31,7 @@ function renderPodcast(obj) {
             </Media>
             <Media body>
             <Media heading>
-                this is a {obj.media_type}! <br/>
+                Information on {obj.media_type} <br/>
                 {obj.title}
             </Media>
                 description: {obj.description} <br/>
@@ -56,13 +60,13 @@ function renderPodcast(obj) {
 // podcasts = db.relationship('Podcast', backref='provider', lazy=True)
 function renderHosts(obj) {
     return (
-        <Media>
+        <Card>
             <Media left href="#">
             <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
-                this is a {obj.media_type}! <br/>
+                Information on {obj.media_type}<br/>
                 {obj.name}
             </Media>``
                 description: {obj.description} <br/>
@@ -70,7 +74,7 @@ function renderHosts(obj) {
                 podcasts: {obj.podcasts} <br/>
 
             </Media>
-        </Media>  
+        </Card>  
         );
 }
 
@@ -85,20 +89,20 @@ function renderHosts(obj) {
 // id = db.Column(db.Integer, primary_key=True)
 function renderGenre(obj) {
     return (
-        <Media>
+        <Card>
             <Media left href="#">
             <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
-                this is a {obj.media_type}! <br/>
+                Information on {obj.media_type} <br/>
                 {obj.name}
             </Media>``
                 podcasts: {obj.podcasts} <br/>
                 itunes id: {obj.itunes_id} <br/>
                 id: {obj.id} <br/>
             </Media>
-        </Media>  
+        </Card>  
         );
 }
 
@@ -115,13 +119,13 @@ function renderGenre(obj) {
 // podcast_id = db.Column(db.Integer, db.ForeignKey('podcast.id'), nullable=False)
 function renderEpisode(obj) {
     return (
-        <Media>
+        <Card>
             <Media left href="#">
             <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
-                this is a {obj.media_type}! <br/>
+                Information on {obj.media_type}<br/>
                 {obj.title}
             </Media>``
                 description: {obj.description} <br/>
@@ -130,7 +134,7 @@ function renderEpisode(obj) {
                 file_url: {obj.file_url} <br/>
                 podcast_id: {obj.podcast_id} <br/>
             </Media>
-        </Media>  
+        </Card>  
         );
 }
 
