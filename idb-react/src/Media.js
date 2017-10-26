@@ -4,13 +4,14 @@ import { Card, CardImg, CardText, CardBody,
 
 // VALID MEDIA TYPES
 // podcast
-// hosts (plural!)
-// episodes (plural!)
+// host
+// episode
 // genre
+
+// used this block to test
 var sampleData = '{"media_type":"podcast", "title": "The Joe Rogan Experience", "image_url":"http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png", "description":"details blah blah blah", "id":"some id", "itunes_id": "some itunes id", "feed_url":"some feed url", "episodes":"some episodes", "provider_id":"some provider id", "genres":"some genres"}';
 
 const obj = JSON.parse(sampleData);
-
 // PODCASTS, runs when media_type == "podcast"
 // image_url = db.Column(db.String(255))
 // title = db.Column(db.String(255))
@@ -47,7 +48,7 @@ function renderPodcast(obj) {
         );
 }
 
-// PROVIDERS, runs when media_type == "hosts"
+// PROVIDERS, runs when media_type == "host"
 // ****TODO OR WILL NOT WORK!!!****
 // image URL
 
@@ -105,7 +106,7 @@ function renderGenre(obj) {
         );
 }
 
-// EPISODES, runs when media_type == "episodes"
+// EPISODES, runs when media_type == "episode"
 // ****TODO OR WILL NOT WORK!!!****
 // image_url attribute
 
@@ -143,11 +144,11 @@ class MyMedia extends Component {
         switch (obj.media_type) {
             case "podcast":
                 return renderPodcast(obj);
-            case "hosts":
+            case "host":
                 return renderHosts(obj);
             case "genre":
                 return renderGenre(obj);
-            case "episodes":
+            case "episode":
                 return renderEpisode(obj);
         }
     }
