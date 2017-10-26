@@ -8,6 +8,7 @@ podcast_genre = db.Table(
 
 
 class Podcast(db.Model):
+    __tablename__= 'podcast'
     id = db.Column(db.Integer, primary_key=True)
     itunes_id = db.Column(db.Integer)
     title = db.Column(db.String(255))

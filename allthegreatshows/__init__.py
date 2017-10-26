@@ -13,8 +13,7 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
-
-import allthegreatshows.views
 from api import manager
+import allthegreatshows.views
 
-manager.init_app(app)
+
