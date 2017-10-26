@@ -16,6 +16,10 @@ runtime_config:
 beta_settings:
     cloud_sql_instances: allthegreatshows-180700:us-central1:primary
 
+env_variables:
+  SQLALCHEMY_DATABASE_URI: >-
+    postgresql+psycopg2://postgres:allthegreatshows@/postgres?host=/cloudsql/allthegreatshows-180700:us-central1:primary
+
 skip_files:
 - env
 - node_modules
