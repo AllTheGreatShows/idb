@@ -14,7 +14,7 @@ runtime_config:
 # [END handlers]
 
 beta_settings:
-    cloud_sql_instances: allthegreatshows-180700:us-central1:primary 
+    cloud_sql_instances: allthegreatshows-180700:us-central1:primary
 
 skip_files:
 - env
