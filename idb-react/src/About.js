@@ -138,7 +138,7 @@ render() {
 						<p>Google docs played a useful role in collaborating on the project report.</p>
 					</li>
 				</ul>
-			<h2><a href="https://utexas.box.com/s/yugceey73gsombpxk7e6fykw3yghgsnh"> Link to the Project Report</a></h2>
+			<h2><a href="https://utexas.box.com/shared/static/yugceey73gsombpxk7e6fykw3yghgsnh.pdf"> Link to the Project Report</a></h2>
 		</div>
 	);
 }
