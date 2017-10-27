@@ -99,6 +99,7 @@ class NavBar extends React.Component {
     this.render();
     // var v = getEpisodes();
     // this.setState({content: <Grid Data={v} CardTitle={"title"} ImageField={""}/>});
+
   }
 
   onAbout() {

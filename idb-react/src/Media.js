@@ -1,47 +1,143 @@
 import React, {Component} from 'react';
-import { Media } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Media, Jumbotron, Button} from 'reactstrap';
 
-// [name, image link, details]
+// VALID MEDIA TYPES
+// podcast
+// provider
+// episode
+// genre
 
-// var sampleData = [["The Joe Rogan Experience", "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png", "details"],
-// ["The Splendid Table", "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg", "detail"],
-// ["Rough Translation", "http://is1.mzstatic.com/image/thumb/Music118/v4/f4/d2/18/f4d218f7-cc28-e9f2-69f6-958abc6cd9b0/source/200x200bb.png", "details"]];
-var sampleData = [["The Joe Rogan Experience", "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png", "details"]];
+// PODCASTS, runs when media_type == "podcast"
+function renderPodcast(obj, i) {
+    var val = obj["objects"][i];
+    console.log(val);
+    return (
+        <Card>
+            <Media left href="#">
+            <Media object data-src="holder.js/64x64" img src={val.image_url.toString()} alt="Generic placeholder image" />
+            </Media>
+            <Media body>
+            <Media heading>
+                {val.title.toString()}
+            </Media>
+                genres: {val.genres.toString()} <br/>
+                id: {val.id.toString()} <br/>
+                feed_url: {val.feed_url.toString()} <br/>
+                itunes_id: {val.itunes_id.toString()} <br/>
+            </Media>
+        </Card>  
+        );
+}
 
+// PROVIDERS, runs when media_type == "provider"
+function renderProvider(obj, i) {
+    var val = obj["objects"][i];
+    console.log(val);
 
-function Example(props) {
-  return (
-    <Media>
-      <Media left href="#">
-        <Media object data-src="holder.js/64x64" img src={props.link} alt="Generic placeholder image" />
-      </Media>
-      <Media body>
-        <Media heading>
-            {props.heading}
-        </Media>
-            {props.details}
-      </Media>
-    </Media>
+    var provider_podcasts = "";
+    // for (i = 0; i < val.podcasts.length; i++) { 
+    //     provider_podcasts += val.podcasts[i].title + ", ";
+    // }
 
-    
-  );
-};
+    return (
+        <Card>
+            <Media left href="#">
+            {<Media object data-src="holder.js/64x64" img src={val.podcasts[0].image_url.toString()} alt="Generic placeholder image" />}
+            </Media>
+            <Media body>
+            <Media heading>
+                {val.name.toString()}
+            </Media>                
+                id: {val.id.toString()} <br/>
+                itunes id: {val.id.toString()} <br/>
+                name: {val.name.toString()} <br/>
+                title: {val.podcasts[0].title.toString()} <br/>
+                {/* podcasts: {provider_podcasts} */}
+                feed_url: {val.podcasts[0].feed_url.toString()}
+
+            </Media>
+        </Card>  
+        );
+}
+
+// GENRE, runs when media_type == "genre"
+function renderGenre(obj, i) {
+    var val = obj["objects"][i];
+    console.log(val);
+    var pod = val["podcasts"];
+    console.log(pod.length);
+    var c = []
+    for(var i =0; i<pod.length; i++){
+        c[i] = pod[i]["title"]
+    }
+    var d = []
+    for(var i =0; i<pod.length; i++){
+        d[i] = pod[i]["feed_url"]
+    }
+    var p = pod[0];
+
+    console.log(c);
+    return (
+        <Card>
+            <Media left href="#">
+            {/* <Media object data-src="holder.js/64x64" img src={val.image_url.toString()} alt="Generic placeholder image" /> */}
+            <Media object data-src="holder.js/64x64" img src={p.image_url.toString()}  alt="Generic placeholder image" />
+
+            </Media>
+            <Media body>
+            <Media heading>
+                {
+                    val.name.toString()}
+            </Media>
+               <b> podcasts</b>: {c.toString()} <br/>
+                <b>feed_urls</b>: {d.toString()} <br/>
+                <b>itunes id</b>: {val.itunes_id.toString()} <br/>
+               <b> id: </b>{val.id.toString()} <br/>
+            </Media>
+        </Card>  
+        );
+}
+
+// EPISODES, runs when media_type == "episode"
+function renderEpisode(obj, i) {
+    var val = obj["objects"][i];
+    console.log(val);
+    return (
+        <Card>
+            <Media left href="#">
+            {/* <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" /> */}
+            <Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
+
+            </Media>
+            <Media body>
+            <Media heading>
+                {val.title.toString()}
+            </Media>
+                id: {val.id.toString()} <br/>
+                published: {val.published.toString()} <br/>
+                file_url: {val.file_url.toString()} <br/>
+                podcast_id: {val.podcast_id.toString()} <br/>
+            </Media>
+        </Card>  
+        );
+}
 
 class MyMedia extends Component {
-    renderCard(i) {
-        return (<Example 
-            heading={sampleData[i][0]}
-            link={sampleData[i][1]}
-            details={sampleData[i][2]}/>
-        );
-    }
 
     render() {
-        return (
-            <div>
-                {this.renderCard(0)}
-            </div>
-        );
+        const obj = this.props.json;
+        const i = this.props.index;
+        switch (this.props.media_type) {
+            case "podcast":
+                return renderPodcast(obj, i);
+            case "provider":
+                return renderProvider(obj, i);
+            case "genre":
+                return renderGenre(obj, i);
+            case "episode":
+                return renderEpisode(obj, i);
+        }
     }
 }
 

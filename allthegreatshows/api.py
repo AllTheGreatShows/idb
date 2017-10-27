@@ -1,7 +1,6 @@
-from allthegreatshows import db
+from allthegreatshows import app, db
 from allthegreatshows.models import Podcast, Episode, Provider, Genre
 from flask_restless import APIManager
-from allthegreatshows import app
 
 db.create_all()
 
