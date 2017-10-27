@@ -36,9 +36,9 @@ function renderProvider(obj, i) {
     console.log(val);
 
     var provider_podcasts = "";
-    for (i = 0; i < val.podcasts.length; i++) { 
-        provider_podcasts += val.podcasts[i].title + ", ";
-    }
+    // for (i = 0; i < val.podcasts.length; i++) { 
+    //     provider_podcasts += val.podcasts[i].title + ", ";
+    // }
 
     return (
         <Card>
@@ -53,7 +53,8 @@ function renderProvider(obj, i) {
                 itunes id: {val.id.toString()} <br/>
                 name: {val.name.toString()} <br/>
                 title: {val.podcasts[0].title.toString()} <br/>
-                podcasts: {provider_podcasts}
+                {/* podcasts: {provider_podcasts} */}
+                feed_url: {val.podcasts[0].feed_url.toString()}
 
             </Media>
         </Card>  
