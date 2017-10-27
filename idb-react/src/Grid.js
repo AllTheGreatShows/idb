@@ -26,16 +26,16 @@ class Grid extends React.Component {
 	console.log(obj);
     for (var i = obj["objects"].length - 1; i >= 0; i--) {
 		 //obj[i]
-		squaresT[i] = obj["objects"][i][this.props.CardTitle];
+			squaresT[i] = obj["objects"][i][this.props.CardTitle];
 
-		if (hasImg) squaresI[i] = obj["objects"][i][this.props.ImageField];
-		else{
-			if (this.props.CardTitle == "title")
-				squaresI[i] = obj["objects"][i]["podcast"]["image_url"];					
-			else
-				squaresI[i] = obj["objects"][i]["podcasts"][0]["image_url"];
-			
-		}
+			if (hasImg) squaresI[i] = obj["objects"][i][this.props.ImageField];
+			else{
+				if (this.props.CardTitle == "title")
+					squaresI[i] = obj["objects"][i]["podcast"]["image_url"];					
+				else
+					squaresI[i] = obj["objects"][i]["podcasts"][0]["image_url"];
+				
+			}
     }
     
     /*
