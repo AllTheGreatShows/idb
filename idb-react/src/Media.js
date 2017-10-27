@@ -4,14 +4,13 @@ import { Card, CardImg, CardText, CardBody,
 
 // VALID MEDIA TYPES
 // podcast
-// host
+// provider
 // episode
 // genre
 
 // used this block to test
-var sampleData = '{"media_type":"podcast", "title": "The Joe Rogan Experience", "image_url":"http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png", "description":"details blah blah blah", "id":"some id", "itunes_id": "some itunes id", "feed_url":"some feed url", "episodes":"some episodes", "provider_id":"some provider id", "genres":"some genres"}';
+// var sampleData = '{"media_type":"podcast", "title": "The Joe Rogan Experience", "image_url":"http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png", "description":"details blah blah blah", "id":"some id", "itunes_id": "some itunes id", "feed_url":"some feed url", "episodes":"some episodes", "provider_id":"some provider id", "genres":"some genres"}';
 
-const obj = JSON.parse(sampleData);
 // PODCASTS, runs when media_type == "podcast"
 // image_url = db.Column(db.String(255))
 // title = db.Column(db.String(255))
@@ -24,23 +23,24 @@ const obj = JSON.parse(sampleData);
 // provider_id = db.Column(db.Integer, db.ForeignKey('provider.id'))
 // itunes_id = db.Column(db.Integer)
 function renderPodcast(obj) {
+    var i = this.props.index;
     return (
         <Card>
             <Media left href="#">
-            <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
+            <Media object data-src="holder.js/64x64" img src={obj[i]["image_url"]} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
-                Information on {obj.media_type} <br/>
-                {obj.title}
+                Information on {obj[i]["media_type"]} <br/>
+                {obj[i]["title"]}
             </Media>
-                description: {obj.description} <br/>
-                genre: {obj.genres} <br/>
-                id: {obj.id} <br/>
-                feed_url: {obj.feed_url} <br/>
-                episodes: {obj.episodes} <br/>
-                provider_id: {obj.provider_id} <br/>
-                itunes_id: {obj.itunes_id} <br/>
+                description: {obj[i]["description"]} <br/>
+                genre: {obj[i]["genres"]} <br/>
+                id: {obj[i]["id"]} <br/>
+                feed_url: {obj[i]["feed_url"]} <br/>
+                episodes: {obj[i]["episodes"]} <br/>
+                provider_id: {obj[i]["provider_id"]} <br/>
+                itunes_id: {obj[i]["itunes_id"]} <br/>
                 
 
             </Media>
@@ -48,7 +48,7 @@ function renderPodcast(obj) {
         );
 }
 
-// PROVIDERS, runs when media_type == "host"
+// PROVIDERS, runs when media_type == "provider"
 // ****TODO OR WILL NOT WORK!!!****
 // image URL
 
@@ -58,20 +58,21 @@ function renderPodcast(obj) {
 // id = db.Column(db.Integer, primary_key=True)
 // itunes_id = db.Column(db.Integer)
 // podcasts = db.relationship('Podcast', backref='provider', lazy=True)
-function renderHosts(obj) {
+function renderProvider(obj) {
+    var i = this.props.index;
     return (
         <Card>
             <Media left href="#">
-            <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
+            <Media object data-src="holder.js/64x64" img src={obj[i]["image_url"]} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
-                Information on {obj.media_type}<br/>
-                {obj.name}
+                Information on {obj[i]["media_type"]}<br/>
+                {obj[i]["name"]}
             </Media>``
-                description: {obj.description} <br/>
-                id: {obj.id} <br/>
-                podcasts: {obj.podcasts} <br/>
+                description: {obj[i]["description"]} <br/>
+                id: {obj[i]["id"]} <br/>
+                podcasts: {obj[i]["podcasts"]} <br/>
 
             </Media>
         </Card>  
@@ -88,19 +89,20 @@ function renderHosts(obj) {
 // itunes_id = db.Column(db.Integer)
 // id = db.Column(db.Integer, primary_key=True)
 function renderGenre(obj) {
+    var i = this.props.index;
     return (
         <Card>
             <Media left href="#">
-            <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
+            <Media object data-src="holder.js/64x64" img src={obj[i]["image_url"]} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
-                Information on {obj.media_type} <br/>
-                {obj.name}
+                Information on {obj[i]["media_type"]} <br/>
+                {obj[i]["name"]}
             </Media>``
-                podcasts: {obj.podcasts} <br/>
-                itunes id: {obj.itunes_id} <br/>
-                id: {obj.id} <br/>
+                podcasts: {obj[i]["podcasts"]} <br/>
+                itunes id: {obj[i]["itunes_id"]} <br/>
+                id: {obj[i]["id"]} <br/>
             </Media>
         </Card>  
         );
@@ -118,21 +120,22 @@ function renderGenre(obj) {
 // file_url = db.Column(db.String)
 // podcast_id = db.Column(db.Integer, db.ForeignKey('podcast.id'), nullable=False)
 function renderEpisode(obj) {
+    var i = this.props.index;
     return (
         <Card>
             <Media left href="#">
-            <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
+            <Media object data-src="holder.js/64x64" img src={obj[i]["image_url"]} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
-                Information on {obj.media_type}<br/>
-                {obj.title}
+                Information on {obj[i]["media_type"]}<br/>
+                {obj[i]["title"]}
             </Media>``
-                description: {obj.description} <br/>
+                description: {obj[i]["description"]} <br/>
                 id: {obj.id} <br/>
-                published: {obj.published} <br/>
-                file_url: {obj.file_url} <br/>
-                podcast_id: {obj.podcast_id} <br/>
+                published: {obj[i]["published"]} <br/>
+                file_url: {obj[i]["file_url"]} <br/>
+                podcast_id: {obj[i]["podcast_id"]} <br/>
             </Media>
         </Card>  
         );
@@ -141,11 +144,14 @@ function renderEpisode(obj) {
 class MyMedia extends Component {
 
     render() {
-        switch (obj.media_type) {
+        // const obj = JSON.parse(sampleData);
+        const obj = this.props.json;
+        console.log(this.props.media_type);
+        switch (this.props.media_type) {
             case "podcast":
                 return renderPodcast(obj);
-            case "host":
-                return renderHosts(obj);
+            case "provider":
+                return renderProvider(obj);
             case "genre":
                 return renderGenre(obj);
             case "episode":
