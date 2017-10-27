@@ -14,5 +14,5 @@ import NavBar from './NavBar';
 import Media from './Media';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Media />, document.getElementById('root'));
+ReactDOM.render(<NavBar />, document.getElementById('root'));
 registerServiceWorker();

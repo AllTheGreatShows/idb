@@ -81,7 +81,8 @@ class Grid extends React.Component {
     this.setState({squares: squares});
       */
     const detail = <MyMedia
-    	json={this.props.Data} />
+    	json={this.props.Data} media_type={this.props.MediaType} index={i} />
+	this.setState({content:detail});
   }
 
 	renderCard (i) {
