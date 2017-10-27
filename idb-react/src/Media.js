@@ -56,20 +56,35 @@ function renderProvider(obj, i) {
 function renderGenre(obj, i) {
     var val = obj["objects"][i];
     console.log(val);
+    var pod = val["podcasts"];
+    console.log(pod.length);
+    var c = []
+    for(var i =0; i<pod.length; i++){
+        c[i] = pod[i]["title"]
+    }
+    var d = []
+    for(var i =0; i<pod.length; i++){
+        d[i] = pod[i]["feed_url"]
+    }
+    var p = pod[0];
+
+    console.log(c);
     return (
         <Card>
             <Media left href="#">
             {/* <Media object data-src="holder.js/64x64" img src={val.image_url.toString()} alt="Generic placeholder image" /> */}
-            <Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
+            <Media object data-src="holder.js/64x64" img src={p.image_url.toString()}  alt="Generic placeholder image" />
 
             </Media>
             <Media body>
             <Media heading>
-                {val.name.toString()}
+                {
+                    val.name.toString()}
             </Media>
-                podcasts: {val.podcasts.toString()} <br/>
-                itunes id: {val.itunes_id.toString()} <br/>
-                id: {val.id.toString()} <br/>
+               <b> podcasts</b>: {c.toString()} <br/>
+                <b>feed_urls</b>: {d.toString()} <br/>
+                <b>itunes id</b>: {val.itunes_id.toString()} <br/>
+               <b> id: </b>{val.id.toString()} <br/>
             </Media>
         </Card>  
         );
