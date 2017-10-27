@@ -34,18 +34,27 @@ function renderPodcast(obj, i) {
 function renderProvider(obj, i) {
     var val = obj["objects"][i];
     console.log(val);
+
+    var provider_podcasts = "";
+    // for (i = 0; i < val.podcasts.length; i++) { 
+    //     provider_podcasts += val.podcasts[i].title + ", ";
+    // }
+
     return (
         <Card>
             <Media left href="#">
+            {<Media object data-src="holder.js/64x64" img src={val.podcasts[0].image_url.toString()} alt="Generic placeholder image" />}
             </Media>
             <Media body>
             <Media heading>
                 {val.name.toString()}
-            </Media>
-                {/* description: {val.description.toString()} <br/> */}
+            </Media>                
                 id: {val.id.toString()} <br/>
                 itunes id: {val.id.toString()} <br/>
-                {/* podcasts: {val.podcasts.toString()} <br/> */}
+                name: {val.name.toString()} <br/>
+                title: {val.podcasts[0].title.toString()} <br/>
+                {/* podcasts: {provider_podcasts} */}
+                feed_url: {val.podcasts[0].feed_url.toString()}
 
             </Media>
         </Card>  
@@ -117,7 +126,6 @@ function renderEpisode(obj, i) {
 class MyMedia extends Component {
 
     render() {
-        // const obj = JSON.parse(sampleData);
         const obj = this.props.json;
         const i = this.props.index;
         switch (this.props.media_type) {
