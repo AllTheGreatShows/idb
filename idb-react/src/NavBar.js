@@ -21,22 +21,22 @@ class NavBar extends React.Component {
   getPodcasts(){
     var v = getPodcasts();
 
-    return this.setState({content: <Grid Data={v} CardTitle={"title"} ImageField={"image_url"}/>});
+    return this.setState({content: <Grid Data={v} CardTitle={"title"} ImageField={"image_url"} MediaType={"podcast"}/>});
   }
 
   getProviders(){
     var v = getProviders();
-    return this.setState({content: <Grid Data={v} CardTitle={"name"} ImageField={""}/>});
+    return this.setState({content: <Grid Data={v} CardTitle={"name"} ImageField={""} MediaType={"provider"}/>});
   }
 
   getGenres(){
     var v = getGenres();
-    return this.setState({content: <Grid Data={v} CardTitle={"name"} ImageField={""}/>});
+    return this.setState({content: <Grid Data={v} CardTitle={"name"} ImageField={""} MediaType={"genre"}/>});
   }
 
   getEpisodes(){
     var v = getEpisodes();
-    return this.setState({content: <Grid Data={v} CardTitle={"title"} ImageField={""}/>});
+    return this.setState({content: <Grid Data={v} CardTitle={"title"} ImageField={""} MediaType={"episode"}/>});
   }
 
   getAbout() {

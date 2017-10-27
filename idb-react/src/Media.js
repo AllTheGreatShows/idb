@@ -4,74 +4,48 @@ import { Card, CardImg, CardText, CardBody,
 
 // VALID MEDIA TYPES
 // podcast
-// host
+// provider
 // episode
 // genre
 
-// used this block to test
-var sampleData = '{"media_type":"podcast", "title": "The Joe Rogan Experience", "image_url":"http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png", "description":"details blah blah blah", "id":"some id", "itunes_id": "some itunes id", "feed_url":"some feed url", "episodes":"some episodes", "provider_id":"some provider id", "genres":"some genres"}';
-
-const obj = JSON.parse(sampleData);
 // PODCASTS, runs when media_type == "podcast"
-// image_url = db.Column(db.String(255))
-// title = db.Column(db.String(255))
-// ********************************************
-// description = db.Column(db.String(255))
-// genres = db.relationship('Genre', secondary=podcast_genre, lazy='subquery', backref=db.backref('podcast_genre', lazy=True))
-// id = db.Column(db.Integer, primary_key=True)
-// feed_url = db.Column(db.String(255))
-// episodes = db.relationship('Episode', backref='podcast', lazy=True)
-// provider_id = db.Column(db.Integer, db.ForeignKey('provider.id'))
-// itunes_id = db.Column(db.Integer)
-function renderPodcast(obj) {
+function renderPodcast(obj, i) {
+    var val = obj["objects"][i];
+    console.log(val);
     return (
         <Card>
             <Media left href="#">
-            <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
+            <Media object data-src="holder.js/64x64" img src={val.image_url.toString()} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
-                Information on {obj.media_type} <br/>
-                {obj.title}
+                {val.title.toString()}
             </Media>
-                description: {obj.description} <br/>
-                genre: {obj.genres} <br/>
-                id: {obj.id} <br/>
-                feed_url: {obj.feed_url} <br/>
-                episodes: {obj.episodes} <br/>
-                provider_id: {obj.provider_id} <br/>
-                itunes_id: {obj.itunes_id} <br/>
-                
-
+                genres: {val.genres.toString()} <br/>
+                id: {val.id.toString()} <br/>
+                feed_url: {val.feed_url.toString()} <br/>
+                itunes_id: {val.itunes_id.toString()} <br/>
             </Media>
         </Card>  
         );
 }
 
-// PROVIDERS, runs when media_type == "host"
-// ****TODO OR WILL NOT WORK!!!****
-// image URL
-
-// name = db.Column(db.String(255))
-// image_url
-// ********************************************
-// id = db.Column(db.Integer, primary_key=True)
-// itunes_id = db.Column(db.Integer)
-// podcasts = db.relationship('Podcast', backref='provider', lazy=True)
-function renderHosts(obj) {
+// PROVIDERS, runs when media_type == "provider"
+function renderProvider(obj, i) {
+    var val = obj["objects"][i];
+    console.log(val);
     return (
         <Card>
             <Media left href="#">
-            <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
-                Information on {obj.media_type}<br/>
-                {obj.name}
-            </Media>``
-                description: {obj.description} <br/>
-                id: {obj.id} <br/>
-                podcasts: {obj.podcasts} <br/>
+                {val.name.toString()}
+            </Media>
+                {/* description: {val.description.toString()} <br/> */}
+                id: {val.id.toString()} <br/>
+                itunes id: {val.id.toString()} <br/>
+                {/* podcasts: {val.podcasts.toString()} <br/> */}
 
             </Media>
         </Card>  
@@ -79,60 +53,47 @@ function renderHosts(obj) {
 }
 
 // GENRE, runs when media_type == "genre"
-// ****TODO OR WILL NOT WORK!!!****
-// image_url attribute
-
-// name = db.Column(db.String(255), unique=True, nullable=False)
-// ********************************************
-// podcasts = db.relationship('Podcast', secondary=podcast_genre, lazy='subquery', backref=db.backref('podcast_genre', lazy=True))
-// itunes_id = db.Column(db.Integer)
-// id = db.Column(db.Integer, primary_key=True)
-function renderGenre(obj) {
+function renderGenre(obj, i) {
+    var val = obj["objects"][i];
+    console.log(val);
     return (
         <Card>
             <Media left href="#">
-            <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
+            {/* <Media object data-src="holder.js/64x64" img src={val.image_url.toString()} alt="Generic placeholder image" /> */}
+            <Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
+
             </Media>
             <Media body>
             <Media heading>
-                Information on {obj.media_type} <br/>
-                {obj.name}
-            </Media>``
-                podcasts: {obj.podcasts} <br/>
-                itunes id: {obj.itunes_id} <br/>
-                id: {obj.id} <br/>
+                {val.name.toString()}
+            </Media>
+                podcasts: {val.podcasts.toString()} <br/>
+                itunes id: {val.itunes_id.toString()} <br/>
+                id: {val.id.toString()} <br/>
             </Media>
         </Card>  
         );
 }
 
 // EPISODES, runs when media_type == "episode"
-// ****TODO OR WILL NOT WORK!!!****
-// image_url attribute
-
-// title = db.Column(db.String(255))
-// description = db.Column(db.String)
-// ********************************************
-// id = db.Column(db.Integer, primary_key=True)
-// published = db.Column(db.DateTime)
-// file_url = db.Column(db.String)
-// podcast_id = db.Column(db.Integer, db.ForeignKey('podcast.id'), nullable=False)
-function renderEpisode(obj) {
+function renderEpisode(obj, i) {
+    var val = obj["objects"][i];
+    console.log(val);
     return (
         <Card>
             <Media left href="#">
-            <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
+            {/* <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" /> */}
+            <Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
+
             </Media>
             <Media body>
             <Media heading>
-                Information on {obj.media_type}<br/>
-                {obj.title}
-            </Media>``
-                description: {obj.description} <br/>
-                id: {obj.id} <br/>
-                published: {obj.published} <br/>
-                file_url: {obj.file_url} <br/>
-                podcast_id: {obj.podcast_id} <br/>
+                {val.title.toString()}
+            </Media>
+                id: {val.id.toString()} <br/>
+                published: {val.published.toString()} <br/>
+                file_url: {val.file_url.toString()} <br/>
+                podcast_id: {val.podcast_id.toString()} <br/>
             </Media>
         </Card>  
         );
@@ -141,15 +102,18 @@ function renderEpisode(obj) {
 class MyMedia extends Component {
 
     render() {
-        switch (obj.media_type) {
+        // const obj = JSON.parse(sampleData);
+        const obj = this.props.json;
+        const i = this.props.index;
+        switch (this.props.media_type) {
             case "podcast":
-                return renderPodcast(obj);
-            case "host":
-                return renderHosts(obj);
+                return renderPodcast(obj, i);
+            case "provider":
+                return renderProvider(obj, i);
             case "genre":
-                return renderGenre(obj);
+                return renderGenre(obj, i);
             case "episode":
-                return renderEpisode(obj);
+                return renderEpisode(obj, i);
         }
     }
 }
