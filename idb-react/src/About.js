@@ -90,7 +90,7 @@ render() {
 				<li>Total number of unit tests: n/a</li>
 				<li><a href="http://docs.allthegreatshows.apiary.io"> Apiary API </a></li>
 				<li><a href="https://github.com/AllTheGreatShows/allthegreatshows"> Github Repository </a></li>
-				<li><a href="https://trello.com/allthegreatshows"> Trello </a> </li>
+				<li><a href="https://trello.com/b/4b1Aqi5c/idb2-project"> Trello </a> </li>
 			</ul>
 
 			<h2>The Data</h2>
@@ -138,7 +138,7 @@ render() {
 						<p>Google docs played a useful role in collaborating on the project report.</p>
 					</li>
 				</ul>
-			<h2><a href="https://utexas.box.com/shared/static/kc88p1yibsogm4nbf093gj5md26k03q0.pdf"> Link to the Project Report</a></h2>
+			<h2><a href="https://utexas.box.com/shared/static/gukw9ca94lthp1ak0ewsuoibz3bz9lzl.pdf"> Link to the Project Report</a></h2>
 		</div>
 	);
 }
