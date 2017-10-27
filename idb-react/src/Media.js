@@ -106,18 +106,18 @@ function renderEpisode(obj, i) {
     return (
         <Card>
             <Media left href="#">
-            {/* <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" /> */}
-            <Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
+            <Media object src={ val.podcast.image_url.toString() } alt="Podcast artwork" />
 
             </Media>
             <Media body>
             <Media heading>
-                {val.title.toString()}
+                { val.podcast.title.toString() }<br/>
+                { val.title.toString() }
             </Media>
-                id: {val.id.toString()} <br/>
-                published: {val.published.toString()} <br/>
-                file_url: {val.file_url.toString()} <br/>
-                podcast_id: {val.podcast_id.toString()} <br/>
+                ATGSID: { val.id.toString() } <br/>
+                Date Published: { val.published.toString() }<br/>
+                <a href={ val.podcast.feed_url.toString() }>RSS Feed</a><br/>
+                <audio controls><source src={ val.file_url.toString() } type="audio/mpeg" /> Your browser does not support the audio element.</audio>
             </Media>
         </Card>  
         );
