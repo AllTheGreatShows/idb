@@ -58,19 +58,18 @@ function renderPodcast(obj) {
 // itunes_id = db.Column(db.Integer)
 // podcasts = db.relationship('Podcast', backref='provider', lazy=True)
 function renderProvider(obj) {
+    console.log(obj);
+    var val = obj["objects"][0];
+    console.log(val);
     return (
         <Card>
             <Media left href="#">
-            <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
-                Information on {obj.media_type}<br/>
-                {obj.name}
-            </Media>``
-                description: {obj.description} <br/>
-                id: {obj.id} <br/>
-                podcasts: {obj.podcasts} <br/>
+                {val.name.toString()}
+            </Media>
+                
 
             </Media>
         </Card>  
