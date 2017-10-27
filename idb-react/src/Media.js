@@ -23,24 +23,23 @@ import { Card, CardImg, CardText, CardBody,
 // provider_id = db.Column(db.Integer, db.ForeignKey('provider.id'))
 // itunes_id = db.Column(db.Integer)
 function renderPodcast(obj) {
-    var i = this.props.index;
     return (
         <Card>
             <Media left href="#">
-            <Media object data-src="holder.js/64x64" img src={obj[i]["image_url"]} alt="Generic placeholder image" />
+            <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
-                Information on {obj[i]["media_type"]} <br/>
-                {obj[i]["title"]}
+                Information on {obj.media_type} <br/>
+                {obj.title}
             </Media>
-                description: {obj[i]["description"]} <br/>
-                genre: {obj[i]["genres"]} <br/>
-                id: {obj[i]["id"]} <br/>
-                feed_url: {obj[i]["feed_url"]} <br/>
-                episodes: {obj[i]["episodes"]} <br/>
-                provider_id: {obj[i]["provider_id"]} <br/>
-                itunes_id: {obj[i]["itunes_id"]} <br/>
+                description: {obj.description} <br/>
+                genre: {obj.genres} <br/>
+                id: {obj.id} <br/>
+                feed_url: {obj.feed_url} <br/>
+                episodes: {obj.episodes} <br/>
+                provider_id: {obj.provider_id} <br/>
+                itunes_id: {obj.itunes_id} <br/>
                 
 
             </Media>
@@ -59,20 +58,19 @@ function renderPodcast(obj) {
 // itunes_id = db.Column(db.Integer)
 // podcasts = db.relationship('Podcast', backref='provider', lazy=True)
 function renderProvider(obj) {
-    var i = this.props.index;
     return (
         <Card>
             <Media left href="#">
-            <Media object data-src="holder.js/64x64" img src={obj[i]["image_url"]} alt="Generic placeholder image" />
+            <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
-                Information on {obj[i]["media_type"]}<br/>
-                {obj[i]["name"]}
+                Information on {obj.media_type}<br/>
+                {obj.name}
             </Media>``
-                description: {obj[i]["description"]} <br/>
-                id: {obj[i]["id"]} <br/>
-                podcasts: {obj[i]["podcasts"]} <br/>
+                description: {obj.description} <br/>
+                id: {obj.id} <br/>
+                podcasts: {obj.podcasts} <br/>
 
             </Media>
         </Card>  
@@ -89,20 +87,19 @@ function renderProvider(obj) {
 // itunes_id = db.Column(db.Integer)
 // id = db.Column(db.Integer, primary_key=True)
 function renderGenre(obj) {
-    var i = this.props.index;
     return (
         <Card>
             <Media left href="#">
-            <Media object data-src="holder.js/64x64" img src={obj[i]["image_url"]} alt="Generic placeholder image" />
+            <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
-                Information on {obj[i]["media_type"]} <br/>
-                {obj[i]["name"]}
+                Information on {obj.media_type} <br/>
+                {obj.name}
             </Media>``
-                podcasts: {obj[i]["podcasts"]} <br/>
-                itunes id: {obj[i]["itunes_id"]} <br/>
-                id: {obj[i]["id"]} <br/>
+                podcasts: {obj.podcasts} <br/>
+                itunes id: {obj.itunes_id} <br/>
+                id: {obj.id} <br/>
             </Media>
         </Card>  
         );
@@ -124,12 +121,12 @@ function renderEpisode(obj) {
     return (
         <Card>
             <Media left href="#">
-            <Media object data-src="holder.js/64x64" img src={obj[i]["image_url"]} alt="Generic placeholder image" />
+            <Media object data-src="holder.js/64x64" img src={obj.image_url} alt="Generic placeholder image" />
             </Media>
             <Media body>
             <Media heading>
                 Information on {obj[i]["media_type"]}<br/>
-                {obj[i]["title"]}
+                {obj.title}
             </Media>``
                 description: {obj[i]["description"]} <br/>
                 id: {obj.id} <br/>
