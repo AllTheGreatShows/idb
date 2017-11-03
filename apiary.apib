@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: http://allthegreatshows/
+HOST: http://allthegreatshows.com/
 
 # allthegreatshows
 
@@ -12,163 +12,219 @@ different genres, hosts, and episides.
 
 + Response 200 (application/json)
 
-        [
-            {
-                "podcasts": [
-                    {
-                        "id": 1,
-                        "podcast": "The Splendid Table",
-                        "provider": "American Public Media",
-                        "genre": {'Arts': 1301, 'Podcasts': 26, 'Food': 1306},
-                        "podcast_url": "https://itunes.apple.com/us/podcast/the-splendid-table/id86997870?mt=2&uo=4",
-                        "image_src": "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg",
-                        "release_date": "2017-09-15"
-                    },
-                    {
-                        "id": 2,
-                        "podcast": "Lore",
-                        "provider": "Aaron Mahnke",
-                        "genre": {'Podcasts': 26, 'Comedy': 1303, 'Society & Culture': 1324, 'Technology': 1318},
-                        "podcast_url": "https://itunes.apple.com/us/podcast/lore/id978052928?mt=2",
-                        "image_src": "http://is1.mzstatic.com/image/thumb/Music62/v4/2d/3a/00/2d3a00e9-315f-d21c-8af2-6ff591d2f864/source/200x200bb.png",
-                        "release_date": "2017-09-18"
+        {
+            "num_results": 1, 
+            "objects": [
+                {
+                    "description": "", 
+                    "episodes": [
+                        {
+                            "description": "", 
+                            "file_url": "http://feedproxy.google.com/~r/TEDTalks_audio/~5/PA7gdCeKGaQ/MikeKinney_2017S.mp3", 
+                            "id": 1, 
+                            "podcast_id": 1, 
+                            "published": "2017-10-23T15:13:02", 
+                            "title": "A pro wrestler's guide to confidence | Mike Kinney"
+                        }
+                    ], 
+                    "feed_url": "http://feeds.feedburner.com/TEDTalks_audio", 
+                    "genres": [
+                        {
+                            "id": 1, 
+                            "itunes_id": 1304, 
+                            "name": "Education"
+                        }, 
+
+                    ], 
+                    "id": 1, 
+                    "image_url": "http://is4.mzstatic.com/image/thumb/Music128/v4/d5/c6/50/d5c65035-505e-b006-48e5-be3f0f8f19f8/source/600x600bb.jpg", 
+                    "itunes_id": 160904630, 
+                    "podcast_genre": [
+                         {
+                            "id": 1, 
+                            "itunes_id": 1304, 
+                            "name": "Education"
+                        }, 
+                    ], 
+                    "provider": {
+                        "id": 1, 
+                        "itunes_id": null, 
+                        "name": "TED"
                     }, 
-                    {
-                        "id": 3,
-                        "podcast": "The Joe Rogan Experience",
-                        "provider": "Joe Ragon",
-                        "genre": {'Society & Culture': 1324, 'Comedy': 1303, 'Technology': 1318, 'Podcasts': 26},
-                        "podcast_url": "https://itunes.apple.com/us/podcast/the-joe-rogan-experience/id360084272?mt=2",
-                        "image_src": "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png",
-                        "release_date": "2017-09-17"
-                    }
-                    ...
-                ]
-            }
-        ]
+                    "provider_id": 1, 
+                    "title": "TED Talks Daily"
+                },
+            ],
+            "page": 1, 
+            "total_pages": 1
+        }
         
 ### Get Podcast [GET /api/podcast/{ID}]
 
 + Response 200 (application/json)
 
-        [
-            {
-                "podcast": "The Splendid Table",
-                "provider": "American Public Media",
-                "genre": {'Arts': 1301, 'Podcasts': 26, 'Food': 1306},
-                "podcast_url": "https://itunes.apple.com/us/podcast/the-splendid-table/id86997870?mt=2&uo=4",
-                "image_src": "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg",
-                "release_date": "2017-09-15"
-            }
-        ]
+         {
+                    "description": "", 
+                    "episodes": [
+                        {
+                            "description": "", 
+                            "file_url": "http://feedproxy.google.com/~r/TEDTalks_audio/~5/PA7gdCeKGaQ/MikeKinney_2017S.mp3", 
+                            "id": 1, 
+                            "podcast_id": 1, 
+                            "published": "2017-10-23T15:13:02", 
+                            "title": "A pro wrestler's guide to confidence | Mike Kinney"
+                        }
+                    ], 
+                    "feed_url": "http://feeds.feedburner.com/TEDTalks_audio", 
+                    "genres": [
+                        {
+                            "id": 1, 
+                            "itunes_id": 1304, 
+                            "name": "Education"
+                        }, 
+
+                    ], 
+                    "id": 1, 
+                    "image_url": "http://is4.mzstatic.com/image/thumb/Music128/v4/d5/c6/50/d5c65035-505e-b006-48e5-be3f0f8f19f8/source/600x600bb.jpg", 
+                    "itunes_id": 160904630, 
+                    "podcast_genre": [
+                         {
+                            "id": 1, 
+                            "itunes_id": 1304, 
+                            "name": "Education"
+                        }, 
+                    ], 
+                    "provider": {
+                        "id": 1, 
+                        "itunes_id": null, 
+                        "name": "TED"
+                    }, 
+                "provider_id": 1, 
+                "title": "TED Talks Daily"
+        }
 
 ## Episode Collection [/api/episode]
 ### List all Episodes [GET /api/episode/]
 
 + Response 200 (application/json)
 
-        [
-            {
-                "episodes": [
-                    {
-                        "id": 1,
-                        "podcast": "The Splendid Table",
-                        "provider": "American Public Media",
-                        "genre": {'Arts': 1301, 'Podcasts': 26, 'Food': 1306},
-                        "podcast_url": "https://itunes.apple.com/us/podcast/the-splendid-table/id86997870?mt=2&uo=4",
-                        "image_src": "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg",
-                        "release_date": "2017-09-15"
-                    },
-                    {
-                        "id": 2,
-                        "podcast": "Lore",
-                        "provider": "Aaron Mahnke",
-                        "genre": {'Podcasts': 26, 'Comedy': 1303, 'Society & Culture': 1324, 'Technology': 1318},
-                        "podcast_url": "https://itunes.apple.com/us/podcast/lore/id978052928?mt=2",
-                        "image_src": "http://is1.mzstatic.com/image/thumb/Music62/v4/2d/3a/00/2d3a00e9-315f-d21c-8af2-6ff591d2f864/source/200x200bb.png",
-                        "release_date": "2017-09-18"
-                    }, 
-                    {
-                        "id": 3,
-                        "podcast": "The Joe Rogan Experience",
-                        "provider": "Joe Ragon",
-                        "genre": {'Society & Culture': 1324, 'Comedy': 1303, 'Technology': 1318, 'Podcasts': 26},
-                        "podcast_url": "https://itunes.apple.com/us/podcast/the-joe-rogan-experience/id360084272?mt=2", 
-                        "image_src": "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png",
-                        "release_date": "2017-09-17"
-                    }
-                    ...
-                ]
-            }
-        ]
+        {
+  "num_results": 1, 
+  "objects": [
+    {
+      "description": "", 
+      "file_url": "http://feedproxy.google.com/~r/TEDTalks_audio/~5/PA7gdCeKGaQ/MikeKinney_2017S.mp3", 
+      "id": 1, 
+      "podcast": {
+        "description": "", 
+        "feed_url": "http://feeds.feedburner.com/TEDTalks_audio", 
+        "id": 1, 
+        "image_url": "http://is4.mzstatic.com/image/thumb/Music128/v4/d5/c6/50/d5c65035-505e-b006-48e5-be3f0f8f19f8/source/600x600bb.jpg", 
+        "itunes_id": 160904630, 
+        "provider_id": 1, 
+        "title": "TED Talks Daily"
+      }, 
+      "podcast_id": 1, 
+      "published": "2017-10-23T15:13:02", 
+      "title": "A pro wrestler's guide to confidence | Mike Kinney"
+    },
+    ],
+     "page": 1, 
+      "total_pages": 1
+    }
         
 ### Get Episode [GET /api/episode/{ID}]
 + Response 200 (application/json)
 
-        [
-            {
-                "episode": "The Splendid Table",
-                "provider": "American Public Media",
-                "genre": {'Arts': 1301, 'Podcasts': 26, 'Food': 1306},
-                "podcast_url": "https://itunes.apple.com/us/podcast/the-splendid-table/id86997870?mt=2&uo=4",
-                "image_src": "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg",
-                "release_date": "2017-09-15"
-            }
-        ]
+{
+      "description": "", 
+      "file_url": "http://feedproxy.google.com/~r/TEDTalks_audio/~5/PA7gdCeKGaQ/MikeKinney_2017S.mp3", 
+      "id": 1, 
+      "podcast": {
+        "description": "", 
+        "feed_url": "http://feeds.feedburner.com/TEDTalks_audio", 
+        "id": 1, 
+        "image_url": "http://is4.mzstatic.com/image/thumb/Music128/v4/d5/c6/50/d5c65035-505e-b006-48e5-be3f0f8f19f8/source/600x600bb.jpg", 
+        "itunes_id": 160904630, 
+        "provider_id": 1, 
+        "title": "TED Talks Daily"
+      }, 
+      "podcast_id": 1, 
+      "published": "2017-10-23T15:13:02", 
+      "title": "A pro wrestler's guide to confidence | Mike Kinney"
+    }
 
 ## Genre Collection [/api/genre]        
 ### List all Genres [GET /api/genre]
 
 + Response 200 (application/json)
 
-        [
-            {
-                "genres": [
-                {
-                    "id": 1,
-                    "genre": "Food",
-                    "genre_id": 1306,
-                    "num_podcasts": 1,
-                    "podcasts": ['The Splendid Table'],
-                    "image_src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1024px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
-                    "providers": ['American Public Media']
-                },
-                {
-                    "id": 2,
-                    "genre": "Comedy",
-                    "genre_id": 1303,
-                    "num_podcasts": 2,
-                    "podcasts": ['The Joe Rogan Experience', 'Lore'],
-                    "image_src": "http://ucwbling.chicagolandwritingcenters.org/wp-content/uploads/2016/03/Comedyscrawl.jpg",
-                    "providers": ['Joe Rogan', 'Aaron Mahnke']
-                }, 
-                {
-                    "id": 3,
-                    "genre": "Technology",
-                    "genre_id": 1318,
-                    "num_podcasts": 2,
-                    "podcasts": ['The Joe Rogan Experience', 'Lore'],
-                    "image_src": "https://medicine.llu.edu/sites/medicine.llu.edu/files/images/Technology.jpg,
-                    "providers": ['Joe Rogan', 'Aaron Mahnke']
-                }
-                ...
-            }
-        ]
+
+  "num_results": 1, 
+  "objects": [
+    {
+      "id": 1, 
+      "itunes_id": 1304, 
+      "name": "Education", 
+      "podcast_genre": [
+        {
+          "description": "", 
+          "feed_url": "http://feeds.feedburner.com/TEDTalks_audio", 
+          "id": 1, 
+          "image_url": "http://is4.mzstatic.com/image/thumb/Music128/v4/d5/c6/50/d5c65035-505e-b006-48e5-be3f0f8f19f8/source/600x600bb.jpg", 
+          "itunes_id": 160904630, 
+          "provider_id": 1, 
+          "title": "TED Talks Daily"
+        }
+      ], 
+      "podcasts": [
+        {
+          "description": "", 
+          "feed_url": "http://theartofcharmpodcast.theartofcharm.libsynpro.com/rss", 
+          "id": 88, 
+          "image_url": "http://is3.mzstatic.com/image/thumb/Music91/v4/d2/16/cf/d216cf64-f475-fb13-3ec3-b854a0ad18d6/source/600x600bb.jpg", 
+          "itunes_id": 212382281, 
+          "provider_id": 67, 
+          "title": "The Art of Charm | Social Science | Cognitive Psychology | Confidence | Relationship Advice | Behavioral Economics | Productivi"
+        }
+      ]
+    },
+    ],
+    "page": 1, 
+     "total_pages": 1
+    }
         
 
 ### Get Genre [GET /api/genre/{ID}]
 + Response 200 (application/json)
 
-        [
-            {
-                "genre": "Food",
-                "genre_id": 1306,
-                "num_podcasts": 1,
-                "podcasts": ['The Splendid Table'],
-                "image_src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1024px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
-                "providers": ['American Public Media']
-            }
-        ]
+{
+      "id": 1, 
+      "itunes_id": 1304, 
+      "name": "Education", 
+      "podcast_genre": [
+        {
+          "description": "", 
+          "feed_url": "http://feeds.feedburner.com/TEDTalks_audio", 
+          "id": 1, 
+          "image_url": "http://is4.mzstatic.com/image/thumb/Music128/v4/d5/c6/50/d5c65035-505e-b006-48e5-be3f0f8f19f8/source/600x600bb.jpg", 
+          "itunes_id": 160904630, 
+          "provider_id": 1, 
+          "title": "TED Talks Daily"
+        }
+      ], 
+      "podcasts": [
+        {
+          "description": "", 
+          "feed_url": "http://theartofcharmpodcast.theartofcharm.libsynpro.com/rss", 
+          "id": 88, 
+          "image_url": "http://is3.mzstatic.com/image/thumb/Music91/v4/d2/16/cf/d216cf64-f475-fb13-3ec3-b854a0ad18d6/source/600x600bb.jpg", 
+          "itunes_id": 212382281, 
+          "provider_id": 67, 
+          "title": "The Art of Charm | Social Science | Cognitive Psychology | Confidence | Relationship Advice | Behavioral Economics | Productivi"
+        }
+      ]
+    }
 
 
 ## Provider Collection [/api/provider]        
@@ -176,51 +232,66 @@ different genres, hosts, and episides.
 
 + Response 200 (application/json)
 
-        [
-            {
-                "providers" : [
-                {   
-                    "id": 1,
-                    "provider": "Aaron mahnke",
-                    "podcasts": ['Lore'],
-                    "genres": {'Society & Culture': 1324},
-                    "artist_url": " https://itunes.apple.com/us/artist/aaron-mahnke/id1009389857?mt=2",
-                    "image_src": "http://is1.mzstatic.com/image/thumb/Music62/v4/2d/3a/00/2d3a00e9-315f-d21c-8af2-6ff591d2f864/source/200x200bb.png",
-                    "country": "USA"
-                },
-                {
-                    "id": 2,
-                    "provider": "American Public Media",
-                    "podcasts": ['The Splendid Table'],
-                    "genres": {'Arts': 1301, 'Food': 1306},
-                    "artist_url": "https://itunes.apple.com/us/artist/american-public-media/id127439791?mt=2&uo=4",
-                    "image_src": "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg",
-                    "country": "USA"
-                },
-                {
-                    "id": 3,
-                    "provider": "Joe Rogan",
-                    "podcasts": ['The Joe Rogan Experience'],
-                    "genres": {'Comedy': 1303, 'Society & Culture': 1324},
-                    "artist_url": "https://itunes.apple.com/us/artist/joe-rogan/id974891224?mt=2",
-                    "image_src": "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png",
-                    "country": "USA"
-                }
-                
-            }
-        ]
+{
+  "num_results": 70, 
+  "objects": [
+    {
+      "id": 1, 
+      "itunes_id": null, 
+      "name": "TED", 
+      "podcasts": [
+        {
+          "description": "", 
+          "feed_url": "http://feeds.feedburner.com/TEDTalks_audio", 
+          "id": 1, 
+          "image_url": "http://is4.mzstatic.com/image/thumb/Music128/v4/d5/c6/50/d5c65035-505e-b006-48e5-be3f0f8f19f8/source/600x600bb.jpg", 
+          "itunes_id": 160904630, 
+          "provider_id": 1, 
+          "title": "TED Talks Daily"
+        }, 
+        {
+          "description": "", 
+          "feed_url": "http://feeds.feedburner.com/SincerelyX", 
+          "id": 72, 
+          "image_url": "http://is1.mzstatic.com/image/thumb/Music118/v4/18/c4/2f/18c42ff3-abd2-9755-c955-9239fd1e5393/source/600x600bb.jpg", 
+          "itunes_id": 1238801741, 
+          "provider_id": 1, 
+          "title": "Sincerely, X"
+        }
+      ]
+    },
+    ],
+    "page": 1, 
+    "total_pages": 1
+}
+    
         
 ### Get Provider [GET /api/provider/{ID}]
 
 + Response 200 (application/json)
 
-        [
-            {
-                "provider": "American Public Media",
-                "podcasts": ["The Splendid Table"],
-                "genres": {'Arts': 1301, 'Food': 1306},
-                "artist_url": "https://itunes.apple.com/us/artist/american-public-media/id127439791?mt=2&uo=4",
-                "image_src": "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg",
-                "country": "USA"
-            }
-        ]
+ {
+      "id": 1, 
+      "itunes_id": null, 
+      "name": "TED", 
+      "podcasts": [
+        {
+          "description": "", 
+          "feed_url": "http://feeds.feedburner.com/TEDTalks_audio", 
+          "id": 1, 
+          "image_url": "http://is4.mzstatic.com/image/thumb/Music128/v4/d5/c6/50/d5c65035-505e-b006-48e5-be3f0f8f19f8/source/600x600bb.jpg", 
+          "itunes_id": 160904630, 
+          "provider_id": 1, 
+          "title": "TED Talks Daily"
+        }, 
+        {
+          "description": "", 
+          "feed_url": "http://feeds.feedburner.com/SincerelyX", 
+          "id": 72, 
+          "image_url": "http://is1.mzstatic.com/image/thumb/Music118/v4/18/c4/2f/18c42ff3-abd2-9755-c955-9239fd1e5393/source/600x600bb.jpg", 
+          "itunes_id": 1238801741, 
+          "provider_id": 1, 
+          "title": "Sincerely, X"
+        }
+      ]
+    }
