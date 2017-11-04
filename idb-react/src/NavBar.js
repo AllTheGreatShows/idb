@@ -49,63 +49,38 @@ class NavBar extends React.Component {
       dProviders : getProviders(),
       dGenres : getGenres(),
       dEpisodes : getEpisodes()};
-        // this.onHome = this.onHome.bind(this);
-    // this.onPodcasts = this.onPodcasts.bind(this);
-    // this.setState = this.setState.bind(this);
-    //onProviders
-    // onGenres
-    // onEpisodes
-    // onAbout
     }
 
   onHome() {
     whatToLoad = "home";
     this.render();
-    // this.setState({content: <Home/>});
   }
 
   onPodcasts(){
     whatToLoad = "podcasts";
     this.render();
-    // // var v = getPodcasts();
-    // // console.log();
-    // this.setState(
-    // {
-    //   content: 
-    // );
-    // // console.log(this.state.content);
-    // this.forceUpdate();
-    // console.log("end");
-    //     // console.log(this.state.content);
 
   }
 
   onProviders(){
     whatToLoad = "providers";
     this.render();
-    // var v = getProviders();
-    // this.setState({content: <Grid Data={getProviders()} CardTitle={"name"} ImageField={""}/>});
   }
 
   onGenres(){
     whatToLoad = "genres";
     this.render();
-    // var v = getGenres();
-    // this.setState({content: <Grid Data={v} CardTitle={"name"} ImageField={""}/>});
   }
 
   onEpisodes(){
     whatToLoad = "episodes";
     this.render();
-    // var v = getEpisodes();
-    // this.setState({content: <Grid Data={v} CardTitle={"title"} ImageField={""}/>});
 
   }
 
   onAbout() {
     whatToLoad = "about";
     this.render();
-    // this.setState({content: <About/>});
   }
 
 	render () {
@@ -148,28 +123,8 @@ class NavBar extends React.Component {
             render={(props) => <Grid Data={getGenres()} CardTitle={"name"} ImageField={""}/>}/>
           <Route path="/episode" 
             render={(props) => <Grid Data={getEpisodes()} CardTitle={"title"} ImageField={""}/>}/>
-          
-
-
         </div>
       </Router>);
-   //    <div>
-        
-
-   /*
-                     <NavLink onClick={() => this.onPodcasts()}>Podcasts</NavLink>
-                  <NavLink onClick={() => this.onProviders()}>Providers</NavLink>
-                  <NavLink onClick={() => this.onGenres()}>Genres</NavLink>
-                  <NavLink onClick={() => this.onEpisodes()}>Episodes</NavLink>
-
-   <NavLink onClick={() => this.onHome()}>Home</NavLink>
-   <NavLink onClick={() => this.onAbout()}>About</NavLink>
-   */
-   //      <div>
-   //          {this.state.content}
-   //      </div>
-   //    </div>
-			// );
 	}
 }
 
