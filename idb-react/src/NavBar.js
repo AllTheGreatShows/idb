@@ -22,27 +22,6 @@ const Topic = ({ match }) => (
 class NavBar extends React.Component {
 	constructor(props) {
     super(props);
-    
-    this.state = {
-      content: function() {
-
-        switch(whatToLoad) {
-          case "podcasts":
-            return <Grid Data={this.props.dPodcasts} CardTitle={"title"} ImageField={"image_url"}/>;
-          case "genres":
-            return <Grid Data={this.props.getGenres} CardTitle={"name"} ImageField={"image_url"}/>;
-          case "episodes":
-            return <Grid Data={this.props.getEpisodes} CardTitle={"title"} ImageField={"image_url"}/>;
-          case "providers":
-            return <Grid Data={this.props.getProviders} CardTitle={"name"} ImageField={"image_url"}/>;
-          case "about":
-            return <About/>;
-          default:
-          console.log("defaulting");
-          return <Home/>;
-        }
-      }
-    }
 
     this.props = {
       dPodcasts : getPodcasts(),
@@ -51,41 +30,8 @@ class NavBar extends React.Component {
       dEpisodes : getEpisodes()};
     }
 
-  onHome() {
-    whatToLoad = "home";
-    this.render();
-  }
-
-  onPodcasts(){
-    whatToLoad = "podcasts";
-    this.render();
-
-  }
-
-  onProviders(){
-    whatToLoad = "providers";
-    this.render();
-  }
-
-  onGenres(){
-    whatToLoad = "genres";
-    this.render();
-  }
-
-  onEpisodes(){
-    whatToLoad = "episodes";
-    this.render();
-
-  }
-
-  onAbout() {
-    whatToLoad = "about";
-    this.render();
-  }
-
 	render () {
     console.log("render");
-
 
 		return (
       <Router>
