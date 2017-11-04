@@ -37,10 +37,10 @@ class NavBar extends React.Component {
       <Router>
         <div>
           <Navbar color="black" light>
-          <NavbarBrand href="/">All The Great Shows</NavbarBrand>
+          <NavbarBrand href="/home">All The Great Shows</NavbarBrand>
               <Nav justified horizontal>
                 <NavItem Home>
-                  <NavLink><Link to="/">Home  </Link></NavLink>
+                  <NavLink><Link to="/home">Home</Link></NavLink>
                 </NavItem>
                 <NavItem Podcasts>
                   <NavLink><Link to="/podcast">Podcasts</Link></NavLink>
@@ -59,7 +59,8 @@ class NavBar extends React.Component {
                 </NavItem>
               </Nav>
           </Navbar>
-          <Route exact path="/" component={Home}/>
+          
+          <Route exact path="/home" component={Home}/>
           <Route path="/about"  component={About}/>
           <Route path="/podcast" 
             render={(props) => <Grid Data={getPodcasts()} CardTitle={"title"} ImageField={"image_url"}/>}/>
