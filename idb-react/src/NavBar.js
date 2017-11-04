@@ -11,23 +11,9 @@ import {getPodcasts, getEpisodes, getGenres, getProviders} from './Request';
 import Grid from './Grid';
 
 
-var whatToLoad = <Home/>;
-
-
-const Topic = ({ match }) => (
-  <div>
-    <h3>{match.params.topicId}</h3>
-  </div>
-);
 class NavBar extends React.Component {
 	constructor(props) {
     super(props);
-
-    this.props = {
-      dPodcasts : getPodcasts(),
-      dProviders : getProviders(),
-      dGenres : getGenres(),
-      dEpisodes : getEpisodes()};
     }
 
 	render () {
