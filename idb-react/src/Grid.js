@@ -79,7 +79,7 @@ class Grid extends React.Component {
 		console.log(this.state.squares[1])
 		return <Link to="/home"> <Fcard
 			title={String(this.state.squares[i])}
-			image={String(this.state.images[i])}/>; </Link>
+			image={String(this.state.images[i])}/> </Link>;
 	}
 
 	render () {
