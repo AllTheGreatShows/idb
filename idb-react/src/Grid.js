@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Mycard, {Fcard} from './Card';
 import MyMedia from './Media'
 import {Row, Col, CardDeck} from 'reactstrap';
@@ -73,25 +74,12 @@ class Grid extends React.Component {
     
   }
 
-  handleClick(i) {
-  	/* TODO: Make this advance to the page of the podcast
-  		
-    const squares = this.state.squares.slice();
-    squares[i] = i;
-    this.setState({squares: squares});
-      */
-    const detail = <MyMedia
-    	json={this.props.Data} media_type={this.props.MediaType} index={i} />
-	this.setState({content:detail});
-  }
-
 	renderCard (i) {
 		i = i-1;
 		console.log(this.state.squares[1])
-		return <Fcard
+		return <Link to="/home"> <Fcard
 			title={String(this.state.squares[i])}
-			image={String(this.state.images[i])}
-			onClick={() => this.handleClick(i)}/>;
+			image={String(this.state.images[i])}/>; </Link>
 	}
 
 	render () {
