@@ -10,6 +10,8 @@ import Grid from './Grid';
 class NavBar extends React.Component {
 	constructor(props) {
     super(props);
+    this.page = Array(1)
+    this.page[0] = 1
     }
 
 	render () {
@@ -45,13 +47,13 @@ class NavBar extends React.Component {
           <Route exact path="/home" component={Home}/>
           <Route path="/about"  component={About}/>
           <Route path="/podcast" 
-            render={() => <Grid Data={getPodcasts()} CardTitle={"title"} ImageField={"image_url"} />}/>
+            render={() => <Grid Data={getPodcasts()} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page} />}/>
           <Route path="/provider" 
-            render={() => <Grid Data={getProviders()} CardTitle={"name"} ImageField={""}/>}/>
+            render={() => <Grid Data={getProviders()} CardTitle={"name"} ImageField={""} MediaType = "provider" page={1}/>}/>
           <Route path="/genre" 
-            render={() => <Grid Data={getGenres()} CardTitle={"name"} ImageField={""}/>}/>
+            render={() => <Grid Data={getGenres()} CardTitle={"name"} ImageField={""} MediaType = "genre" page={1}/>}/>
           <Route path="/episode" 
-            render={() => <Grid Data={getEpisodes()} CardTitle={"title"} ImageField={""}/>}/>
+            render={() => <Grid Data={getEpisodes()} CardTitle={"title"} ImageField={""} MediaType = "episode" page={1}/>}/>
         </div>
       </Router>);
 	}
