@@ -2,15 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Mycard, {Fcard} from './Card';
 import MyMedia from './Media'
-import {Row, Col, CardDeck} from 'reactstrap';
-
-
-var sampleData = [["Name", "Image"], 
-["The Joe Rogan Experience", "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png"],
-["The Splendid Table", "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg"],
-["Rough Translation", "http://is1.mzstatic.com/image/thumb/Music118/v4/f4/d2/18/f4d218f7-cc28-e9f2-69f6-958abc6cd9b0/source/200x200bb.png"]];
-
-
+import {Row, Col, CardDeck, Button} from 'reactstrap';
 
 
 class Grid extends React.Component {
@@ -18,13 +10,12 @@ class Grid extends React.Component {
     super(props);
     const squaresT = Array(9);//Titles
     const squaresI = Array(9).fill("");//Images
-
-    //obj
-    //titleAttr
-    //imgAttr
+	const page = this.props.page[0];
+	console.log(props);
     const obj = this.props.Data;
 	var hasImg = !(this.props.ImageField === "");
 	console.log(obj);
+
     for (var i = obj["objects"].length - 1; i >= 0; i--) {
 		 //obj[i]
 			squaresT[i] = obj["objects"][i][this.props.CardTitle];
@@ -38,19 +29,15 @@ class Grid extends React.Component {
 				
 			}
     }
-    
-    /*
-    for (var i = 0; i < squaresT.length; i++) {
-    	squaresT[i] = sampleData[i%3+1][0];
-    	squaresI[i] = sampleData[i%3+1][1];
-    };
-	*/
 
 	this.state = {
 		squares: squaresT,
 		images: squaresI,
+		activePage: page,
 	}
 
+	const url = "/" + this.props.MediaType + "/page=" + (page+1);
+	console.log(url)
     this.state = {
       content: <div>
 								<CardDeck>
@@ -69,10 +56,26 @@ class Grid extends React.Component {
 									{this.renderCard(9)}
 
 								</CardDeck>
+                                    							
+								<Link to={url}><Button color="primary" onClick= {() => {
+									this.props.page[0] = page + 1
+									
+									 } }>
+									Next page
+									</Button>
+									</Link>
+
 							</div>
     };
-    
+	this.handlePageChange = this.handlePageChange.bind(this);
+	
   }
+
+  	handlePageChange () {
+		console.log("Getting here. Will send a link to baseurl");
+		//	this.props.page[0] = this.state.activePage + 1
+		console.log(this.state.squares)
+	}
 
 	renderCard (i) {
 		i = i-1;
