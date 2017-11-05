@@ -48,6 +48,8 @@ class NavBar extends React.Component {
           <Route path="/about"  component={About}/>
           <Route path="/podcast" 
             render={() => <Grid Data={getPodcasts()} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page} />}/>
+          <Route path="/podcast/page=:pagenum"
+            render={() => <Grid Data={getPodcasts()} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page} />}/>
           <Route path="/provider" 
             render={() => <Grid Data={getProviders()} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page}/>}/>
           <Route path="/genre" 
