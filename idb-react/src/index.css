@@ -13,13 +13,17 @@ body {
 	max-width: 300px;
 }
 
+.card-deck .card {
+    max-width: 300px;
+}
+
 	.carousel {
 		/* Black at least temporarily */
 		background: #aaaaaa;
 	}
 	.carousel-item {
-		height: 300px;
-		max-height: 100%;
+        min-height: 200px;
+		height: 50vh; /*50% of view height*/
 	}
     .carousel-item img {
         height: 100%; 
