@@ -49,11 +49,11 @@ class NavBar extends React.Component {
           <Route path="/podcast" 
             render={() => <Grid Data={getPodcasts()} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page} />}/>
           <Route path="/provider" 
-            render={() => <Grid Data={getProviders()} CardTitle={"name"} ImageField={""} MediaType = "provider" page={1}/>}/>
+            render={() => <Grid Data={getProviders()} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page}/>}/>
           <Route path="/genre" 
-            render={() => <Grid Data={getGenres()} CardTitle={"name"} ImageField={""} MediaType = "genre" page={1}/>}/>
+            render={() => <Grid Data={getGenres()} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>}/>
           <Route path="/episode" 
-            render={() => <Grid Data={getEpisodes()} CardTitle={"title"} ImageField={""} MediaType = "episode" page={1}/>}/>
+            render={() => <Grid Data={getEpisodes()} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page}/>}/>
         </div>
       </Router>);
 	}
