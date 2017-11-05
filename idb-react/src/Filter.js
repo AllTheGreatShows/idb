@@ -38,35 +38,38 @@ function Checkbox(props) {
 
 
 
-class InnerToggle extends React.Component {
-  render() {
-    return (
-      <div>
-        <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Genre</Button>
-        <Collapse isOpen={this.state.collapse}>
-          <Card>
-            <CardBody>
-                {/* put checkbox here */}
-                <Checkbox/>
-            </CardBody>
-          </Card>
-        </Collapse>
-      </div>
-    );
-  }
 
-  constructor(props) {
-    super(props);
-    this.toggle = this.toggle.bind(this);
-    this.state = { collapse: false };
-  }
+
+// class InnerToggle extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Genre</Button>
+//         <Collapse isOpen={this.state.collapse}>
+//           <Card>
+//             <CardBody>
+//                 {/* put checkbox here */}
+//                 <Checkbox/>
+//             </CardBody>
+//           </Card>
+//         </Collapse>
+//       </div>
+//     );
+//   }
+
+//   constructor(props) {
+//     super(props);
+//     this.toggle = this.toggle.bind(this);
+//     this.state = { collapse: false };
+//   }
   
 
-  toggle() {
-    this.setState({ collapse: !this.state.collapse });
-  }
-}
+//   toggle() {
+//     this.setState({ collapse: !this.state.collapse });
+//   }
+// }
 
+// made up of multiple toggles
 class MyFilter extends React.Component {
 
     render() {
@@ -77,11 +80,8 @@ class MyFilter extends React.Component {
               <Card>
                 <CardBody>
                     {/* put checkbox here */}
-                    <InnerToggle/>
-                    <InnerToggle/>
-                    <InnerToggle/>
-                    <InnerToggle/>
-                    <InnerToggle/>
+                    <Checkbox/>
+                    <Button color="primary" size="sm">Submit</Button>{' '}
                 </CardBody>
               </Card>
             </Collapse>
