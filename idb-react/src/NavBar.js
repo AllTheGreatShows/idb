@@ -45,7 +45,7 @@ class NavBar extends React.Component {
           <Route exact path="/home" component={Home}/>
           <Route path="/about"  component={About}/>
           <Route path="/podcast" 
-            render={() => <Grid Data={getPodcasts()} CardTitle={"title"} ImageField={"image_url"}/>}/>
+            render={() => <Grid Data={getPodcasts()} CardTitle={"title"} ImageField={"image_url"} />}/>
           <Route path="/provider" 
             render={() => <Grid Data={getProviders()} CardTitle={"name"} ImageField={""}/>}/>
           <Route path="/genre" 

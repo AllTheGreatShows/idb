@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Mycard, {Fcard} from './Card';
 import MyMedia from './Media'
-import {Row, Col, CardDeck} from 'reactstrap';
+import {Row, Col, CardDeck, Button} from 'reactstrap';
 
 
 var sampleData = [["Name", "Image"], 
@@ -69,6 +69,11 @@ class Grid extends React.Component {
 									{this.renderCard(9)}
 
 								</CardDeck>
+
+								<Button color="primary" onClick= {() => console.log("Getting here. Will send a link to baseurl") }>
+									Next page
+									</Button>
+
 							</div>
     };
     
