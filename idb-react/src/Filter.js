@@ -9,21 +9,32 @@ class MyCheckbox extends React.Component {
         'Education', 'Fashion & Beauty', 'Games & Hobbies', 'Government & Organizations', 'Health', 'Higher Education', 'History', 
         'Investing', 'Literature', 'Management & Marketing', 'Natural Sciences', 'News & Politics', 'Performing Arts', 'Personal Journals',
          'Podcasting', 'Podcasts', 'Professional', 'Religion & Spirituality', 'Science & Medicine', 'Self-Help', 'Social Sciences', 
-         'Society & Culture', 'Sports & Recreation', 'TV & Film', 'Technology', 'Training'], value: 'foo'};
+         'Society & Culture', 'Sports & Recreation', 'TV & Film', 'Technology', 'Training'], value: Array(9).fill(0)};
 
-        // this.handleChange = this.handleChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
     handleSubmit(event) {
-        alert("you have selected" + this.state.value);
-        console.log("reached the submit handler")
+        var str = "";
+        const squares = this.state.value.slice();
+        for (var i = 0; i < this.state.genres.length; i++) {
+            if (squares[i] == 1)
+                str = str + " " +this.state.genres[i];
+        }
+        alert("you have selected " + str);
+        console.log("reached the submit handler");
         // event.preventDefault();
     }
 
     handleChange(event) {
-        this.setState({value: event.target.value});
+        const i = event.target.value;
+        const squares = this.state.value.slice();
+        squares[i] = 1;
+        this.setState({value: squares});
+        // this.setState({value: event.target.value});
+        // console.log("index"+this.props.index);
     }
 
     render() { 
@@ -31,15 +42,17 @@ class MyCheckbox extends React.Component {
         for (var i = 0; i < this.state.genres.length; i++) {
             rows.push(<FormGroup check inline>
                 <Label check>
-                <Input type="checkbox" onChange={this.handleChange} /> {this.state.genres[i]}
+                <Input type="checkbox" onChange={this.handleChange} value={i}/> {this.state.genres[i]}
                 </Label>
             </FormGroup>);
         }
      
+                     // <Button color="primary" size="sm" onClick={this.handleSubmit()} >Submit</Button>{' '}
+
         return (
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
                 {rows}
-                <Button color="primary" size="sm" onClick={this.handleSubmit()} >Submit</Button>{' '}
+                <input type="submit" value="Submit" />
             </Form>
         );
     }
