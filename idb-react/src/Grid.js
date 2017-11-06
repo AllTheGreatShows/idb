@@ -10,9 +10,9 @@ class Grid extends React.Component {
     super(props);
     const squaresT = Array(9);//Titles
     const squaresI = Array(9).fill("");//Images
-	const page = Number(this.props.page[0]);
+	const obj = this.props.Data;
+	const page = Number(obj["page"]);
 	console.log(page);
-    const obj = this.props.Data;
 	var hasImg = !(this.props.ImageField === "");
 	console.log(obj);
 
@@ -37,7 +37,6 @@ class Grid extends React.Component {
 	}
 
 	const url = "/" + this.props.MediaType + "/page=" + (page+1);
-	console.log(url)
     this.state = {
       content: <div>
 								<CardDeck>

@@ -10,7 +10,7 @@ class Podcast extends React.Component{
         this.page[0] = this.props.match.params.pagenum;
     }
 
-    render () {
+    render () {        
         return (
             <Grid Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page} />
         );
