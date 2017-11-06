@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, Button, Collapse, Card, CardBody } from 'reactstrap';
 
-class MyCheckbox extends React.Component {
+class GenreCheckbox extends React.Component {
 
     constructor(props) {
         super(props);
@@ -60,7 +60,7 @@ class MyCheckbox extends React.Component {
 
 
 // made up of multiple toggles
-class MyFilter extends React.Component {
+class GenreFilter extends React.Component {
 
     handleClick() {
         console.log("submitted")
@@ -74,7 +74,7 @@ class MyFilter extends React.Component {
               <Card>
                 <CardBody>
                     {/* put checkbox here */}
-                    <MyCheckbox/>
+                    <GenreCheckbox/>
                     
                 </CardBody>
               </Card>
@@ -96,4 +96,4 @@ class MyFilter extends React.Component {
 }
 
 
-export default MyFilter;
+export default GenreFilter;
