@@ -10,8 +10,8 @@ class Grid extends React.Component {
     super(props);
     const squaresT = Array(9);//Titles
     const squaresI = Array(9).fill("");//Images
-	const page = this.props.page[0];
-	console.log(props);
+	const page = Number(this.props.page[0]);
+	console.log(page);
     const obj = this.props.Data;
 	var hasImg = !(this.props.ImageField === "");
 	console.log(obj);
@@ -79,7 +79,7 @@ class Grid extends React.Component {
 
 	renderCard (i) {
 		i = i-1;
-		console.log(this.state.squares[1])
+		console.log("here")
 		return <Link to="/home"> <Fcard
 			title={String(this.state.squares[i])}
 			image={String(this.state.images[i])}/> </Link>;
