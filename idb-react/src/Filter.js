@@ -1,22 +1,33 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, Button, Collapse, Card, CardBody } from 'reactstrap';
 
-function Checkbox(props) {
-    const genres = ['Alternative Health', 'Arts', 'Business', 'Business News', 'Careers', 'Comedy', 'Design', 'Education', 'Fashion & Beauty', 'Games & Hobbies', 'Government & Organizations', 'Health', 'Higher Education', 'History', 'Investing', 'Literature', 'Management & Marketing', 'Natural Sciences', 'News & Politics', 'Performing Arts', 'Personal Journals?', 'Podcasting', 'Podcasts', 'Professional', 'Religion & Spirituality', 'Science & Medicine', 'Self-Help', 'Social Sciences', 'Society & Culture', 'Sports & Recreation', 'TV & Film', 'Technology', 'Training'];
-    var rows = []
-    for (var i = 0; i < genres.length; i++) {
-        rows.push(<FormGroup check inline>
-            <Label check>
-              <Input type="checkbox" /> {genres[i]}
-            </Label>
-          </FormGroup>);
+class MyCheckbox extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { genres : ['Alternative Health', 'Arts', 'Business', 'Business News', 'Careers', 'Comedy', 'Design', 
+        'Education', 'Fashion & Beauty', 'Games & Hobbies', 'Government & Organizations', 'Health', 'Higher Education', 'History', 
+        'Investing', 'Literature', 'Management & Marketing', 'Natural Sciences', 'News & Politics', 'Performing Arts', 'Personal Journals',
+         'Podcasting', 'Podcasts', 'Professional', 'Religion & Spirituality', 'Science & Medicine', 'Self-Help', 'Social Sciences', 
+         'Society & Culture', 'Sports & Recreation', 'TV & Film', 'Technology', 'Training']};
     }
 
-	return (
-        <Form>
-            {rows}
-      </Form>
-      );
+    render() { 
+        var rows = []
+        for (var i = 0; i < this.state.genres.length; i++) {
+            rows.push(<FormGroup check inline>
+                <Label check>
+                <Input type="checkbox" /> {this.state.genres[i]}
+                </Label>
+            </FormGroup>);
+        }
+     
+        return (
+            <Form>
+                {rows}
+            </Form>
+        );
+    }
 }
 
 
@@ -35,7 +46,7 @@ class MyFilter extends React.Component {
               <Card>
                 <CardBody>
                     {/* put checkbox here */}
-                    <Checkbox/>
+                    <MyCheckbox/>
                     <Button color="primary" size="sm" onClick={() => this.handleClick()}>Submit</Button>{' '}
                 </CardBody>
               </Card>
