@@ -13,7 +13,7 @@ class Genre extends React.Component{
     }
 
     render () {
-        var url = "/provider/page=" + (parseInt(this.page[0]) + 1);
+        var url = "/genre/page=" + (parseInt(this.page[0]) + 1);
         return (
             <div>
                  <Grid Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>

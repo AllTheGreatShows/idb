@@ -13,7 +13,7 @@ class Episode extends React.Component{
     }
 
     render () {
-        var url = "/provider/page=" + (parseInt(this.page[0]) + 1);
+        var url = "/episode/page=" + (parseInt(this.page[0]) + 1);
         return (
             <div>
                 <Grid Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page}/>     
