@@ -31,16 +31,16 @@ class NavBar extends React.Component {
                   <NavLink><Link to="/home">Home</Link></NavLink>
                 </NavItem>
                 <NavItem Podcasts>
-                  <NavLink><Link to="/podcast">Podcasts</Link></NavLink>
+                  <NavLink><Link to="/podcast/page=1">Podcasts</Link></NavLink>
                 </NavItem>
                 <NavItem Providers>
-                  <NavLink><Link to="/provider">Providers</Link></NavLink>
+                  <NavLink><Link to="/provider/page=1">Providers</Link></NavLink>
                 </NavItem>
                 <NavItem Genre>
-                  <NavLink><Link to="/genre">Genre</Link></NavLink>
+                  <NavLink><Link to="/genre/page=1">Genre</Link></NavLink>
                 </NavItem>
                 <NavItem Episodes>
-                  <NavLink><Link to="/episode">Episodes</Link></NavLink>
+                  <NavLink><Link to="/episode/page=1">Episodes</Link></NavLink>
                 </NavItem>
                 <NavItem About>
                   <NavLink><Link to="/about" >About </Link></NavLink>
@@ -49,23 +49,10 @@ class NavBar extends React.Component {
           </Navbar>
           
           <Route exact path="/home" component={Home}/>
-          <Route path="/about"  component={About}/>
-          
-          <Route path="/podcast" 
-            render={() => <Grid Data={getPodcasts()} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page} />}/>
-          <Route path="/podcast/page=:pagenum" component={Podcast}/>
-          
-          <Route path="/provider" 
-            render={() => <Grid Data={getProviders()} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page}/>}/>
+          <Route path="/about"  component={About}/>       
+          <Route path="/podcast/page=:pagenum" component={Podcast}/>   
           <Route path="/provider/page=:pagenum" component={Provider}/>
-
-
-          <Route path="/genre" 
-            render={() => <Grid Data={getGenres()} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>}/>
           <Route path="/genre/page=:pagenum" component={Genre}/>
-          
-          <Route path="/episode" 
-            render={() => <Grid Data={getEpisodes()} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page}/>}/>
           <Route path="/episode/page=:pagenum" component={Episode}/>
         </div>
       </Router>);
