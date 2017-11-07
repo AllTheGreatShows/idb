@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Mycard, {Fcard} from './Card';
 import MyMedia from './Media'
-import {Row, Col, CardDeck, Button} from 'reactstrap';
+import {Row, Col, CardDeck} from 'reactstrap';
 
 
 class Grid extends React.Component {
@@ -36,7 +36,6 @@ class Grid extends React.Component {
 		activePage: page,
 	}
 
-	const url = "/" + this.props.MediaType + "/page=" + (page+1);
     this.state = {
       content: <div>
 								<CardDeck>
@@ -54,27 +53,11 @@ class Grid extends React.Component {
 									{this.renderCard(8)}
 									{this.renderCard(9)}
 
-								</CardDeck>
-                                    							
-								<Link to={url}><Button color="primary" onClick= {() => {
-									this.props.page[0] = page + 1
-									
-									 } }>
-									Next page
-									</Button>
-									</Link>
-
+								</CardDeck>						
 							</div>
     };
-	this.handlePageChange = this.handlePageChange.bind(this);
 	
   }
-
-  	handlePageChange () {
-		console.log("Getting here. Will send a link to baseurl");
-		//	this.props.page[0] = this.state.activePage + 1
-		console.log(this.state.squares)
-	}
 
 	renderCard (i) {
 		i = i-1;
