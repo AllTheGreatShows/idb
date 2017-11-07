@@ -21,11 +21,12 @@ class Podcast extends React.Component{
              <Button color="success" size="sm" onClick= {() => 
                     {this.page[0] = 1;
                     var data = getAscending("title", "podcast");
-                    console.log(data);
-                    <Grid Data={data} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={0}/>
+                    console.log(data["objects"]);
+                    this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
+                    console.log("HERE");
                     }
                 }> Asc </Button>
-                <Grid Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page} />     
+                <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page} />     
                 <Link to={url}>
                     <Button color="secondary" size="lg" onClick= {() => {this.page[0] = parseInt(this.page[0]) + 1} }> Next page </Button>
                 </Link>
