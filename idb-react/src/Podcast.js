@@ -3,7 +3,7 @@ import {getPodcasts, getAscending, getDescending} from './Request';
 import Grid from './Grid';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
-
+import GenreFilter from './Filter';
 class Podcast extends React.Component{
 
     constructor(props){
@@ -35,7 +35,7 @@ class Podcast extends React.Component{
                         }
                     }> Desc </Button>
                     <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
-                    
+                    <GenreFilter/>
                     <Button color="secondary" size="lg" onClick= {() => 
                         {this.page[0] = parseInt(this.page[0]) + 1;
                           this.refs.child.changeState(getPodcasts(this.page[0]), this.page[0]);   } }> Next page </Button>
