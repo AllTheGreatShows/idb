@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import { FormGroup, Label, Input, Button, Collapse, Card, CardBody } from 'reactstrap';
 
 
@@ -22,12 +23,16 @@ class SearchBar extends React.Component {
   }
 
   handleChange(event) {
+    // alert('no');
     this.setState({value: event.target.value});
   }
 
   handleSubmit(event) {
-    alert('A search was submitted: ' + this.state.value);
+    //onSubmit={this.handleSubmit}
+    // alert('A search was submitted: ' + this.state.value);
     event.preventDefault();
+    this.props.onSearch(this.state.value);
+
   }
 
   render() { 
@@ -49,4 +54,16 @@ class SearchBar extends React.Component {
 
 }
 
+
+class SearchResults extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render () {
+    return(<h3> Yes, I searched for {this.props.searchTerm} </h3>);
+  }
+
+}
+
 export default SearchBar;
+export {SearchResults};

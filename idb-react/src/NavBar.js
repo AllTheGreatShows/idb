@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import Home from './Carousel';
 import About from './About';
@@ -9,6 +9,7 @@ import Genre from './Genre';
 import Provider from './Provider';
 import {getPodcasts, getEpisodes, getGenres, getProviders} from './Request';
 import Grid from './Grid';
+import SearchBar, {SearchResults} from './Search';
 
 
 class NavBar extends React.Component {
@@ -16,11 +17,35 @@ class NavBar extends React.Component {
     super(props);
     this.page = Array(1)
     this.page[0] = 1
+
+    this.state = {
+      fireSearchRedirect: false,
+      SearchValue: ''
+    };
+
+    this.handleSearch = this.handleSearch.bind(this);
+    this.resetSearch = this.resetSearch.bind(this);
     }
+
+
+  handleSearch (value) {
+    // alert('Yes'+value);
+    this.setState({fireSearchRedirect: !this.state.fireSearchRedirect})
+    this.setState({SearchValue: value})
+  }
+
+  /* Does not work currently */
+  resetSearch (val) {
+    this.setState({fireSearchRedirect: false});
+    alert('reset');
+  }
 
 	render () {
     console.log("render");
+    const { fireSearchRedirect } = this.state;
+    const { SearchValue } = this.state;
 
+    // || !fireSearchRedirect && (alert('try again'))
 		return (
       <Router>
         <div>
@@ -45,6 +70,11 @@ class NavBar extends React.Component {
                 <NavItem About>
                   <NavLink><Link to="/about" >About </Link></NavLink>
                 </NavItem>
+                <NavItem Search>
+                  <div><SearchBar onSearch={this.handleSearch}/>
+                    {fireSearchRedirect && (<Redirect to="/search"/>) }
+                  </div>
+                </NavItem>
               </Nav>
           </Navbar>
           
@@ -54,6 +84,7 @@ class NavBar extends React.Component {
           <Route path="/provider/page=:pagenum" component={Provider}/>
           <Route path="/genre/page=:pagenum" component={Genre}/>
           <Route path="/episode/page=:pagenum" component={Episode}/>
+          <Route path="/search" component={() => <SearchResults searchTerm={SearchValue}/>}/>
         </div>
       </Router>);
 	}

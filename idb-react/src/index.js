@@ -12,6 +12,7 @@ import Mycarousel from './Carousel';
 */
 import NavBar from './NavBar';
 import Media from './Media';
+import SearchBar from './Search';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<NavBar />, document.getElementById('root'));
