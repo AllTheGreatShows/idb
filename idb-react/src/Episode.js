@@ -29,10 +29,14 @@ class Episode extends React.Component{
                     this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
                     }
                 }> Desc </Button>
-                <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page}/>     
+                <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     
                 
                 <Link to={url}>
-                    <Button color="secondary" size="lg" onClick= {() => {this.page[0] = parseInt(this.page[0]) + 1} }> Next page </Button>
+                    <Button color="secondary" size="lg" onClick= {() => 
+                        {this.page[0] = parseInt(this.page[0]) + 1;
+                        this.refs.child.changeState(getEpisodes(this.page[0]), this.page[0]);
+                        this.forceUpdate();} 
+                    }> Next page </Button>
                 </Link>
             </div>  
                );

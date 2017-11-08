@@ -10,14 +10,14 @@ class Podcast extends React.Component{
         super(props)
         this.page = Array(1)
         this.page[0] = this.props.match.params.pagenum;
-        this.count = 0
+        // this.count = 0
     }
 
     render () {
         var url = "/podcast/page=" + (parseInt(this.page[0]) + 1);
         console.log("rendering on the url")
-        this.count+= 1;
-        console.log("RENDERING TIMES: " + this.count)
+        // this.count+= 1;
+        // console.log("RENDERING TIMES: " + this.count)
       //  if (this.count==1){
             return (
                 <div>
@@ -36,9 +36,13 @@ class Podcast extends React.Component{
                     }> Desc </Button>
                     <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
                     <GenreFilter/>
+                <Link to={url}>
                     <Button color="secondary" size="lg" onClick= {() => 
                         {this.page[0] = parseInt(this.page[0]) + 1;
-                          this.refs.child.changeState(getPodcasts(this.page[0]), this.page[0]);   } }> Next page </Button>
+                          this.refs.child.changeState(getPodcasts(this.page[0]), this.page[0]);   
+                         this.forceUpdate();} 
+                      }> Next page </Button>
+                </Link>
                 </div>
             );
         //}

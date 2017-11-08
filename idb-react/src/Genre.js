@@ -32,7 +32,11 @@ class Genre extends React.Component{
                  <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
                       
                  <Link to={url}>
-                    <Button color="secondary" size="lg" onClick= {() => {this.page[0] = parseInt(this.page[0]) + 1} }> Next page </Button>
+                    <Button color="secondary" size="lg" onClick= {() => 
+                        {this.page[0] = parseInt(this.page[0]) + 1;
+                         this.refs.child.changeState(getGenres(this.page[0]), this.page[0]);
+                         this.forceUpdate();}
+                        }> Next page </Button>
                  </Link>
             </div>  
                );
