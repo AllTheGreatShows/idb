@@ -7,7 +7,8 @@ import Podcast from './Podcast';
 import Episode from './Episode';
 import Genre from './Genre';
 import Provider from './Provider';
-import {getPodcasts, getEpisodes, getGenres, getProviders} from './Request';
+import Detail from './Detail';
+import {getPodcasts, getEpisodes, getGenres, getProviders, getSingleItem} from './Request';
 import Grid from './Grid';
 
 
@@ -54,6 +55,8 @@ class NavBar extends React.Component {
           <Route path="/provider/page=:pagenum" component={Provider}/>
           <Route path="/genre/page=:pagenum" component={Genre}/>
           <Route path="/episode/page=:pagenum" component={Episode}/>
+          {/* Routing for Details Pages */}
+          <Route path="/:mediatype/:id" component={Detail}/>
         </div>
       </Router>);
 	}
