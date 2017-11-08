@@ -61,4 +61,38 @@ function getDescending(val, type) {
     return response;
 }
 
-export {getPodcasts, getEpisodes, getGenres, getProviders, getAscending, getDescending};
+function getSingleItem(mediaType, id) {
+    var http_request = new XMLHttpRequest();
+    console.log(mediaType);
+    console.log(id);
+
+    switch (mediaType) {
+        case "podcast":
+            var url = "http://allthegreatshows.com/api/podcast/" + id;
+            http_request.open("GET", url, false);
+            http_request.send(null);
+            var response = JSON.parse(http_request.responseText);
+            return response;
+        case "provider":
+            var url = "http://allthegreatshows.com/api/provider/" + id;
+            http_request.open("GET", url, false);
+            http_request.send(null);
+            var response = JSON.parse(http_request.responseText);
+            return response;
+        case "genre":
+            var url = "http://allthegreatshows.com/api/genre/" + id;
+            http_request.open("GET", url, false);
+            http_request.send(null);
+            var response = JSON.parse(http_request.responseText);
+            return response;
+        case "episode":
+            var url = "http://allthegreatshows.com/api/episode/" + id;
+            http_request.open("GET", url, false);
+            http_request.send(null);
+            var response = JSON.parse(http_request.responseText);
+            return response;
+    }
+
+}
+
+export {getPodcasts, getEpisodes, getGenres, getProviders, getAscending, getDescending, getSingleItem};
