@@ -9,9 +9,9 @@ class Detail extends React.Component {
     }
 
     render(){
-        const data = getSingleItem(this.props.mediatype, this.props.id)
+        var data = getSingleItem(this.props.match.params.mediatype, this.props.match.params.BrowserRouterid)
         return(
-                <MyMedia json={data} media_type={this.props.mediatype} index={parseInt(this.props.id)}/>
+                <MyMedia json={data} media_type={this.props.match.params.mediatype} index={parseInt(this.props.match.params.id)}/>
         );
     }
 }
