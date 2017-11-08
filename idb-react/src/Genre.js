@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getGenres, getAscending, getDescending} from './Request';
+import {getGenres, getAscending, getDescending, getFilterDataModels} from './Request';
 import Grid from './Grid';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
@@ -13,6 +13,9 @@ class Genre extends React.Component{
     }
 
     render () {
+//        console.log(getFilterDataModels("genre","C"));
+//        console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+
         var url = "/genre/page=" + (parseInt(this.page[0]) + 1);
         return (
             <div>

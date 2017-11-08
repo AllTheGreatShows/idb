@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getEpisodes, getAscending, getDescending} from './Request';
+import {getEpisodes, getAscending, getDescending, getFilterDataModels} from './Request';
 import Grid from './Grid';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
@@ -14,6 +14,8 @@ class Episode extends React.Component{
 
     render () {
         var url = "/episode/page=" + (parseInt(this.page[0]) + 1);
+        // console.log(getFilterDataModels("episode","C"));
+        // console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
         return (
             <div>
             {"Sort: "}

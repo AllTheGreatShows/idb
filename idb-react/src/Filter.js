@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, Button, Collapse, Card, CardBody } from 'reactstrap';
+import { getFilterDataPodcasts} from "./Request";
 
 class GenreCheckbox extends React.Component {
 
@@ -21,9 +22,12 @@ class GenreCheckbox extends React.Component {
         const squares = this.state.value.slice();
         for (var i = 0; i < this.state.genres.length; i++) {
             if (squares[i] == 1)
-                str = str + this.state.genres[i] + " | ";
+                str = str + this.state.genres[i];
         }
-        alert("you have selected: " + str);
+//        alert("you have selected: " + str);
+        var j = getFilterDataPodcasts(str);
+        console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+        console.log(j);
         console.log("reached the submit handler");
         // event.preventDefault();
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getPodcasts, getAscending, getDescending} from './Request';
+import {getPodcasts, getAscending, getDescending, getFilterDataPodcasts} from './Request';
 import Grid from './Grid';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
@@ -15,6 +15,7 @@ class Podcast extends React.Component{
     render () {
         var url = "/podcast/page=" + (parseInt(this.page[0]) + 1);
         console.log("rendering on the url")
+//        console.log(getFilterDataPodcasts("Careers"));
   
         return (
             <div>

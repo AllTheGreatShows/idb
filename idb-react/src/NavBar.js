@@ -7,7 +7,7 @@ import Podcast from './Podcast';
 import Episode from './Episode';
 import Genre from './Genre';
 import Provider from './Provider';
-import {getPodcasts, getEpisodes, getGenres, getProviders} from './Request';
+import {getPodcasts, getEpisodes, getGenres, getProviders, getFilterDataPodcasts} from './Request';
 import Grid from './Grid';
 
 
@@ -20,7 +20,6 @@ class NavBar extends React.Component {
 
 	render () {
     console.log("render");
-
 		return (
       <Router>
         <div>

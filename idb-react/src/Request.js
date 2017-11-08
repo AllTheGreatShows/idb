@@ -61,4 +61,34 @@ function getDescending(val, type) {
     return response;
 }
 
-export {getPodcasts, getEpisodes, getGenres, getProviders, getAscending, getDescending};
+function getFilterDataPodcasts(val){
+    var url = "http://allthegreatshows.com/api/podcast?q={%22filters%22:[%20{%22name%22:%20%22genres%22,%20%22op%22:%20%22any%22,%20%22val%22:{%22name%22:%20%22name%22,%20%22op%22:%20%22ilike%22,%20%22val%22:%20%22" + val +"%22%20}%20}]}";
+    var http_request = new XMLHttpRequest();
+    http_request.open("GET", url, false);
+    http_request.send(null);
+    try {
+        var response = JSON.parse(http_request.responseText);
+    }
+    catch(err) {
+        var response="";
+    }
+    return response;
+}
+
+function getFilterDataModels(type, val){
+    if(type == "provider" || type == "genre")
+        var url = "http://allthegreatshows.com/api/" + type+ "?q={%22filters%22:[%20{%22name%22:%20%22name%22,%20%22op%22:%20%22like%22,%20%22val%22:%22" + val + "%%22%20}]}";
+    else
+        var url = "http://allthegreatshows.com/api/" + type+ "?q={%22filters%22:[%20{%22name%22:%20%22title%22,%20%22op%22:%20%22like%22,%20%22val%22:%22" + val + "%%22%20}]}";
+    var http_request = new XMLHttpRequest();
+    http_request.open("GET", url, false);
+    http_request.send(null);
+    try {
+        var response = JSON.parse(http_request.responseText);
+    }
+    catch(err) {
+        var response="";
+    }
+    return response;
+}
+export {getPodcasts, getEpisodes, getGenres, getProviders, getAscending, getDescending, getFilterDataPodcasts, getFilterDataModels};
