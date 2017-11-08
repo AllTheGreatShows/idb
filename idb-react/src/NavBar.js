@@ -6,9 +6,11 @@ import About from './About';
 import Podcast from './Podcast';
 import Episode from './Episode';
 import Genre from './Genre';
+import MyMedia from './Media';
 import Provider from './Provider';
 import {getPodcasts, getEpisodes, getGenres, getProviders} from './Request';
 import Grid from './Grid';
+
 
 
 class NavBar extends React.Component {
@@ -16,6 +18,7 @@ class NavBar extends React.Component {
     super(props);
     this.page = Array(1)
     this.page[0] = 1
+    this.id = -1;
     }
 
 	render () {
@@ -54,6 +57,7 @@ class NavBar extends React.Component {
           <Route path="/provider/page=:pagenum" component={Provider}/>
           <Route path="/genre/page=:pagenum" component={Genre}/>
           <Route path="/episode/page=:pagenum" component={Episode}/>
+          <Route path="/:idtype/id=:idnum" component={MyMedia}/>
         </div>
       </Router>);
 	}

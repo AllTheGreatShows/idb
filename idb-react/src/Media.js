@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Media, Jumbotron, Button} from 'reactstrap';
+import {getGenresID} from './Request';
 
 // VALID MEDIA TYPES
 // podcast
@@ -62,8 +63,8 @@ function renderProvider(obj, i) {
 }
 
 // GENRE, runs when media_type == "genre"
-function renderGenre(obj, i) {
-    var val = obj["objects"][i];
+function renderGenre(obj) {
+    var val = obj;
     console.log(val);
     var pod = val["podcasts"];
     console.log(pod.length);
@@ -125,18 +126,28 @@ function renderEpisode(obj, i) {
 
 class MyMedia extends Component {
 
+    constructor (props) {
+      super(props);
+      console.log(this.props.match);
+    }
+
     render() {
         const obj = this.props.json;
-        const i = this.props.index;
-        switch (this.props.media_type) {
+        const i = this.props.match.params.idnum;
+
+        switch (this.props.match.params.idtype) {//(this.props.media_type) {
             case "podcast":
-                return renderPodcast(obj, i);
+                return renderPodcast();
             case "provider":
                 return renderProvider(obj, i);
             case "genre":
-                return renderGenre(obj, i);
+                return renderGenre(getGenresID(this.props.match.params.idnum));
             case "episode":
                 return renderEpisode(obj, i);
+            default:
+              alert('shit'+ this.props.match.params.idnum);
+              
+              return (<h3>{getGenresID(this.props.match.params.idnum)["name"]}</h3>);
         }
     }
 }

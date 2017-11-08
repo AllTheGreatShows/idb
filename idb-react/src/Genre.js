@@ -29,7 +29,7 @@ class Genre extends React.Component{
                     this.refs.child.changeState(data,"name" ,"image_url" ,"genre", 1);
                     }
                 }> Desc </Button>
-                 <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
+                 <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page} idnum={-1}/>
                       
                  <Link to={url}>
                     <Button color="secondary" size="lg" onClick= {() => 
