@@ -5,11 +5,14 @@ import MyMedia from './Media'
 import {Row, Col, CardDeck} from 'reactstrap';
 
 
+
 class Grid extends React.Component {
 	constructor(props) {
     super(props);
-	this.changeState(props.Data, props.Data["page"])
+	this.changeState(props.Data, props.Data["page"]);
+	// this.idpage = this.props.match.params.idnum;//this.props.match.params.idnum;
   }
+
 
     changeState(data, pages, stateChange=true){
 		const squaresT = Array(9);//Titles
@@ -60,10 +63,13 @@ class Grid extends React.Component {
 		this.setState(this.state);
 	}
 
+
 	renderCard (i) {
 		i = i-1;
-		if(this.state.squares[i]!=undefined){
-		return <Link to="/home"> <Fcard
+		console.log(i)
+		var there = "/" + this.props.MediaType + "/id=" + parseInt(this.props.Data["objects"][i]["id"]);
+		console.log(there);
+		return <Link to={there}> <Fcard
 			title={String(this.state.squares[i])}
 			image={String(this.state.images[i])}/> </Link>;
 		}
