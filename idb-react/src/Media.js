@@ -9,8 +9,8 @@ import { Card, CardImg, CardText, CardBody,
 // genre
 
 // PODCASTS, runs when media_type == "podcast"
-function renderPodcast(obj, i) {
-    var val = obj["objects"][i];
+function renderPodcast(obj) {
+    var val = obj;
     console.log(val);
     return (
         <Card>
