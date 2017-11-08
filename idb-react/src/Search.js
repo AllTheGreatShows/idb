@@ -59,10 +59,48 @@ class SearchResults extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render () {
-    return(<h3> Yes, I searched for {this.props.searchTerm} </h3>);
+    return(<div>
+      <h3> Yes, I searched for {this.props.searchTerm} </h3>
+      <p>{getPodcastSearch(this.props.searchTerm)}</p>
+      </div>);
   }
 
+}
+
+
+function getPodcastSearch(page=1, term) {
+    var http_request = new XMLHttpRequest();
+    var url = "http://allthegreatshows.com/api/search/podcast/" + term + page;
+    http_request.open("GET", url, false);
+    http_request.send(null);
+    var response = http_request.responseText;//Needs to JSON.parse()
+    return response;
+}
+function getEpisodeSearch(page=1, term) {
+    var http_request = new XMLHttpRequest();
+    var url = "http://allthegreatshows.com/api/search/episode/" + term + page;
+    http_request.open("GET", url, false);
+    http_request.send(null);
+    var response = http_request.responseText;//Needs to JSON.parse()
+    return response;
+}
+function getGenreSearch(page=1, term) {
+    var http_request = new XMLHttpRequest();
+    var url = "http://allthegreatshows.com/api/search/genre/" + term + page;
+    http_request.open("GET", url, false);
+    http_request.send(null);
+    var response = http_request.responseText;//Needs to JSON.parse()
+    return response;
+}
+function getProviderSearch(page=1, term) {
+    var http_request = new XMLHttpRequest();
+    var url = "http://allthegreatshows.com/api/search/provider/" + term + page;
+    http_request.open("GET", url, false);
+    http_request.send(null);
+    var response = http_request.responseText;//Needs to JSON.parse()
+    return response;
 }
 
 export default SearchBar;
