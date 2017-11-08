@@ -11,7 +11,7 @@ class Grid extends React.Component {
 	this.changeState(props.Data, props.Data["page"])
   }
 
-    changeState(data, pages){
+    changeState(data, pages, stateChange=true){
 		const squaresT = Array(9);//Titles
 		const squaresI = Array(9).fill("");//Images
 		const obj = data;
@@ -57,7 +57,7 @@ class Grid extends React.Component {
 								   </CardDeck>						
 							   </div>
 	   };
-	   this.setState(this.state);
+		this.setState(this.state);
 	}
 
 	renderCard (i) {

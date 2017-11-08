@@ -35,12 +35,17 @@ class Podcast extends React.Component{
                         }
                     }> Desc </Button>
                     <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+                    
                     <Button color="secondary" size="lg" onClick= {() => 
                         {this.page[0] = parseInt(this.page[0]) + 1;
                           this.refs.child.changeState(getPodcasts(this.page[0]), this.page[0]);   } }> Next page </Button>
                 </div>
             );
         //}
+        //         <Link to={url}>
+        //                <Button color="secondary" size="lg" onClick= {() => {this.page[0] = parseInt(this.page[0]) + 1} }> Next page </Button>
+        //            </Link>
+                   
         // else{
         //     var data = getPodcasts(this.page[0]);
         //     var page= this.page[0];
