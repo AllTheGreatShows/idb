@@ -15,19 +15,45 @@ class Genre extends React.Component{
     render () {
         var nextURL;
         var prevURL;
+        var sort;
+        
+        sort = this.props.match.params.sorttype;
 
         var backButtonCheck = false;
         var forwardButtonCheck = false;
+        var boolASC = false;
+        var boolDSC = false;
+
+        console.log(this.props.match.params.sorttype);
+        if (this.props.match.params.sorttype == "asc")
+        {
+            console.log("asc bool is true");
+            boolASC = true;
+        }       
+        else if (this.props.match.params.sorttype == "dsc")
+            boolDSC = true;
+
         if (parseInt(this.page[0]) == 1)
             backButtonCheck=true;
         else{
             backButtonCheck = false;
-            prevURL = "/genre/page=" + (parseInt(this.page[0]) - 1);
+            if (boolASC)
+                prevURL = "/genre/sort=asc/page=" + (parseInt(this.page[0]) - 1);            
+            else if (boolDSC)
+                prevURL = "/genre/sort=dsc/page=" + (parseInt(this.page[0]) - 1);
+            else
+                prevURL = "/genre/page=" + (parseInt(this.page[0]) - 1);
         }
         if(parseInt(this.page[0]) == 4)
             forwardButtonCheck = true;
         else{
-            nextURL = "/genre/page=" + (parseInt(this.page[0]) + 1);
+            if (boolASC)
+                nextURL = "/genre/sort=asc/page=" + (parseInt(this.page[0]) + 1);            
+            else if (boolDSC)
+                nextURL = "/genre/sort=dsc/page=" + (parseInt(this.page[0]) + 1);
+            else
+                nextURL = "/genre/page=" + (parseInt(this.page[0]) + 1);
+
             forwardButtonCheck = false;
         }
         if(backButtonCheck){
