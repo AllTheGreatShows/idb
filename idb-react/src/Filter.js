@@ -48,7 +48,7 @@ class GenreCheckbox extends React.Component {
         for (var i = 0; i < this.state.alpha.length; i++) {
             rows.push(<FormGroup check inline>
                 <Label check>
-                <Input type="checkbox" onChange={this.handleChange} value={i}/> {this.state.alpha[i]}
+                <Input type="radio" onChange={this.handleChange} value={i}/> {this.state.alpha[i]}
                 </Label>
             </FormGroup>);
         }
