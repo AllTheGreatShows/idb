@@ -13,8 +13,16 @@ class Episode extends React.Component{
     }
 
     render () {
-        var url = "/episode/page=" + (parseInt(this.page[0]) + 1);
-        // console.log(getFilterDataModels("episode","C"));
+        var prevURL;
+        var nextURL;
+
+        nextURL = "/episode/page=" + (parseInt(this.page[0]) + 1);        
+        if (parseInt(this.page[0] == 1))
+            prevURL = "/episode/page=1";
+        else
+            prevURL = "/episode/page=" + (parseInt(this.page[0]) + 1);
+
+            // console.log(getFilterDataModels("episode","C"));
         // console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
         return (
             <div>
@@ -33,12 +41,20 @@ class Episode extends React.Component{
                 }> Desc </Button>
                 <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     
                 
-                <Link to={url}>
+                <Link to={prevURL}>
+                    <Button color="secondary" size="lg" onClick= {() => 
+                        {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0]) - 1;
+                        this.refs.child.changeState(getEpisodes(this.page[0]), this.page[0]);
+                        this.forceUpdate();} 
+                    }> Previous </Button>
+                </Link>
+
+                <Link to={nextURL}>
                     <Button color="secondary" size="lg" onClick= {() => 
                         {this.page[0] = parseInt(this.page[0]) + 1;
                         this.refs.child.changeState(getEpisodes(this.page[0]), this.page[0]);
                         this.forceUpdate();} 
-                    }> Next page </Button>
+                    }> Next </Button>
                 </Link>
             </div>  
                );
