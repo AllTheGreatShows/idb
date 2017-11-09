@@ -21,10 +21,86 @@ class Podcast extends React.Component{
     }
 
     render () {
-        var url = "/podcast/page=" + (parseInt(this.page[0]) + 1);
+        var prevURL;
+        var nextURL;
+        var backButtonCheck = false;
+        var forwardButtonCheck = false;
+        if (parseInt(this.page[0]) == 1)
+            backButtonCheck=true;
+        else{
+            backButtonCheck = false;
+            prevURL = "/podcast/page=" + (parseInt(this.page[0]) - 1);
+        }
+        if(parseInt(this.page[0]) == 11)
+            forwardButtonCheck = true;
+        else{
+            nextURL = "/podcast/page=" + (parseInt(this.page[0]) + 1);
+            forwardButtonCheck = false;
+        }
         console.log("rendering on the url")
 //        console.log(getFilterDataPodcasts("Careers"));
   
+        if(backButtonCheck){
+            return (
+                <div>
+                {"Sort: "}
+                <Button color="success" size="sm" onClick= {() => 
+                        {this.page[0] = 1;
+                        var data = getAscending("title", "podcast");
+                        this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
+                        }
+                    }> Asc </Button>{' '}
+                <Button color="success" size="sm" onClick= {() => 
+                        {this.page[0] = 1;
+                        var data = getDescending("title", "podcast");
+                        this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
+                        }
+                    }> Desc </Button>
+                    <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+                    <GenreFilter/>
+                <Link to={nextURL}>
+                    <Button outline color="warning" size="lg" onClick= {() => 
+                        {this.page[0] = parseInt(this.page[0]) + 1;
+                        this.refs.child.changeState(getPodcasts(this.page[0]), this.page[0]);   
+                         this.forceUpdate();} 
+                      }> Next </Button>
+                </Link>
+    
+                </div>
+            );
+    
+        }
+        else if (forwardButtonCheck){
+            return (
+                <div>
+                {"Sort: "}
+                <Button color="success" size="sm" onClick= {() => 
+                        {this.page[0] = 1;
+                        var data = getAscending("title", "podcast");
+                        this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
+                        }
+                    }> Asc </Button>{' '}
+                <Button color="success" size="sm" onClick= {() => 
+                        {this.page[0] = 1;
+                        var data = getDescending("title", "podcast");
+                        this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
+                        }
+                    }> Desc </Button>
+                    <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+                    <GenreFilter/>
+                    
+                <Link to={prevURL}>
+                    <Button outline color="warning" size="lg" onClick= {() => 
+                        {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0])- 1;
+                        this.refs.child.changeState(getPodcasts(this.page[0]), this.page[0]);   
+                         this.forceUpdate();} 
+                      }> Previous </Button>
+                </Link>
+                </div>
+            );
+    
+        }
+        else{
         return (
             <div>
             {"Sort: "}
@@ -42,15 +118,29 @@ class Podcast extends React.Component{
                 }> Desc </Button>
                 <GenreFilter callBackFromParent={this.myCallback}/>    
                 <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
-            <Link to={url}>
-                <Button color="secondary" size="lg" onClick= {() => 
+
+                <GenreFilter/>
+                
+            <Link to={prevURL}>
+                <Button outline color="warning" size="lg" onClick= {() => 
+                    {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0])- 1;
+                    this.refs.child.changeState(getPodcasts(this.page[0]), this.page[0]);   
+                     this.forceUpdate();} 
+                  }> Previous </Button>
+            </Link>
+            {'  '}
+            <Link to={nextURL}>
+                <Button outline color="warning" size="lg" onClick= {() => 
+
                     {this.page[0] = parseInt(this.page[0]) + 1;
                     this.refs.child.changeState(getPodcasts(this.page[0]), this.page[0]);   
                      this.forceUpdate();} 
-                  }> Next page </Button>
+                  }> Next </Button>
             </Link>
+
             </div>
         );
+    }
     }
 }
 
