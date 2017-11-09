@@ -16,7 +16,15 @@ class Genre extends React.Component{
 //        console.log(getFilterDataModels("genre","C"));
 //        console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 
-        var url = "/genre/page=" + (parseInt(this.page[0]) + 1);
+        var nextURL;
+        var prevURL;
+
+        nextURL = "/genre/page=" + (parseInt(this.page[0]) + 1);        
+        if (parseInt(this.page[0]) == 1)
+            prevURL = "/genre/page=1";
+        else
+            prevURL = "/genre/page=" + (parseInt(this.page[0]) - 1);
+
         return (
             <div>
             {"Sort: "}
@@ -33,13 +41,21 @@ class Genre extends React.Component{
                     }
                 }> Desc </Button>
                  <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
-                      
-                 <Link to={url}>
+
+                <Link to={prevURL}>
+                    <Button color="secondary" size="lg" onClick= {() => 
+                        {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0]) - 1;
+                         this.refs.child.changeState(getGenres(this.page[0]), this.page[0]);
+                         this.forceUpdate();}
+                        }> Previous </Button>
+                </Link>
+
+                 <Link to={nextURL}>
                     <Button color="secondary" size="lg" onClick= {() => 
                         {this.page[0] = parseInt(this.page[0]) + 1;
                          this.refs.child.changeState(getGenres(this.page[0]), this.page[0]);
                          this.forceUpdate();}
-                        }> Next page </Button>
+                        }> Next </Button>
                  </Link>
             </div>  
                );
