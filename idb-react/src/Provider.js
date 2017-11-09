@@ -13,7 +13,16 @@ class Provider extends React.Component{
     }
 
     render () {
-        var url = "/provider/page=" + (parseInt(this.page[0]) + 1);
+        var prevURL;
+        var nextURL;
+
+        nextURL = "/provider/page=" + (parseInt(this.page[0]) + 1);
+
+        if (parseInt(this.page[0]) == 1)
+            prevURL = "/provider/page=1";
+        else
+            prevURL = "/provider/page=" + (parseInt(this.page[0]) - 1);
+
         return (
                 <div>
                     {"Sort: "}
@@ -32,12 +41,20 @@ class Provider extends React.Component{
                     <Grid ref="child" Data={getProviders(parseInt(this.page[0]))} CardTitle={"name"} ImageField={""} 
                         MediaType = "provider" page={parseInt(this.page[0])}/>    
                     
-                    <Link to={url}>
+                    <Link to={prevURL}>
+                        <Button color="secondary" size="lg" onClick= {() => 
+                            {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0]) - 1;
+                             this.refs.child.changeState(getProviders(this.page[0]), this.page[0]);   
+                             this.forceUpdate();} 
+                         }> Previous </Button>
+                    </Link>
+
+                    <Link to={nextURL}>
                         <Button color="secondary" size="lg" onClick= {() => 
                             {this.page[0] = parseInt(this.page[0]) + 1;
                              this.refs.child.changeState(getProviders(this.page[0]), this.page[0]);   
                              this.forceUpdate();} 
-                         }> Next page </Button>
+                         }> Next </Button>
                     </Link>
                 </div>  
             );
