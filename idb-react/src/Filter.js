@@ -10,7 +10,7 @@ class GenreCheckbox extends React.Component {
         'Education', 'Fashion & Beauty', 'Games & Hobbies', 'Government & Organizations', 'Health', 'Higher Education', 'History', 
         'Investing', 'Literature', 'Management & Marketing', 'Natural Sciences', 'News & Politics', 'Performing Arts', 'Personal Journals',
          'Podcasting', 'Podcasts', 'Professional', 'Religion & Spirituality', 'Science & Medicine', 'Self-Help', 'Social Sciences', 
-         'Society & Culture', 'Sports & Recreation', 'TV & Film', 'Technology', 'Training'], value: Array(9).fill(false)};
+         'Society & Culture', 'Sports & Recreation', 'TV & Film', 'Technology', 'Training'], alpha : ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'], value: Array(9).fill(false), userInputGenre: {'genre':[]}, userInputAlpha: {'alpha':[]}};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,15 +20,17 @@ class GenreCheckbox extends React.Component {
     handleSubmit(event) {
         var str = "";
         const squares = this.state.value.slice();
-        for (var i = 0; i < this.state.genres.length; i++) {
-            if (squares[i] == 1)
-                str = str + this.state.genres[i];
+        for (var i = 0; i < this.state.alpha.length; i++) {
+            if (squares[i] == 1) {
+                this.state.userInputAlpha["alpha"].push(this.state.alpha[i]);
+                j = j + 1;
+            }
         }
 //        alert("you have selected: " + str);
         var j = getFilterDataPodcasts(str);
-        console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-        console.log(j);
         console.log("reached the submit handler");
+        console.log("you picked: " + this.state.userInputAlpha["alpha"]);
+        alert("you picked: " + this.state.userInputAlpha["alpha"]);
         // event.preventDefault();
     }
 
@@ -43,15 +45,14 @@ class GenreCheckbox extends React.Component {
 
     render() { 
         var rows = []
-        for (var i = 0; i < this.state.genres.length; i++) {
+        for (var i = 0; i < this.state.alpha.length; i++) {
             rows.push(<FormGroup check inline>
                 <Label check>
-                <Input type="checkbox" onChange={this.handleChange} value={i}/> {this.state.genres[i]}
+                <Input type="checkbox" onChange={this.handleChange} value={i}/> {this.state.alpha[i]}
                 </Label>
             </FormGroup>);
         }
-     
-                     // <Button color="primary" size="sm" onClick={this.handleSubmit()} >Submit</Button>{' '}
+
 
         return (
             <Form onSubmit={this.handleSubmit}>
