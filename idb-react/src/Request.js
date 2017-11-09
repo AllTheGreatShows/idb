@@ -68,7 +68,6 @@ function getPodcastSearch(term, page=1) {
     http_request.send(null);
     var response = http_request.responseText;//Needs to JSON.parse()
     console.log(response);
-    console.log("***************************")
     return response;
 }
 function getEpisodeSearch(term, page=1) {
@@ -78,8 +77,6 @@ function getEpisodeSearch(term, page=1) {
     http_request.send(null);
     var response = http_request.responseText;//Needs to JSON.parse()
     console.log(response);
-    console.log("++++++++++++++++++++++++")
-
     return response;
 }
 function getGenreSearch(term, page=1) {
@@ -89,9 +86,6 @@ function getGenreSearch(term, page=1) {
     http_request.send(null);
     var response = http_request.responseText;//Needs to JSON.parse()
     console.log(response);
-    console.log(term)
-    console.log("??????????????????????????")
-
     return response;
 }
 function getProviderSearch(term, page=1) {
@@ -101,8 +95,6 @@ function getProviderSearch(term, page=1) {
     http_request.send(null);
     var response = http_request.responseText;//Needs to JSON.parse()
     console.log(response);
-    console.log("^^^^^^^^^^^^^^^^^^^^^^^")
-
     return response;
 }
 
