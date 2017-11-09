@@ -66,7 +66,7 @@ class Grid extends React.Component {
 
 	renderCard (i) {
 		i = i-1;
-		if(this.state.squares[i]!=undefined){
+		if(this.state.squares[i]==undefined) return <div></div>;
 		console.log(i)
 		var there = "/" + this.props.MediaType + "/id=" + parseInt(this.props.Data["objects"][i]["id"]);
 		console.log(there);
