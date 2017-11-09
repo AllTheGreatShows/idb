@@ -13,7 +13,16 @@ class Podcast extends React.Component{
     }
 
     render () {
-        var url = "/podcast/page=" + (parseInt(this.page[0]) + 1);
+        var prevURL;
+        var nextURL;
+
+        if (parseInt(this.page[0] == 1))
+            prevURL = "podcast/page=1";
+        else
+            prevURL = "/podcast/page=" + (parseInt(this.page[0]) - 1);
+
+        var nextURL = "/podcast/page=" + (parseInt(this.page[0]) + 1);
+        
         console.log("rendering on the url")
 //        console.log(getFilterDataPodcasts("Careers"));
   
@@ -34,13 +43,23 @@ class Podcast extends React.Component{
                 }> Desc </Button>
                 <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
                 <GenreFilter/>
-            <Link to={url}>
+                
+            <Link to={prevURL}>
+                <Button color="secondary" size="lg" onClick= {() => 
+                    {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0])- 1;
+                    this.refs.child.changeState(getPodcasts(this.page[0]), this.page[0]);   
+                     this.forceUpdate();} 
+                  }> Previous </Button>
+            </Link>
+            
+            <Link to={nextURL}>
                 <Button color="secondary" size="lg" onClick= {() => 
                     {this.page[0] = parseInt(this.page[0]) + 1;
                     this.refs.child.changeState(getPodcasts(this.page[0]), this.page[0]);   
                      this.forceUpdate();} 
-                  }> Next page </Button>
+                  }> Next </Button>
             </Link>
+
             </div>
         );
     }
