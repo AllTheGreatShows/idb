@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Rerender} from 'react';
 import {getPodcasts, getAscending, getDescending, getFilterDataPodcasts} from './Request';
 import Grid from './Grid';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ class Podcast extends React.Component{
         super(props)
         this.page = Array(1)
         this.page[0] = this.props.match.params.pagenum;
-        this.state = {userInput : Array(1)};
+        this.state = {userInput : null};
         this.getChildData = this.getChildData.bind(this);
         
     }
@@ -27,10 +27,18 @@ class Podcast extends React.Component{
     // }
 
     getChildData = (childData) => {
-        console.log("In parent and child data is " + childData);
+        // console.log("In parent and child data is " + childData);
+        console.log("state originally set to " + this.state.userInput);
         console.log(childData);
-        this.setState({userInput: childData});
-        console.log("STATE SET TO: " + this.state.userInput);
+
+        this.setState({userInput: childData} , 
+            function() {
+                console.log("hello " + this.state.userInput); 
+                this.forceUpdate();
+            });
+        // this.setState((state) => ({userInput:childData}));
+        
+        console.log("STATE NOW SET TO: " + this.state.userInput);
     }
 
     render () {

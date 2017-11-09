@@ -13,7 +13,7 @@ class CheckBox extends React.Component {
 
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) =>{
         event.preventDefault();
         const squares = this.state.value.slice();
         var userInput = [];
