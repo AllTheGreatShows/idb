@@ -4,7 +4,11 @@ import os
 from allthegreatshows.api import manager
 
 @app.route('/api/search/<string:model>/<path:query>')
-def search(model, query):
+def quick_search(model, query):
+	return search(model, query, 1)
+
+@app.route('/api/search/<string:model>/<path:query>/<int:page>')
+def search(model, query, page):
 	name = ""
 	if (model == "podcast" or model == "episode"):
 		name = "title"
@@ -17,7 +21,7 @@ def search(model, query):
 			}
 		]
 	}
-	return redirect('api/' + model + '?q=' + str(q).replace(' ', '').replace("'", '"'))
+	return redirect('api/' + model + '?q=' + str(q).replace(' ', '').replace("'", '"') + '&page=' + str(page))
 
 
 
