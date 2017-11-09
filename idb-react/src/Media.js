@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Media, Jumbotron, Button} from 'reactstrap';
-import {getGenresID} from './Request';
+import {getPodcastsID, getEpisodesID, getGenresID, getProvidersID} from './Request';
 
 // VALID MEDIA TYPES
 // podcast
@@ -10,8 +10,8 @@ import {getGenresID} from './Request';
 // genre
 
 // PODCASTS, runs when media_type == "podcast"
-function renderPodcast(obj, i) {
-    var val = obj["objects"][i];
+function renderPodcast(obj) {
+    var val = obj;
     console.log(val);
     return (
         <Card>
@@ -32,8 +32,8 @@ function renderPodcast(obj, i) {
 }
 
 // PROVIDERS, runs when media_type == "provider"
-function renderProvider(obj, i) {
-    var val = obj["objects"][i];
+function renderProvider(obj) {
+    var val = obj;
     console.log(val);
 
     var provider_podcasts = "";
@@ -41,10 +41,21 @@ function renderProvider(obj, i) {
     //     provider_podcasts += val.podcasts[i].title + ", ";
     // }
 
+    var pod = val["podcasts"];
+    console.log(pod.length);
+    var c = []
+    for(var i =0; i<pod.length; i++){
+        c[i] = pod[i]["title"]
+    }
+    var d = []
+    for(var i =0; i<pod.length; i++){
+        d[i] = pod[i]["feed_url"]
+    }
+    var p = pod[0];
     return (
         <Card>
             <Media left href="#">
-            {<Media object data-src="holder.js/64x64" img src={val.podcasts[0].image_url.toString()} alt="Generic placeholder image" />}
+            {<Media object data-src="holder.js/64x64" img src={p.image_url.toString()} alt="Generic placeholder image" />}
             </Media>
             <Media body>
             <Media heading>
@@ -101,8 +112,8 @@ function renderGenre(obj) {
 }
 
 // EPISODES, runs when media_type == "episode"
-function renderEpisode(obj, i) {
-    var val = obj["objects"][i];
+function renderEpisode(obj) {
+    var val = obj;
     console.log(val);
     return (
         <Card>
@@ -137,13 +148,13 @@ class MyMedia extends Component {
 
         switch (this.props.match.params.idtype) {//(this.props.media_type) {
             case "podcast":
-                return renderPodcast();
+                return renderPodcast(getPodcastsID(this.props.match.params.idnum));
             case "provider":
-                return renderProvider(obj, i);
+                return renderProvider(getProvidersID(this.props.match.params.idnum));
             case "genre":
                 return renderGenre(getGenresID(this.props.match.params.idnum));
             case "episode":
-                return renderEpisode(obj, i);
+                return renderEpisode(getEpisodesID(this.props.match.params.idnum));
             default:
               alert('shit'+ this.props.match.params.idnum);
               
