@@ -72,7 +72,6 @@ class Grid extends React.Component {
 		return <Link to={there}> <Fcard
 			title={String(this.state.squares[i])}
 			image={String(this.state.images[i])}/> </Link>;
-		}
 	}
 
 	render () {
