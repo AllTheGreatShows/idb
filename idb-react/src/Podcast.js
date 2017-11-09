@@ -69,7 +69,7 @@ class Podcast extends React.Component{
                 <div>
                 {"Sort: "}
                 <Link to={"/podcast/sort=asc/page=1"}>
-                <Button color="success" size="sm" onClick= {() => 
+                <Button color="success" size="lg" onClick= {() => 
                         {this.page[0] = 1;
                         var data = getAscending("title", "podcast",1);
                         this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
@@ -78,7 +78,7 @@ class Podcast extends React.Component{
                 </Link>
                 {' '}
                 <Link to={"/podcast/sort=dsc/page=1"}>
-                <Button color="success" size="sm" onClick= {() => 
+                <Button color="success" size="lg" onClick= {() => 
                         {this.page[0] = 1;
                         var data = getDescending("title", "podcast",1);
                         this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
@@ -112,7 +112,7 @@ class Podcast extends React.Component{
                 <div>
                 {"Sort: "}
                 <Link to={"/podcast/sort=asc/page=1"}>
-                <Button color="success" size="sm" onClick= {() => 
+                <Button color="success" size="lg" onClick= {() => 
                         {this.page[0] = 1;
                         var data = getAscending("title", "podcast");
                         this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
@@ -121,7 +121,7 @@ class Podcast extends React.Component{
                 </Link>
                 {' '}
                 <Link to={"/podcast/sort=dsc/page=1"}>
-                <Button color="success" size="sm" onClick= {() => 
+                <Button color="success" size="lg" onClick= {() => 
                         {this.page[0] = 1;
                         var data = getDescending("title", "podcast");
                         this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
@@ -154,7 +154,7 @@ class Podcast extends React.Component{
             <div>
             {"Sort: "}
             <Link to={"/podcast/sort=asc/page=1"}>
-            <Button color="success" size="sm" onClick= {() => 
+            <Button color="success" size="lg" onClick= {() => 
                     {this.page[0] = 1;
                     var data = getAscending("title", "podcast");
                     this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
@@ -163,7 +163,7 @@ class Podcast extends React.Component{
             </Link>
             {' '}
             <Link to={"/podcast/sort=dsc/page=1"}>
-            <Button color="success" size="sm" onClick= {() => 
+            <Button color="success" size="lg" onClick= {() => 
                     {this.page[0] = 1;
                     var data = getDescending("title", "podcast");
                     this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);

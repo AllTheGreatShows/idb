@@ -61,7 +61,7 @@ class Episode extends React.Component{
                 <div>
                     {"Sort: "}
                     <Link to={"/episode/sort=asc/page=1"}>
-                        <Button color="success" size="sm" onClick= {() => 
+                        <Button color="success" size="lg" onClick= {() => 
                             {this.page[0] = 1;
                             var data = getAscending("title", "episode",1);
                             this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
@@ -70,7 +70,7 @@ class Episode extends React.Component{
                     </Link>
                     {' '}
                     <Link to={"/episode/sort=dsc/page=1"}>
-                        <Button color="success" size="sm" onClick= {() => 
+                        <Button color="success" size="lg" onClick= {() => 
                             {this.page[0] = 1;
                             var data = getDescending("title", "episode",1);
                             this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
@@ -101,7 +101,7 @@ class Episode extends React.Component{
                     <div>
                         {"Sort: "}
                         <Link to={"/episode/sort=asc/page=1"}>
-                            <Button color="success" size="sm" onClick= {() => 
+                            <Button color="success" size="lg" onClick= {() => 
                                 {this.page[0] = 1;
                                 var data = getAscending("title", "episode",1);
                                 this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
@@ -110,7 +110,7 @@ class Episode extends React.Component{
                         </Link>
                         {' '}
                         <Link to={"/episode/sort=dsc/page=1"}>
-                        <Button color="success" size="sm" onClick= {() => 
+                        <Button color="success" size="lg" onClick= {() => 
                                 {this.page[0] = 1;
                                 var data = getDescending("title", "episode",1);
                                 this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
@@ -141,7 +141,7 @@ class Episode extends React.Component{
             <div>
                 {"Sort: "}
                 <Link to={"/episode/sort=asc/page=1"}>
-                    <Button color="success" size="sm" onClick= {() => 
+                    <Button color="success" size="lg" onClick= {() => 
                         {this.page[0] = 1;
                         var data = getAscending("title", "episode",1);
                         this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
@@ -150,7 +150,7 @@ class Episode extends React.Component{
                 </Link>
                 {' '}
                 <Link to={"/episode/sort=dsc/page=1"}>
-                <Button color="success" size="sm" onClick= {() => 
+                <Button color="success" size="lg" onClick= {() => 
                         {this.page[0] = 1;
                         var data = getDescending("title", "episode",1);
                         this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
