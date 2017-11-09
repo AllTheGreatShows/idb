@@ -65,16 +65,10 @@ class MyFilter extends React.Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = { collapse: false };
-        this.handleClick = this.handleClick.bind(this);
         this.getData = this.getData.bind(this);
         }
 
-    handleClick() {
-        console.log("submitted")
-    }
-
-    getData(childData) {
-        console.log("yeahhhh buddy " + childData);
+    getData = (childData) => {
         this.props.child_value(childData);
     }
 

@@ -15,15 +15,22 @@ class Podcast extends React.Component{
         
     }
 
-    getChildData(childData) {
+    // getChildData(childData) {
+    //     console.log("In parent and child data is " + childData);
+    //     console.log(childData);
+    //     console.log("state originally set to " + this.state.userInput);
+    //     this.setState({userInput: childData});
+    //     // this.setState((state) => ({userInput:childData}));
+    //     // this.forceUpdate();
+    //     console.log("STATE SET TO: " + this.state.userInput);
+    //     // debugger;
+    // }
+
+    getChildData = (childData) => {
         console.log("In parent and child data is " + childData);
         console.log(childData);
-        console.log("state originally set to " + this.state.userInput);
-        // this.setState({userInput: childData});
-        // this.setState((state) => ({userInput:childData}));
-        this.forceUpdate();
+        this.setState({userInput: childData});
         console.log("STATE SET TO: " + this.state.userInput);
-        // debugger;
     }
 
     render () {
