@@ -30,6 +30,9 @@ class Grid extends React.Component {
 					squaresI[i] = obj["objects"][i]["podcasts"][0]["image_url"];
 			}
 	   }
+	   console.log(squaresT);
+	   if(squaresT[8] == undefined)
+			console.log("^^^^^^^^^^^^^^^^^^^^^")
    
 	   this.state = {
 		   squares: squaresT,
@@ -62,10 +65,11 @@ class Grid extends React.Component {
 
 	renderCard (i) {
 		i = i-1;
-		console.log(i)
+		if(this.state.squares[i]!=undefined){
 		return <Link to="/home"> <Fcard
 			title={String(this.state.squares[i])}
 			image={String(this.state.images[i])}/> </Link>;
+		}
 	}
 
 	render () {
