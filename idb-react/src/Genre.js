@@ -60,23 +60,35 @@ class Genre extends React.Component{
             return (
                 <div>
                 {"Sort: "}
-                 <Button color="success" size="sm" onClick= {() => 
-                        {this.page[0] = 1;
-                        var data = getAscending("name", "genre");
-                        this.refs.child.changeState(data,"name" ,"image_url" ,"genre", 1);
-                        }
-                    }> Asc </Button>{' '}
-                <Button color="success" size="sm" onClick= {() => 
-                        {this.page[0] = 1;
-                        var data = getDescending("name", "genre");
-                        this.refs.child.changeState(data,"name" ,"image_url" ,"genre", 1);
-                        }
-                    }> Desc </Button>
+                <Link to={"/genre/sort=asc/page=1"}>
+                    <Button color="success" size="sm" onClick= {() => 
+                            {this.page[0] = 1;
+                            var data = getAscending("name", "genre", 1);
+                            this.refs.child.changeState(data,"name" ,"image_url" ,"genre", 1, true);
+                            }
+                        }> Asc </Button>{' '}
+                </Link>
+                <Link to={"/genre/sort=dsc/page=1"}>
+                    <Button color="success" size="sm" onClick= {() => 
+                            {this.page[0] = 1;
+                            var data = getDescending("name", "genre",1);
+                            this.refs.child.changeState(data,"name" ,"image_url" ,"genre", 1);
+                            }
+                        }> Desc </Button>
+                </Link>
+
                      <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
                      <Link to={nextURL}>
                         <Button outline color="warning" size="lg" onClick= {() => 
                             {this.page[0] = parseInt(this.page[0]) + 1;
-                             this.refs.child.changeState(getGenres(this.page[0]), this.page[0]);
+                            var data;
+                            if (boolASC)
+                                data = getAscending("name", "genre", this.page[0]);
+                            else if (boolDSC)
+                                data = getDescending("name", "genre", this.page[0]);
+                            else
+                                data = getGenres(this.page[0]);
+                             this.refs.child.changeState(data, this.page[0]);
                              this.forceUpdate();}
                             }> Next </Button>
                      </Link>
@@ -87,24 +99,36 @@ class Genre extends React.Component{
             return (
                 <div>
                 {"Sort: "}
-                 <Button color="success" size="sm" onClick= {() => 
-                        {this.page[0] = 1;
-                        var data = getAscending("name", "genre");
-                        this.refs.child.changeState(data,"name" ,"image_url" ,"genre", 1);
-                        }
-                    }> Asc </Button>{' '}
-                <Button color="success" size="sm" onClick= {() => 
-                        {this.page[0] = 1;
-                        var data = getDescending("name", "genre");
-                        this.refs.child.changeState(data,"name" ,"image_url" ,"genre", 1);
-                        }
-                    }> Desc </Button>
+                <Link to={"/genre/sort=asc/page=1"}>
+                    <Button color="success" size="sm" onClick= {() => 
+                            {this.page[0] = 1;
+                            var data = getAscending("name", "genre", 1);
+                            this.refs.child.changeState(data,"name" ,"image_url" ,"genre", 1, true);
+                            }
+                        }> Asc </Button>{' '}
+                </Link>
+                <Link to={"/genre/sort=dsc/page=1"}>
+                    <Button color="success" size="sm" onClick= {() => 
+                            {this.page[0] = 1;
+                            var data = getDescending("name", "genre",1);
+                            this.refs.child.changeState(data,"name" ,"image_url" ,"genre", 1);
+                            }
+                        }> Desc </Button>
+                </Link>
+
                      <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
     
                     <Link to={prevURL}>
                         <Button outline color="warning" size="lg" onClick= {() => 
                             {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0]) - 1;
-                             this.refs.child.changeState(getGenres(this.page[0]), this.page[0]);
+                                var data;
+                                if (boolASC)
+                                    data = getAscending("name", "genre", this.page[0]);
+                                else if (boolDSC)
+                                    data = getDescending("name", "genre", this.page[0]);
+                                else
+                                    data = getGenres(this.page[0]);
+                             this.refs.child.changeState(data, this.page[0]);
                              this.forceUpdate();}
                             }> Previous </Button>
                     </Link>    
@@ -115,24 +139,36 @@ class Genre extends React.Component{
         return (
             <div>
             {"Sort: "}
-             <Button color="success" size="sm" onClick= {() => 
-                    {this.page[0] = 1;
-                    var data = getAscending("name", "genre");
-                    this.refs.child.changeState(data,"name" ,"image_url" ,"genre", 1);
-                    }
-                }> Asc </Button>{' '}
-            <Button color="success" size="sm" onClick= {() => 
-                    {this.page[0] = 1;
-                    var data = getDescending("name", "genre");
-                    this.refs.child.changeState(data,"name" ,"image_url" ,"genre", 1);
-                    }
-                }> Desc </Button>
+                <Link to={"/genre/sort=asc/page=1"}>
+                    <Button color="success" size="sm" onClick= {() => 
+                            {this.page[0] = 1;
+                            var data = getAscending("name", "genre", 1);
+                            this.refs.child.changeState(data,"name" ,"image_url" ,"genre", 1, true);
+                            }
+                        }> Asc </Button>{' '}
+                </Link>
+                <Link to={"/genre/sort=dsc/page=1"}>
+                    <Button color="success" size="sm" onClick= {() => 
+                            {this.page[0] = 1;
+                            var data = getDescending("name", "genre",1);
+                            this.refs.child.changeState(data,"name" ,"image_url" ,"genre", 1);
+                            }
+                        }> Desc </Button>
+                </Link>
+
                  <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
 
                 <Link to={prevURL}>
                     <Button outline color="warning" size="lg" onClick= {() => 
                         {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0]) - 1;
-                         this.refs.child.changeState(getGenres(this.page[0]), this.page[0]);
+                            var data;
+                            if (boolASC)
+                                data = getAscending("name", "genre", this.page[0]);
+                            else if (boolDSC)
+                                data = getDescending("name", "genre", this.page[0]);
+                            else
+                                data = getGenres(this.page[0]);
+                         this.refs.child.changeState(data, this.page[0]);
                          this.forceUpdate();}
                         }> Previous </Button>
                 </Link>
@@ -140,7 +176,14 @@ class Genre extends React.Component{
                  <Link to={nextURL}>
                     <Button outline color="warning" size="lg" onClick= {() => 
                         {this.page[0] = parseInt(this.page[0]) + 1;
-                         this.refs.child.changeState(getGenres(this.page[0]), this.page[0]);
+                            var data;
+                            if (boolASC)
+                                data = getAscending("name", "genre", this.page[0]);
+                            else if (boolDSC)
+                                data = getDescending("name", "genre", this.page[0]);
+                            else
+                                data = getGenres(this.page[0]);
+                         this.refs.child.changeState(data, this.page[0]);
                          this.forceUpdate();}
                         }> Next </Button>
                  </Link>
