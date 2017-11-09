@@ -10,6 +10,14 @@ class Podcast extends React.Component{
         super(props)
         this.page = Array(1)
         this.page[0] = this.props.match.params.pagenum;
+        this.state = {userFilterSelection : null};
+        
+    }
+    myCallBack = (dataFromChild) => {
+        console.log("reached myCallBack function");
+        console.log("State originally set to: " + this.state.userFilterSelection);
+        this.setState({userFilterSelection : dataFromChild});
+        console.log("State set to: " + this.state.userFilterSelection);
     }
 
     render () {
@@ -108,7 +116,9 @@ class Podcast extends React.Component{
                     this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
                     }
                 }> Desc </Button>
+                <GenreFilter callBackFromParent={this.myCallback}/>    
                 <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+
                 <GenreFilter/>
                 
             <Link to={prevURL}>
@@ -121,6 +131,7 @@ class Podcast extends React.Component{
             {'  '}
             <Link to={nextURL}>
                 <Button outline color="warning" size="lg" onClick= {() => 
+
                     {this.page[0] = parseInt(this.page[0]) + 1;
                     this.refs.child.changeState(getPodcasts(this.page[0]), this.page[0]);   
                      this.forceUpdate();} 
