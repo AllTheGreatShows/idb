@@ -35,26 +35,26 @@ function getProviders(page=1) {
     return response;
 }
 
-function getAscending(val, type) {
+function getAscending(val, type, page=1) {
     var http_request = new XMLHttpRequest();
     console.log(val)
     console.log(type)
     if(val == "title")
-        var url = "http://allthegreatshows.com/api/" + type + "?q={%22order_by%22:[{%22field%22:%22title%22,%20%22direction%22:%22asc%22}]}";
+        var url = "http://allthegreatshows.com/api/" + type + "?q={%22order_by%22:[{%22field%22:%22title%22,%20%22direction%22:%22asc%22}]}&page=" + page;
     else
-        var url = "http://allthegreatshows.com/api/" + type + "?q={%22order_by%22:[{%22field%22:%22name%22,%20%22direction%22:%22asc%22}]}";    
+        var url = "http://allthegreatshows.com/api/" + type + "?q={%22order_by%22:[{%22field%22:%22name%22,%20%22direction%22:%22asc%22}]}&page=" + page;    
     http_request.open("GET", url, false);
     http_request.send(null);
     var response = JSON.parse(http_request.responseText);
     return response;
 }
 
-function getDescending(val, type) {
+function getDescending(val, type, page=1) {
     var http_request = new XMLHttpRequest();
     if(val == "title")
-        var url = "http://allthegreatshows.com/api/" + type + "?q={%22order_by%22:[{%22field%22:%22title%22,%20%22direction%22:%22desc%22}]}";
+        var url = "http://allthegreatshows.com/api/" + type + "?q={%22order_by%22:[{%22field%22:%22title%22,%20%22direction%22:%22desc%22}]}&page=" + page;
     else
-        var url = "http://allthegreatshows.com/api/" + type + "?q={%22order_by%22:[{%22field%22:%22name%22,%20%22direction%22:%22desc%22}]}";
+        var url = "http://allthegreatshows.com/api/" + type + "?q={%22order_by%22:[{%22field%22:%22name%22,%20%22direction%22:%22desc%22}]}&page=" + page;
     http_request.open("GET", url, false);
     http_request.send(null);
     var response = JSON.parse(http_request.responseText);
