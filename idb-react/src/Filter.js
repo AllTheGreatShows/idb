@@ -6,7 +6,7 @@ class CheckBox extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { alpha : ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'], value: Array(26).fill(false), userInput : "empty"};
+        this.state = { alpha : ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'], value: Array(26).fill(false)};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,19 +16,15 @@ class CheckBox extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         const squares = this.state.value.slice();
-        var str = "";
+        var userInput = [];
         for (var i = 0; i < this.state.alpha.length; i++) {
             if (squares[i] == 1) {
-                str = str + this.state.alpha[i];
-                // this.setState({userInput:this.state.alpha[i]});
-                // this.forceUpdate();
+                userInput.push(this.state.alpha[i]);
             }
         }
-        // alert("you have selected: " + str);
-        // var j = getFilterDataPodcasts(str)
         console.log("reached the submit handler");
-        console.log("you picked: " + str);
-        this.props.sendData(str);
+        console.log("you picked: " + userInput);
+        this.props.sendData(userInput);
         
         // alert("you picked: " + this.state.userInput);
     }
@@ -78,7 +74,8 @@ class MyFilter extends React.Component {
     }
 
     getData(childData) {
-        console.log("yeah buddy" + childData);
+        console.log("yeahhhh buddy " + childData);
+        this.props.child_value(childData);
     }
 
     render() {
@@ -90,6 +87,7 @@ class MyFilter extends React.Component {
                 <CardBody>
                     {/* put checkbox here */}
                     <CheckBox sendData={this.getData}/>
+                    
                     
                 </CardBody>
               </Card>

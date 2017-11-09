@@ -10,8 +10,20 @@ class Podcast extends React.Component{
         super(props)
         this.page = Array(1)
         this.page[0] = this.props.match.params.pagenum;
-        this.state = {filterVal : null};
+        this.state = {userInput : Array(1)};
+        this.getChildData = this.getChildData.bind(this);
         
+    }
+
+    getChildData(childData) {
+        console.log("In parent and child data is " + childData);
+        console.log(childData);
+        console.log("state originally set to " + this.state.userInput);
+        // this.setState({userInput: childData});
+        // this.setState((state) => ({userInput:childData}));
+        this.forceUpdate();
+        console.log("STATE SET TO: " + this.state.userInput);
+        // debugger;
     }
 
     render () {
@@ -33,9 +45,7 @@ class Podcast extends React.Component{
                     this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
                     }
                 }> Desc </Button>
-                {/* child_value is a prop */}
-                <MyFilter child_value={this.state.filterVal}/>    
-                {/* need to update the parent state */}
+                <MyFilter child_value={this.getChildData}/>
                 <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
             <Link to={url}>
                 <Button color="secondary" size="lg" onClick= {() => 
