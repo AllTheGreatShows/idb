@@ -15,28 +15,12 @@ class Podcast extends React.Component{
         
     }
 
-    // getChildData(childData) {
-    //     console.log("In parent and child data is " + childData);
-    //     console.log(childData);
-    //     console.log("state originally set to " + this.state.userInput);
-    //     this.setState({userInput: childData});
-    //     // this.setState((state) => ({userInput:childData}));
-    //     // this.forceUpdate();
-    //     console.log("STATE SET TO: " + this.state.userInput);
-    //     // debugger;
-    // }
 
     getChildData = (childData) => {
         // console.log("In parent and child data is " + childData);
         console.log("state originally set to " + this.state.userInput);
         console.log(childData);
 
-        // this.setState({userInput: childData} , 
-        //     function() {
-        //         console.log("hello " + this.state.userInput); 
-        //         this.forceUpdate();
-        //     });
-        // this.setState((state) => ({userInput:childData}));
         this.setState({userInput:childData});
         this.forceUpdate();
         console.log("STATE NOW SET TO: " + this.state.userInput);
@@ -106,8 +90,8 @@ class Podcast extends React.Component{
                         }
                     }> Desc </Button>
                     </Link>
+                    <MyFilter getData = {() => this.getChildData()}/>
                     <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
-                    <GenreFilter/>
                 <Link to={nextURL}>
                     <Button outline color="warning" size="lg" onClick= {() => 
                         {this.page[0] = parseInt(this.page[0]) + 1;
@@ -149,8 +133,9 @@ class Podcast extends React.Component{
                         }
                     }> Desc </Button>
                 </Link>
+                    <MyFilter getData = {() => this.getChildData()}/>
                     <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
-                    <GenreFilter/>
+                    
                     
                 <Link to={prevURL}>
                     <Button outline color="warning" size="lg" onClick= {() => 
@@ -191,9 +176,10 @@ class Podcast extends React.Component{
                     }
                 }> Desc </Button>
                 </Link>
+                <MyFilter getData = {() => this.getChildData()}/>
                 <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
 
-                <GenreFilter/>
+                
                 
             <Link to={prevURL}>
                 <Button outline color="warning" size="lg" onClick= {() => 
