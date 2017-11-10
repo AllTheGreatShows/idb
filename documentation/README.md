@@ -18,7 +18,3 @@ The only other route defined in [`views.py`](https://github.com/AllTheGreatShows
 
 * [`models.py`](https://github.com/AllTheGreatShows/idb/blob/master/allthegreatshows/models.py)
 * [`run.py`](https://github.com/AllTheGreatShows/idb/blob/master/run.py)
-
-## Frontend
-
-TODO
