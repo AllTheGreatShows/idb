@@ -19,6 +19,7 @@ class Grid extends React.Component {
 		console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
 		const squaresT = Array(9);//Titles
 		const squaresI = Array(9).fill("");//Images
+		const squaresD = Array(9);
 		const obj = data;
 		console.log(obj["objects"]);
 		const page = pages;
@@ -27,6 +28,7 @@ class Grid extends React.Component {
 		for (var i = obj["objects"].length - 1; i >= 0; i--) {
 			//obj[i]
 			squaresT[i] = obj["objects"][i][this.props.CardTitle];
+			squaresD[i] = obj["objects"][i]["id"];
 			if (hasImg) squaresI[i] = obj["objects"][i][this.props.ImageField];
 			else{
 				if (this.props.CardTitle == "title")
@@ -39,6 +41,7 @@ class Grid extends React.Component {
 	   this.state = {
 		   squares: squaresT,
 		   images: squaresI,
+		   theIDs: squaresD,
 		   activePage: page,
 	   }
    
@@ -72,7 +75,7 @@ class Grid extends React.Component {
 		console.log(i)
 		var there = "/" + this.props.MediaType + "/id=" + parseInt(this.props.Data["objects"][i]["id"]);
 		console.log(there);
-		return <Link to={there}> <Fcard
+		return <Link to={"/" + this.props.MediaType + "/id=" + parseInt(this.state.theIDs[i])}> <Fcard
 			title={String(this.state.squares[i])}
 			image={String(this.state.images[i])}/> </Link>;
 	}
