@@ -2,36 +2,33 @@ import React from 'react';
 import { Form, FormGroup, Label, Input, Button, Collapse, Card, CardBody } from 'reactstrap';
 import { getFilterDataPodcasts} from "./Request";
 
-class GenreCheckbox extends React.Component {
+class CheckBox extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { genres : ['Alternative Health', 'Arts', 'Business', 'Business News', 'Careers', 'Comedy', 'Design', 
-        'Education', 'Fashion & Beauty', 'Games & Hobbies', 'Government & Organizations', 'Health', 'Higher Education', 'History', 
-        'Investing', 'Literature', 'Management & Marketing', 'Natural Sciences', 'News & Politics', 'Performing Arts', 'Personal Journals',
-         'Podcasting', 'Podcasts', 'Professional', 'Religion & Spirituality', 'Science & Medicine', 'Self-Help', 'Social Sciences', 
-         'Society & Culture', 'Sports & Recreation', 'TV & Film', 'Technology', 'Training'], alpha : ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'], value: Array(9).fill(false), userInputGenre: {'genre':[]}, userInputAlpha: {'alpha':[]}};
+        this.state = { alpha : ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'], value: Array(26).fill(false)};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
-    handleSubmit(event) {
-        var str = "";
+
+    handleSubmit = (event) =>{
+        event.preventDefault();
         const squares = this.state.value.slice();
+        var userInput = [];
         for (var i = 0; i < this.state.alpha.length; i++) {
             if (squares[i] == 1) {
-                this.state.userInputAlpha["alpha"].push(this.state.alpha[i]);
-                j = j + 1;
+                // userInput.push(this.state.alpha[i]);
+                userInput[0] = this.state.alpha[i];
             }
         }
-//        alert("you have selected: " + str);
-        var j = getFilterDataPodcasts(str);
         console.log("reached the submit handler");
-        console.log("you picked: " + this.state.userInputAlpha["alpha"]);
-        alert("you picked: " + this.state.userInputAlpha["alpha"]);
-        // event.preventDefault();
+        console.log("you picked: " + userInput);
+        this.props.sendData(userInput);
+        
+        // alert("you picked: " + this.state.userInput);
     }
 
     handleChange(event) {
@@ -39,16 +36,16 @@ class GenreCheckbox extends React.Component {
         const squares = this.state.value.slice();
         squares[i] = !squares[i];
         this.setState({value: squares});
-        // this.setState({value: event.target.value});
-        // console.log("index"+this.props.index);
+        // this.forceUpdate();
     }
+
 
     render() { 
         var rows = []
         for (var i = 0; i < this.state.alpha.length; i++) {
             rows.push(<FormGroup check inline>
                 <Label check>
-                <Input type="checkbox" onChange={this.handleChange} value={i}/> {this.state.alpha[i]}
+                <Input type="radio" name="radio1" onChange={this.handleChange} value={i}/> {this.state.alpha[i]}
                 </Label>
             </FormGroup>);
         }
@@ -57,7 +54,7 @@ class GenreCheckbox extends React.Component {
         return (
             <Form onSubmit={this.handleSubmit}>
                 {rows}
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit"/>
             </Form>
         );
     }
@@ -65,10 +62,17 @@ class GenreCheckbox extends React.Component {
 
 
 // made up of multiple toggles
-class GenreFilter extends React.Component {
+class MyFilter extends React.Component {
 
-    handleClick() {
-        console.log("submitted")
+    constructor(props) {
+        super(props);
+        this.toggle = this.toggle.bind(this);
+        this.state = { collapse: false };
+        // this.getData = this.getData.bind(this);
+        }
+
+    getData = (childData) => {
+        this.props.child_value(childData);
     }
 
     render() {
@@ -79,7 +83,8 @@ class GenreFilter extends React.Component {
               <Card>
                 <CardBody>
                     {/* put checkbox here */}
-                    <GenreCheckbox/>
+                    <CheckBox sendData={() => this.getData}/>
+                    
                     
                 </CardBody>
               </Card>
@@ -88,11 +93,7 @@ class GenreFilter extends React.Component {
         );
       }
 
-    constructor(props) {
-    super(props);
-    this.toggle = this.toggle.bind(this);
-    this.state = { collapse: false };
-    }
+    
     
 
     toggle() {
@@ -101,4 +102,4 @@ class GenreFilter extends React.Component {
 }
 
 
-export default GenreFilter;
+export default MyFilter;
