@@ -131,37 +131,37 @@ function getProvidersID(id) {
 
 function getPodcastSearch(term, page=1) {
     var http_request = new XMLHttpRequest();
-    var url = "http://allthegreatshows.com/api/search/podcast/" + term+ "?page=" + page;
+    var url = "http://allthegreatshows.com/api/search/podcast/" + term + "/" + page;
     http_request.open("GET", url, false);
     http_request.send(null);
-    var response = http_request.responseText;//Needs to JSON.parse()
+    var response = JSON.parse(http_request.responseText);
     console.log(response);
     return response;
 }
 function getEpisodeSearch(term, page=1) {
     var http_request = new XMLHttpRequest();
-    var url = "http://allthegreatshows.com/api/search/episode/" + term +"?page=" + page;
+    var url = "http://allthegreatshows.com/api/search/episode/" + term +"/" + page;
     http_request.open("GET", url, false);
     http_request.send(null);
-    var response = http_request.responseText;//Needs to JSON.parse()
+    var response = JSON.parse(http_request.responseText);
     console.log(response);
     return response;
 }
 function getGenreSearch(term, page=1) {
     var http_request = new XMLHttpRequest();
-    var url = "http://allthegreatshows.com/api/search/genre/" + term + "?page=" + page;
+    var url = "http://allthegreatshows.com/api/search/genre/" + term + "/" + page;
     http_request.open("GET", url, false);
     http_request.send(null);
-    var response = http_request.responseText;//Needs to JSON.parse()
+    var response = JSON.parse(http_request.responseText);
     console.log(response);
     return response;
 }
 function getProviderSearch(term, page=1) {
     var http_request = new XMLHttpRequest();
-    var url = "http://allthegreatshows.com/api/search/provider/" + term + "?page=" + page;
+    var url = "http://allthegreatshows.com/api/search/provider/" + term + "/" + page;
     http_request.open("GET", url, false);
     http_request.send(null);
-    var response = http_request.responseText;//Needs to JSON.parse()
+    var response = JSON.parse(http_request.responseText);
     console.log(response);
     return response;
 }
