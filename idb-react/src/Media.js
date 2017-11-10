@@ -13,10 +13,12 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 function renderPodcast(obj) {
     var val = obj;
     console.log(val);
+    var pod = val["genres"];
     var l = [];
     console.log(val["genres"].length);
     for (var i=0;i<val["genres"].length; i++){
-        l[i] = val["genres"][i]["name"].toString();
+        // l[i] = val["genres"][i]["name"].toString();
+        l.push(<div><Link to={"/genre/id="+pod[i]["id"]}> {pod[i]["name"]} </Link><br/></div>);
     }
     return (
         <Card>
@@ -27,7 +29,7 @@ function renderPodcast(obj) {
             <Media heading>
                 {val.title.toString()}
             </Media>
-                genres: {l.toString()} <br/>
+                genres: {l} <br/>
                 id: {val.id.toString()} <br/>
                 feed_url: <a href={val.feed_url.toString()}> {val.feed_url.toString()}</a> <br/>
                 itunes_id: {val.itunes_id.toString()} <br/>
@@ -50,9 +52,8 @@ function renderProvider(obj) {
     console.log(pod.length);
     var c = []
     for(var i =0; i<pod.length; i++){
-        var url_1 = "/podcast/id=" + pod[i]["id"];
-        c.push(pod[i]["title"]+"\t")
-//        c.push(<Link url= {url_1}>{pod[i]["title"]}</Link>);
+
+        c.push(<div><Link to={"/podcast/id="+pod[i]["id"]}> {pod[i]["title"]} </Link><br/></div>);
     }
     var d = []
     for(var i =0; i<pod.length; i++){
@@ -71,7 +72,7 @@ function renderProvider(obj) {
                 id: {val.id.toString()} <br/>
                 itunes id: {val.podcasts[0].itunes_id.toString()} <br/>
                 name: {val.name.toString()} <br/>
-                Podcast titles: {c.toString()} <br/>
+                Podcast titles: {c} <br/>
                 feed_url: <a href={val.podcasts[0].feed_url.toString()}> {val.podcasts[0].feed_url.toString()}</a>
 
             </Media>
@@ -87,7 +88,8 @@ function renderGenre(obj) {
     console.log(pod.length);
     var c = []
     for(var i =0; i<pod.length; i++){
-        c[i] = pod[i]["title"].toString();
+        // c[i] = pod[i]["title"].toString();
+        c.push(<div><Link to={"/podcast/id="+pod[i]["id"]}> {pod[i]["title"]} </Link><br/></div>);
     }
     var d = []
     for(var i =0; i<pod.length; i++){
@@ -109,7 +111,7 @@ function renderGenre(obj) {
                 {
                     val.name.toString()}
             </Media>
-               <b> podcasts</b>: {c.toString()} <br/>
+               <b> podcasts</b>: {c} <br/>
                 <b>feed_urls</b>: {d} <br/>
                 <b>itunes id</b>: {val.itunes_id.toString()} <br/>
                <b> id: </b>{val.id.toString()} <br/>
