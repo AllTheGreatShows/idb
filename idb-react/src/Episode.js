@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {getEpisodes, getAscending, getDescending, getFilterDataModels} from './Request';
 import Grid from './Grid';
+import MyFilter from './Filter';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
 
@@ -10,6 +11,17 @@ class Episode extends React.Component{
         super(props)
         this.page = Array(1)
         this.page[0] = this.props.match.params.pagenum;
+        this.getChildData = this.getChildData.bind(this);
+    }
+
+    getChildData = (childData) => {
+        // console.log("In parent and child data is " + childData);
+        console.log("state originally set to " + this.state.userInput);
+        console.log(childData);
+
+        this.setState({userInput:childData});
+        this.forceUpdate();
+        console.log("STATE NOW SET TO: " + this.state.userInput);
     }
 
     render () {
@@ -77,6 +89,7 @@ class Episode extends React.Component{
                             }
                         }> Desc </Button>
                     </Link>
+                    <MyFilter getData = {() => this.getChildData()}/>
                     <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     
                     
                     <Link to={nextURL}>
@@ -117,6 +130,7 @@ class Episode extends React.Component{
                                 }
                             }> Desc </Button>
                         </Link>
+                        <MyFilter getData = {() => this.getChildData()}/>
                         <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     
                         
                         <Link to={prevURL}>
@@ -157,6 +171,7 @@ class Episode extends React.Component{
                         }
                     }> Desc </Button>
                 </Link>
+                <MyFilter getData = {() => this.getChildData()}/>
                 <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     
                 <Link to={prevURL}>
                     <Button outline color="warning" size="lg" onClick= {() => 

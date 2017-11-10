@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {getGenres, getAscending, getDescending, getFilterDataModels} from './Request';
 import Grid from './Grid';
+import MyFilter from './Filter';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
 
@@ -10,6 +11,17 @@ class Genre extends React.Component{
         super(props)
         this.page = Array(1)
         this.page[0] = this.props.match.params.pagenum;
+        this.getChildData = this.getChildData.bind(this);
+    }
+
+    getChildData = (childData) => {
+        // console.log("In parent and child data is " + childData);
+        console.log("state originally set to " + this.state.userInput);
+        console.log(childData);
+
+        this.setState({userInput:childData});
+        this.forceUpdate();
+        console.log("STATE NOW SET TO: " + this.state.userInput);
     }
 
     render () {
@@ -76,7 +88,7 @@ class Genre extends React.Component{
                             }
                         }> Desc </Button>
                 </Link>
-
+                <MyFilter getData = {() => this.getChildData()}/>
                      <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
                      <Link to={nextURL}>
                         <Button outline color="warning" size="lg" onClick= {() => 
@@ -115,7 +127,7 @@ class Genre extends React.Component{
                             }
                         }> Desc </Button>
                 </Link>
-
+                <MyFilter getData = {() => this.getChildData()}/>
                      <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
     
                     <Link to={prevURL}>
@@ -155,7 +167,7 @@ class Genre extends React.Component{
                             }
                         }> Desc </Button>
                 </Link>
-
+                <MyFilter getData = {() => this.getChildData()}/>
                  <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
 
                 <Link to={prevURL}>

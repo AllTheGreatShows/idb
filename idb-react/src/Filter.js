@@ -61,7 +61,6 @@ class CheckBox extends React.Component {
 }
 
 
-// made up of multiple toggles
 class MyFilter extends React.Component {
 
     constructor(props) {
