@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Media, Jumbotron, Button} from 'reactstrap';
 import {getPodcastsID, getEpisodesID, getGenresID, getProvidersID} from './Request';
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 // VALID MEDIA TYPES
 // podcast
 // provider
@@ -13,6 +13,11 @@ import {getPodcastsID, getEpisodesID, getGenresID, getProvidersID} from './Reque
 function renderPodcast(obj) {
     var val = obj;
     console.log(val);
+    var l = [];
+    console.log(val["genres"].length);
+    for (var i=0;i<val["genres"].length; i++){
+        l[i] = val["genres"][i]["name"].toString();
+    }
     return (
         <Card>
             <Media left href="#">
@@ -22,9 +27,9 @@ function renderPodcast(obj) {
             <Media heading>
                 {val.title.toString()}
             </Media>
-                genres: {val.genres.toString()} <br/>
+                genres: {l.toString()} <br/>
                 id: {val.id.toString()} <br/>
-                feed_url: {val.feed_url.toString()} <br/>
+                feed_url: <a href={val.feed_url.toString()}> {val.feed_url.toString()}</a> <br/>
                 itunes_id: {val.itunes_id.toString()} <br/>
             </Media>
         </Card>  
@@ -45,7 +50,9 @@ function renderProvider(obj) {
     console.log(pod.length);
     var c = []
     for(var i =0; i<pod.length; i++){
-        c[i] = pod[i]["title"]
+        var url_1 = "/podcast/id=" + pod[i]["id"];
+        c.push(pod[i]["title"]+"\t")
+//        c.push(<Link url= {url_1}>{pod[i]["title"]}</Link>);
     }
     var d = []
     for(var i =0; i<pod.length; i++){
@@ -62,11 +69,10 @@ function renderProvider(obj) {
                 {val.name.toString()}
             </Media>                
                 id: {val.id.toString()} <br/>
-                itunes id: {val.id.toString()} <br/>
+                itunes id: {val.podcasts[0].itunes_id.toString()} <br/>
                 name: {val.name.toString()} <br/>
-                title: {val.podcasts[0].title.toString()} <br/>
-                {/* podcasts: {provider_podcasts} */}
-                feed_url: {val.podcasts[0].feed_url.toString()}
+                Podcast titles: {c.toString()} <br/>
+                feed_url: <a href={val.podcasts[0].feed_url.toString()}> {val.podcasts[0].feed_url.toString()}</a>
 
             </Media>
         </Card>  
@@ -81,11 +87,12 @@ function renderGenre(obj) {
     console.log(pod.length);
     var c = []
     for(var i =0; i<pod.length; i++){
-        c[i] = pod[i]["title"]
+        c[i] = pod[i]["title"].toString();
     }
     var d = []
     for(var i =0; i<pod.length; i++){
-        d[i] = pod[i]["feed_url"]
+      
+        d.push(<div><a href = {pod[i]["feed_url"]}>{pod[i]["feed_url"]}</a><br/></div>);
     }
     var p = pod[0];
 
@@ -103,7 +110,7 @@ function renderGenre(obj) {
                     val.name.toString()}
             </Media>
                <b> podcasts</b>: {c.toString()} <br/>
-                <b>feed_urls</b>: {d.toString()} <br/>
+                <b>feed_urls</b>: {d} <br/>
                 <b>itunes id</b>: {val.itunes_id.toString()} <br/>
                <b> id: </b>{val.id.toString()} <br/>
             </Media>
