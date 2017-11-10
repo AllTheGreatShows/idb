@@ -61,7 +61,7 @@ class Podcast extends React.Component{
                     this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
                     }
                 }> Desc </Button>
-                <MyFilter child_value={this.getChildData}/>
+                <MyFilter child_value={() => this.getChildData}/>
                 <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
             <Link to={url}>
                 <Button color="secondary" size="lg" onClick= {() => 

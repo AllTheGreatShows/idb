@@ -68,7 +68,7 @@ class MyFilter extends React.Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = { collapse: false };
-        this.getData = this.getData.bind(this);
+        // this.getData = this.getData.bind(this);
         }
 
     getData = (childData) => {
@@ -83,7 +83,7 @@ class MyFilter extends React.Component {
               <Card>
                 <CardBody>
                     {/* put checkbox here */}
-                    <CheckBox sendData={this.getData}/>
+                    <CheckBox sendData={() => this.getData}/>
                     
                     
                 </CardBody>
