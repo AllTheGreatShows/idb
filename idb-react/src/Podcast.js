@@ -1,23 +1,45 @@
-import React, { Component } from 'react';
+import React, { Component, Rerender} from 'react';
 import {getPodcasts, getAscending, getDescending, getFilterDataPodcasts} from './Request';
 import Grid from './Grid';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
-import GenreFilter from './Filter';
+import MyFilter from './Filter';
 class Podcast extends React.Component{
 
     constructor(props){
         super(props)
         this.page = Array(1)
         this.page[0] = this.props.match.params.pagenum;
-        this.state = {userFilterSelection : null};
+        this.state = {userInput : null};
+        this.getChildData = this.getChildData.bind(this);
         
     }
-    myCallBack = (dataFromChild) => {
-        console.log("reached myCallBack function");
-        console.log("State originally set to: " + this.state.userFilterSelection);
-        this.setState({userFilterSelection : dataFromChild});
-        console.log("State set to: " + this.state.userFilterSelection);
+
+    // getChildData(childData) {
+    //     console.log("In parent and child data is " + childData);
+    //     console.log(childData);
+    //     console.log("state originally set to " + this.state.userInput);
+    //     this.setState({userInput: childData});
+    //     // this.setState((state) => ({userInput:childData}));
+    //     // this.forceUpdate();
+    //     console.log("STATE SET TO: " + this.state.userInput);
+    //     // debugger;
+    // }
+
+    getChildData = (childData) => {
+        // console.log("In parent and child data is " + childData);
+        console.log("state originally set to " + this.state.userInput);
+        console.log(childData);
+
+        // this.setState({userInput: childData} , 
+        //     function() {
+        //         console.log("hello " + this.state.userInput); 
+        //         this.forceUpdate();
+        //     });
+        // this.setState((state) => ({userInput:childData}));
+        this.setState({userInput:childData});
+        this.forceUpdate();
+        console.log("STATE NOW SET TO: " + this.state.userInput);
     }
 
     render () {
@@ -62,7 +84,6 @@ class Podcast extends React.Component{
             forwardButtonCheck = false;
         }
         console.log("rendering on the url")
-//        console.log(getFilterDataPodcasts("Careers"));
   
         if(backButtonCheck){
             return (
