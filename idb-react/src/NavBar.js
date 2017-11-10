@@ -52,11 +52,15 @@ class NavBar extends React.Component {
           
           <Route exact path="/home" component={Home}/>
           <Route path="/about"  component={About}/>       
-          <Route path="/podcast/page=:pagenum" component={Podcast}/>   
+          <Route path="/podcast/page=:pagenum" component={Podcast}/>
+          <Route path="/podcast/sort=:sorttype/page=:pagenum" component={Podcast}/>
           <Route path="/provider/page=:pagenum" component={Provider}/>
+          <Route path="/provider/sort=:sorttype/page=:pagenum" component={Provider}/>
           <Route path="/genre/page=:pagenum" component={Genre}/>
+          <Route path="/genre/sort=:sorttype/page=:pagenum" component={Genre}/>
           <Route path="/episode/page=:pagenum" component={Episode}/>
           <Route path="/:idtype/id=:idnum" component={MyMedia}/>
+
         </div>
       </Router>);
 	}

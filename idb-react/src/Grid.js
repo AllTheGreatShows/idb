@@ -15,6 +15,8 @@ class Grid extends React.Component {
 
 
     changeState(data, pages, stateChange=true){
+		console.log(data);
+		console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
 		const squaresT = Array(9);//Titles
 		const squaresI = Array(9).fill("");//Images
 		const obj = data;
