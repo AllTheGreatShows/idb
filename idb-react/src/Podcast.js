@@ -31,13 +31,14 @@ class Podcast extends React.Component{
         console.log("state originally set to " + this.state.userInput);
         console.log(childData);
 
-        this.setState({userInput: childData} , 
-            function() {
-                console.log("hello " + this.state.userInput); 
-                this.forceUpdate();
-            });
+        // this.setState({userInput: childData} , 
+        //     function() {
+        //         console.log("hello " + this.state.userInput); 
+        //         this.forceUpdate();
+        //     });
         // this.setState((state) => ({userInput:childData}));
-        
+        this.setState({userInput:childData});
+        this.forceUpdate();
         console.log("STATE NOW SET TO: " + this.state.userInput);
     }
 

@@ -13,13 +13,15 @@ class CheckBox extends React.Component {
 
     }
 
+
     handleSubmit = (event) =>{
         event.preventDefault();
         const squares = this.state.value.slice();
         var userInput = [];
         for (var i = 0; i < this.state.alpha.length; i++) {
             if (squares[i] == 1) {
-                userInput.push(this.state.alpha[i]);
+                // userInput.push(this.state.alpha[i]);
+                userInput[0] = this.state.alpha[i];
             }
         }
         console.log("reached the submit handler");
@@ -37,12 +39,13 @@ class CheckBox extends React.Component {
         // this.forceUpdate();
     }
 
+
     render() { 
         var rows = []
         for (var i = 0; i < this.state.alpha.length; i++) {
             rows.push(<FormGroup check inline>
                 <Label check>
-                <Input type="radio" onChange={this.handleChange} value={i}/> {this.state.alpha[i]}
+                <Input type="radio" name="radio1" onChange={this.handleChange} value={i}/> {this.state.alpha[i]}
                 </Label>
             </FormGroup>);
         }
@@ -51,7 +54,7 @@ class CheckBox extends React.Component {
         return (
             <Form onSubmit={this.handleSubmit}>
                 {rows}
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit"/>
             </Form>
         );
     }
