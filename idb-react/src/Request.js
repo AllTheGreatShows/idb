@@ -26,15 +26,6 @@ function getGenres(page=1) {
     return response;
 }
 
-function getGenresID(id) {
-    var http_request = new XMLHttpRequest();
-    var url = "http://allthegreatshows.com/api/genre/" + id;
-    http_request.open("GET", url, false);    
-    http_request.send(null);
-    var response = JSON.parse(http_request.responseText);
-    return response;
-}
-
 function getProviders(page=1) {
     var http_request = new XMLHttpRequest();
     var url = "http://allthegreatshows.com/api/provider?page=" + page;
