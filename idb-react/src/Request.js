@@ -26,6 +26,15 @@ function getGenres(page=1) {
     return response;
 }
 
+function getGenresID(id) {
+    var http_request = new XMLHttpRequest();
+    var url = "http://allthegreatshows.com/api/genre/" + id;
+    http_request.open("GET", url, false);    
+    http_request.send(null);
+    var response = JSON.parse(http_request.responseText);
+    return response;
+}
+
 function getProviders(page=1) {
     var http_request = new XMLHttpRequest();
     var url = "http://allthegreatshows.com/api/provider?page=" + page;
@@ -91,4 +100,43 @@ function getFilterDataModels(type, val){
     }
     return response;
 }
+
+function getPodcastsID(id) {
+    var http_request = new XMLHttpRequest();
+    var url = "http://allthegreatshows.com/api/podcast/" + id;
+    http_request.open("GET", url, false);    
+    http_request.send(null);
+    var response = JSON.parse(http_request.responseText);
+    return response;
+}
+
+function getEpisodesID(id) {
+    var http_request = new XMLHttpRequest();
+    var url = "http://allthegreatshows.com/api/episode/" + id;
+    http_request.open("GET", url, false);    
+    http_request.send(null);
+    var response = JSON.parse(http_request.responseText);
+    return response;
+}
+
+function getGenresID(id) {
+    var http_request = new XMLHttpRequest();
+    var url = "http://allthegreatshows.com/api/genre/" + id;
+    http_request.open("GET", url, false);    
+    http_request.send(null);
+    var response = JSON.parse(http_request.responseText);
+    return response;
+}
+
+function getProvidersID(id) {
+    var http_request = new XMLHttpRequest();
+    var url = "http://allthegreatshows.com/api/provider/" + id;
+    http_request.open("GET", url, false);    
+    http_request.send(null);
+    var response = JSON.parse(http_request.responseText);
+    return response;
+}
+
 export {getPodcasts, getEpisodes, getGenres, getProviders, getAscending, getDescending, getFilterDataPodcasts, getFilterDataModels};
+export {getPodcastsID, getEpisodesID, getGenresID, getProvidersID};
+
