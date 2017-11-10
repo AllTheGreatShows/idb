@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getGenres, getAscending, getDescending, getFilterDataModels} from './Request';
+import {getGenres, getAscending, getDescending, getFilterDataModels, getGenreSearch} from './Request';
 import Grid from './Grid';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
@@ -23,6 +23,8 @@ class Genre extends React.Component{
         var forwardButtonCheck = false;
         var boolASC = false;
         var boolDSC = false;
+        var boolSearch = false;
+        var searchTerm;
 
         console.log(this.props.match.params.sorttype);
         if (this.props.match.params.sorttype == "asc")
@@ -32,6 +34,12 @@ class Genre extends React.Component{
         }       
         else if (this.props.match.params.sorttype == "dsc")
             boolDSC = true;
+        else if (this.props.match.params.searchterm != "")
+            {
+                boolSearch = true;
+                searchTerm = this.props.match.params.searchterm;
+            }
+
 
         if (parseInt(this.page[0]) == 1)
             backButtonCheck=true;
@@ -41,6 +49,8 @@ class Genre extends React.Component{
                 prevURL = "/genre/sort=asc/page=" + (parseInt(this.page[0]) - 1);            
             else if (boolDSC)
                 prevURL = "/genre/sort=dsc/page=" + (parseInt(this.page[0]) - 1);
+            else if (boolSearch)
+                prevURL = "/search/genre/" + searchTerm + "/" + (parseInt(this.page[0]) - 1);
             else
                 prevURL = "/genre/page=" + (parseInt(this.page[0]) - 1);
         }
@@ -51,12 +61,36 @@ class Genre extends React.Component{
                 nextURL = "/genre/sort=asc/page=" + (parseInt(this.page[0]) + 1);            
             else if (boolDSC)
                 nextURL = "/genre/sort=dsc/page=" + (parseInt(this.page[0]) + 1);
+            else if (boolSearch)
+                nextURL = "/search/genre/" + searchTerm + "/" + (parseInt(this.page[0]) - 1);
             else
                 nextURL = "/genre/page=" + (parseInt(this.page[0]) + 1);
 
             forwardButtonCheck = false;
         }
-        if(backButtonCheck){
+        if (boolSearch) {
+            return (
+            <div>
+                 <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
+                <Link to={prevURL}>
+                    <Button outline color="warning" size="lg" onClick= {() => 
+                        {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0]) - 1;
+                         this.refs.child.changeState(getGenreSearch(searchTerm, this.page[0]), this.page[0]);
+                         this.forceUpdate();}
+                        }> Previous </Button>
+                </Link>
+                {' '}
+                 <Link to={nextURL}>
+                    <Button outline color="warning" size="lg" onClick= {() => 
+                        {this.page[0] = parseInt(this.page[0]) + 1;
+                         this.refs.child.changeState(getGenreSearch(searchTerm, this.page[0]), this.page[0]);
+                         this.forceUpdate();}
+                        }> Next </Button>
+                 </Link>
+            </div>
+            );
+        }
+        else if(backButtonCheck){
             return (
                 <div>
                 {"Sort: "}
