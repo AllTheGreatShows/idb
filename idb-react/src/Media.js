@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Media, Jumbotron, Button} from 'reactstrap';
+import {getPodcastsID, getEpisodesID, getGenresID, getProvidersID} from './Request';
 
 // VALID MEDIA TYPES
 // podcast
@@ -9,8 +10,8 @@ import { Card, CardImg, CardText, CardBody,
 // genre
 
 // PODCASTS, runs when media_type == "podcast"
-function renderPodcast(obj, i) {
-    var val = obj["objects"][i];
+function renderPodcast(obj) {
+    var val = obj;
     console.log(val);
     return (
         <Card>
@@ -31,8 +32,8 @@ function renderPodcast(obj, i) {
 }
 
 // PROVIDERS, runs when media_type == "provider"
-function renderProvider(obj, i) {
-    var val = obj["objects"][i];
+function renderProvider(obj) {
+    var val = obj;
     console.log(val);
 
     var provider_podcasts = "";
@@ -40,10 +41,21 @@ function renderProvider(obj, i) {
     //     provider_podcasts += val.podcasts[i].title + ", ";
     // }
 
+    var pod = val["podcasts"];
+    console.log(pod.length);
+    var c = []
+    for(var i =0; i<pod.length; i++){
+        c[i] = pod[i]["title"]
+    }
+    var d = []
+    for(var i =0; i<pod.length; i++){
+        d[i] = pod[i]["feed_url"]
+    }
+    var p = pod[0];
     return (
         <Card>
             <Media left href="#">
-            {<Media object data-src="holder.js/64x64" img src={val.podcasts[0].image_url.toString()} alt="Generic placeholder image" />}
+            {<Media object data-src="holder.js/64x64" img src={p.image_url.toString()} alt="Generic placeholder image" />}
             </Media>
             <Media body>
             <Media heading>
@@ -62,8 +74,8 @@ function renderProvider(obj, i) {
 }
 
 // GENRE, runs when media_type == "genre"
-function renderGenre(obj, i) {
-    var val = obj["objects"][i];
+function renderGenre(obj) {
+    var val = obj;
     console.log(val);
     var pod = val["podcasts"];
     console.log(pod.length);
@@ -100,8 +112,8 @@ function renderGenre(obj, i) {
 }
 
 // EPISODES, runs when media_type == "episode"
-function renderEpisode(obj, i) {
-    var val = obj["objects"][i];
+function renderEpisode(obj) {
+    var val = obj;
     console.log(val);
     return (
         <Card>
@@ -125,18 +137,28 @@ function renderEpisode(obj, i) {
 
 class MyMedia extends Component {
 
+    constructor (props) {
+      super(props);
+      console.log(this.props.match);
+    }
+
     render() {
         const obj = this.props.json;
-        const i = this.props.index;
-        switch (this.props.media_type) {
+        const i = this.props.match.params.idnum;
+
+        switch (this.props.match.params.idtype) {//(this.props.media_type) {
             case "podcast":
-                return renderPodcast(obj, i);
+                return renderPodcast(getPodcastsID(this.props.match.params.idnum));
             case "provider":
-                return renderProvider(obj, i);
+                return renderProvider(getProvidersID(this.props.match.params.idnum));
             case "genre":
-                return renderGenre(obj, i);
+                return renderGenre(getGenresID(this.props.match.params.idnum));
             case "episode":
-                return renderEpisode(obj, i);
+                return renderEpisode(getEpisodesID(this.props.match.params.idnum));
+            default:
+              alert('shit'+ this.props.match.params.idnum);
+              
+              return (<h3>{getGenresID(this.props.match.params.idnum)["name"]}</h3>);
         }
     }
 }

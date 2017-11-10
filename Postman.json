@@ -1,0 +1,420 @@
+{
+	"info": {
+		"name": "All The Great Shows",
+		"_postman_id": "8c110013-3f49-2223-cc86-e8d46d04d552",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List episodes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"status code is 200\", function () {",
+							"     pm.response.to.be.ok;",
+							"});",
+							"",
+							"pm.test(\"response is valid JSON\", function () {",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"correct format\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.hasOwnProperty(\"num_results\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"objects\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"page\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"total_pages\"));",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/episode",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"episode"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "List providers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"status code is 200\", function () {",
+							"     pm.response.to.be.ok;",
+							"});",
+							"",
+							"pm.test(\"response is valid JSON\", function () {",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"correct format\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.hasOwnProperty(\"num_results\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"objects\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"page\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"total_pages\"));",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/provider",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"provider"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "List genres",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"status code is 200\", function () {",
+							"     pm.response.to.be.ok;",
+							"});",
+							"",
+							"pm.test(\"response is valid JSON\", function () {",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"correct format\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.hasOwnProperty(\"num_results\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"objects\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"page\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"total_pages\"));",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/genre",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"genre"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "List podcasts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"status code is 200\", function () {",
+							"     pm.response.to.be.ok;",
+							"});",
+							"",
+							"pm.test(\"response is valid JSON\", function () {",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"correct format\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.hasOwnProperty(\"num_results\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"objects\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"page\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"total_pages\"));",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/podcast",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"podcast"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get podcast",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"status code is 200\", function () {",
+							"     pm.response.to.be.ok;",
+							"});",
+							"",
+							"pm.test(\"response is valid JSON\", function () {",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"correct format\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.hasOwnProperty(\"id\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"itunes_id\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"title\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"description\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"image_url\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"feed_url\"));",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/podcast/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"podcast",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get episode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"status code is 200\", function () {",
+							"     pm.response.to.be.ok;",
+							"});",
+							"",
+							"pm.test(\"response is valid JSON\", function () {",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"correct format\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.hasOwnProperty(\"id\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"title\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"description\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"feed_url\"));",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/episode/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"episode",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get provider",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"status code is 200\", function () {",
+							"     pm.response.to.be.ok;",
+							"});",
+							"",
+							"pm.test(\"response is valid JSON\", function () {",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"correct format\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.hasOwnProperty(\"id\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"itunes_id\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"name\"));",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/provider/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"provider",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get genre",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"status code is 200\", function () {",
+							"     pm.response.to.be.ok;",
+							"});",
+							"",
+							"pm.test(\"response is valid JSON\", function () {",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"correct format\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.hasOwnProperty(\"id\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"name\"));",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/genre/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"genre",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"status code is 200\", function () {",
+							"     pm.response.to.be.ok;",
+							"});",
+							"",
+							"pm.test(\"response is valid JSON\", function () {",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"correct format\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.hasOwnProperty(\"num_results\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"objects\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"page\"));",
+							"    pm.expect(jsonData.hasOwnProperty(\"total_pages\"));",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/search/podcast/life",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"search",
+						"podcast",
+						"life"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
