@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getPodcasts, getAscending, getDescending, getFilterDataPodcasts} from './Request';
+import {getPodcasts, getAscending, getDescending, getFilterDataPodcasts, getPodcastSearch} from './Request';
 import Grid from './Grid';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
@@ -30,14 +30,25 @@ class Podcast extends React.Component{
         var forwardButtonCheck = false;
         var boolASC = false;
         var boolDSC = false;
-
+        var boolSearch = false;
+        var searchTerm;
+        console.log("*****************************")
+        console.log(this.props.match.params.searchterm)
         if (this.props.match.params.sorttype == "asc")
             {
                 console.log("asc bool is true");
                 boolASC = true;
             }       
-            else if (this.props.match.params.sorttype == "dsc")
+        else if (this.props.match.params.sorttype == "dsc")
                 boolDSC = true;
+        else if (this.props.match.params.searchterm != undefined)
+            {
+                console.log("REEEEEEEEEEEE")
+                boolSearch = true;
+                searchTerm = this.props.match.params.searchterm;
+            }
+
+        console.log("GGGGGGGGGGGGGGGGGGGGGGG");
 
         if (parseInt(this.page[0]) == 1)
             backButtonCheck=true;
@@ -47,6 +58,8 @@ class Podcast extends React.Component{
                 prevURL = "/podcast/sort=asc/page=" + (parseInt(this.page[0]) - 1);
             else if (boolDSC)
                 prevURL = "/podcast/sort=dsc/page=" + (parseInt(this.page[0]) - 1);
+            else if (boolSearch)
+                prevURL = "/search/podcast/" + searchTerm + "/" + (parseInt(this.page[0]) - 1);
             else
                 prevURL = "/podcast/page=" + (parseInt(this.page[0]) - 1);
         }
@@ -57,6 +70,8 @@ class Podcast extends React.Component{
                 nextURL = "/podcast/sort=asc/page=" + (parseInt(this.page[0]) + 1);
             else if (boolDSC)
                 nextURL = "/podcast/sort=dsc/page=" + (parseInt(this.page[0]) + 1);
+            else if (boolSearch)
+                nextURL = "/search/podcast/" + searchTerm + "/" + (parseInt(this.page[0]) + 1);
             else
                 nextURL = "/podcast/page=" + (parseInt(this.page[0]) + 1);
             forwardButtonCheck = false;
@@ -64,7 +79,35 @@ class Podcast extends React.Component{
         console.log("rendering on the url")
 //        console.log(getFilterDataPodcasts("Careers"));
   
-        if(backButtonCheck){
+        if (boolSearch) {
+            return(
+                <div>
+                    {console.log(searchTerm)}                    
+                    <Grid ref="child" Data={getPodcastSearch(searchTerm, this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+
+                    <GenreFilter/>
+
+                    <Link to={prevURL}>
+                        <Button outline color="warning" size="lg" onClick= {() => 
+                            {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0])- 1;
+                                console.log(searchTerm)
+                            this.refs.child.changeState(getPodcastSearch(searchTerm, this.page[0]), this.page[0]);  
+                         this.forceUpdate();} 
+                          }> Previous </Button>
+                    </Link>
+                    {'  '}
+                    <Link to={nextURL}>
+                        <Button outline color="warning" size="lg" onClick= {() => 
+
+                            {this.page[0] = parseInt(this.page[0]) + 1;
+                            this.refs.child.changeState(getPodcastSearch(searchTerm, this.page[0]), this.page[0]);   
+                             this.forceUpdate();} 
+                          }> Next </Button>
+                    </Link>
+                </div>
+            );
+        }
+        else if(backButtonCheck){
             return (
                 <div>
                 {"Sort: "}
