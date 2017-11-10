@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import Home from './Carousel';
 import About from './About';
@@ -9,6 +9,7 @@ import Genre from './Genre';
 import MyMedia from './Media';
 import Provider from './Provider';
 import {getPodcasts, getEpisodes, getGenres, getProviders, getFilterDataPodcasts} from './Request';
+import SearchBar, {SearchResults} from './Search';
 import Grid from './Grid';
 
 
@@ -19,7 +20,27 @@ class NavBar extends React.Component {
     this.page = Array(1)
     this.page[0] = 1
     this.id = -1;
+
+    this.state = {
+      fireSearchRedirect: false,
+      SearchValue: ''
+    };
+    
+    this.handleSearch = this.handleSearch.bind(this);
+    this.resetSearch = this.resetSearch.bind(this);
     }
+
+    handleSearch (value) {
+      // alert('Yes'+value);
+      this.setState({fireSearchRedirect: !this.state.fireSearchRedirect})
+      this.setState({SearchValue: value})
+    }
+  
+    /* Does not work currently */
+    resetSearch (val) {
+      this.setState({fireSearchRedirect: false});
+      alert('reset');
+    }  
 
 	render () {
     console.log("render");
@@ -47,6 +68,11 @@ class NavBar extends React.Component {
                 <NavItem About>
                   <NavLink><Link to="/about" >About </Link></NavLink>
                 </NavItem>
+                <NavItem Search>
+                  <div><SearchBar onSearch={this.handleSearch}/>
+                    {this.state.fireSearchRedirect && (<Redirect to={"/search/" + this.state.SearchValue}/>) }
+                  </div>
+                </NavItem>
               </Nav>
           </Navbar>
           
@@ -61,6 +87,11 @@ class NavBar extends React.Component {
           <Route path="/episode/page=:pagenum" component={Episode}/>
           <Route path="/:idtype/id=:idnum" component={MyMedia}/>
 
+          <Route path="/search/:searchterm" component={SearchResults}/>
+          <Route path="/search/podcast/:searchterm/:pagenum" component={Podcast} />
+          <Route path="/search/provider/:searchterm/:pagenum" component={Provider} />
+          <Route path="/search/genre/:searchterm/:pagenum" component={Genre} />
+          <Route path="/search/episode/:searchterm/:pagenum" component={Episode} />
         </div>
       </Router>);
 	}
