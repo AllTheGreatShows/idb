@@ -10,7 +10,8 @@ import MyMedia from './Media';
 import Provider from './Provider';
 import {getPodcasts, getEpisodes, getGenres, getProviders, getFilterDataPodcasts} from './Request';
 import Grid from './Grid';
-import SearchResults from "./Search"
+import SearchResults from './Search';
+import SearchGrid from './SearchGrid';
 
 
 
@@ -80,7 +81,7 @@ class NavBar extends React.Component {
           <Route path="/episode/page=:pagenum" component={Episode}/>
           <Route path="/:idtype/id=:idnum" component={MyMedia}/>
           <Route path="/search/:searchterm" component={SearchResults}/>
-          <Route path="/search/:searchtype/page=:pagenum" component={SearchGrid}/>
+          <Route path="/search/:searchterm/:searchtype/page=:pagenum" component={SearchGrid}/>
 
         </div>
       </Router>);
