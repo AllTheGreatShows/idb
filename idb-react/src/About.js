@@ -3,7 +3,7 @@ import { Card, CardImg, CardText, CardBody,
 	  CardTitle, CardSubtitle} from 'reactstrap';
 
 
-//	[name, position, img, Bio, r1, r2, r3, commits, issues, units]
+//	[name, position, img, Bio, r1, r2, r3, GitHubID, issues, units]
 var members = [
 	["Sanat Sharma",
 	 "Phase 1 Team Lead",
@@ -12,14 +12,14 @@ var members = [
 	 "Managed the group workflow",
 	 "Worked on frontend and backend development",
 	 "Searched through iTunes Store API for raw data.",
-	 53, 9, 0],
+	 "SanatSharma", 9, 0],
 	["Jesse Tipton",
 	 "Phase 2 Team Lead",
 	 "https://utexas.box.com/shared/static/ntda5bgjr5ghhf8k5i65vidvu0npoxu8.jpg", "Bio: Jesse is a senior in computer science who also works as a part time iOS developer. He is involved with the Mobile Application Development and teaches their iOS workshops.",
 	 "Helped set up python Flask",
 	 "Updated README.md",
 	 "Connected frontend to backend",
-	 34, 9, 20],
+	 "jessetipton", 9, 20],
 	["Ashay Lokhande",
 	 "",
 	 "https://utexas.box.com/shared/static/yk1pmh6cyi66otf3gursk9z2uaqn2vwu.jpg",
@@ -27,7 +27,7 @@ var members = [
 	 "Helped design the models for our database",
 	 "Worked on integrating model instance templates",
 	 "Worked on navigation across pages",
-	 42, 9, 0],
+	 "Ashay-Lokhande", 9, 0],
 	["Claire Dubiel",
 	 "Phase 3 Team Lead",
 	 "https://utexas.box.com/shared/static/rhujg9i47kjpq94gh6z9k2jzfpgo51ae.jpg",
@@ -35,7 +35,7 @@ var members = [
 	 "Scraped data from Mixcloud API",
 	 "Assembled the project writeup",
 	 "Collated project data for about page",
-	 17, 9, 0],
+	 "cdubiel", 9, 0],
 	["Will Kuglen",
 	 "", 
 	 "https://utexas.box.com/shared/static/jf3oow4mlova0oy7pn2bl11g6547f0pd.png",
@@ -43,8 +43,25 @@ var members = [
 	 "Frontend and main React developer",
 	 "Implemented bootstrap into the project layout",
 	 "Applied layouts to landing page", 
-	 22, 9, 0]];
+	 "wkuglen", 9, 0]];
 
+function getGitHubStats() {
+    var http_request = new XMLHttpRequest();
+	var url = "https://api.github.com/repos/AllTheGreatShows/idb/contributors"
+    http_request.open("GET", url, false);
+    http_request.send(null);
+    var response = JSON.parse(http_request.responseText);
+    return response;
+}
+
+function getCommits(githubid) {
+	var data = getGitHubStats();
+	var i = 0;
+	while(data[i]["login"] != githubid) {
+		i++;
+	}
+	return data[i]["contributions"];
+}
 
 function Acard(props) {
 	return (
@@ -86,13 +103,14 @@ renderCard(i) {
 		r1={members[i][4]}
 		r2={members[i][5]}
 		r3={members[i][6]}
-		commits={members[i][7]}
+		commits={getCommits(members[i][7])}
 		issues={members[i][8]}
 		units={members[i][9]}/>;
 }
 
 
 render() {
+	// getCommits("SanatSharma");
 	return (
 		<div>
 			<h1>About Us</h1>
