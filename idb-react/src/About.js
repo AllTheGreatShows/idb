@@ -39,7 +39,7 @@ var members = [
 	["Will Kuglen",
 	 "", 
 	 "https://utexas.box.com/shared/static/jf3oow4mlova0oy7pn2bl11g6547f0pd.png",
-	 "Bio: Will Kuglen is a third year computer science and design double major at The University of Texas at Austin. He is interested in both software and hardware, artificial intelligence, and robotics. He also has a passion in typography, industrial design, and UI/UX.",
+	 "Bio: Will Kuglen is a third year computer science and design double major at The University of Texas at Austin. He is interested in both software and hardware, artificial intelligence, and robotics. He also has a passion for typography, industrial design, and UI/UX.",
 	 "Frontend and main React developer",
 	 "Implemented bootstrap into the project layout",
 	 "Applied layouts to landing page", 
@@ -93,7 +93,7 @@ class About extends Component {
 
     getCommits(githubid) {
         let data = this.data;
-        	// return 1;
+        	// return 1; uncomment this if # (60 by default) requests reached
         var i = 0;
         while(i < data.length && data[i]["login"] != githubid) {
             i++;
@@ -116,8 +116,6 @@ renderCard(i) {
 
 
 render() {
-	//
-	// getCommits("SanatSharma");
 	return (
 		<div className={"AboutUs"}>
 			<h1>About Us</h1>
