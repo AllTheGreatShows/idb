@@ -47,28 +47,20 @@ var members = [
 
 function getGitHubStats() {
     var http_request = new XMLHttpRequest();
-	var url = "https://api.github.com/repos/AllTheGreatShows/idb/contributors"
+	var url = "https://api.github.com/repos/AllTheGreatShows/idb/contributors";
     http_request.open("GET", url, false);
     http_request.send(null);
     var response = JSON.parse(http_request.responseText);
     return response;
 }
 
-function getCommits(githubid) {
-	var data = getGitHubStats();
-	var i = 0;
-	while(data[i]["login"] != githubid) {
-		i++;
-	}
-	return data[i]["contributions"];
-}
-
 function Acard(props) {
 	return (
 		<Card className="Acard">
-        <CardImg top width="300px" src={props.image} alt="Card image cap" />
-	        <CardBody>
-		        <CardTitle>{props.title}</CardTitle>
+	        <span className={"Acard-Body"}>
+        <img className={"Acard-Img"} top width="300px" src={props.image} alt="Card image cap" />
+			<div className={"Acard-BodyText"}>
+				<CardTitle>{props.title}</CardTitle>
 				   	<CardSubtitle>{props.subtitle}</CardSubtitle>
 					  <CardText>{props.bio}</CardText>
 					  <CardText>Major Responsibilities:
@@ -85,15 +77,29 @@ function Acard(props) {
 					  		<li>Number of Unit Tests: {props.units}</li>
 					  	</ul>
 					  </CardText>
-					</CardBody>
+			</div>
+					</span>
 			</Card>
       );
 }
 
 class About extends Component {
 
+	constructor (props) {
+		super(props);
+		this.data = getGitHubStats();
+		this.totalCommits = this.data[0]["contributions"] + this.data[1]["contributions"] + this.data[2]["contributions"] + this.data[3]["contributions"] + this.data[4]["contributions"];
+	}
 
-
+    getCommits(githubid) {
+        let data = this.data;
+        	// return 1;
+        var i = 0;
+        while(i < data.length && data[i]["login"] != githubid) {
+            i++;
+        }
+        return data[i]["contributions"];
+    }
 renderCard(i) {
 	return <Acard
 		title={members[i][0]}
@@ -103,18 +109,20 @@ renderCard(i) {
 		r1={members[i][4]}
 		r2={members[i][5]}
 		r3={members[i][6]}
-		commits={getCommits(members[i][7])}
+		commits={this.getCommits(members[i][7])}
 		issues={members[i][8]}
 		units={members[i][9]}/>;
 }
 
 
 render() {
+	//
 	// getCommits("SanatSharma");
 	return (
-		<div>
+		<div className={"AboutUs"}>
 			<h1>About Us</h1>
-			<h2>CS373 Fall 2017 Group-13 <br/> All the Great Shows: A podcast database for everyone</h2>
+			<h2>CS373 Fall 2017 Group-13</h2>
+			<h2>All the Great Shows: A podcast database for everyone</h2>
 			<p>All The Great Shows is a podcast database that allows users to search and discover popular podcasts on the internet.  It scrapes data from popular platforms in the podcast community such as the iTunes Store API and the Mixcloud API.  Users can discover new podcast series by genre as well as query results by artist, location, and and topic.
 				Our website is designed to be used by anyone and we do mean anyone.  We truly believe that there is a podcast series out there for everyone to discover and learn something new.  Podcasts can be listened to in the car, during a break at work, while waiting in line, or to wind down after a long day.  Podcasts range in subjects from politics to arts, entertainment. innovation, travel, and practically any topic that you can think of.</p>
 
@@ -127,7 +135,7 @@ render() {
 
 			<h2>Phase 1 Statistics</h2>
 			<ul>
-				<li>Total number of commits: 39</li>
+				<li>Total number of commits: {this.totalCommits}</li>
 				<li>Total number of issues: 15</li>
 				<li>Total number of unit tests: n/a</li>
 				<li><a href="http://docs.allthegreatshows.apiary.io"> Apiary API </a></li>

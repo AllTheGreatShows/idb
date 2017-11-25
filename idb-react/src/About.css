@@ -1,0 +1,70 @@
+body {
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 10px;
+}
+
+.Acard {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 1000px;
+
+}
+
+.Acard-Img {
+    float: left;
+    margin: 1em 1em;
+    width: 40%;
+    max-width: 300px;
+}
+
+.Acard-Body {
+    /*display: inline;*/
+    /*max-width: 300px;*/
+    margin: auto;
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
+    overflow: hidden;
+}
+
+.Acard-BodyText {
+    margin: 1em 2em;
+    /*padding-left: 100px;*/
+    /*padding-top: 0;*/
+    /*width: 40%;*/
+    overflow: auto;
+}
+
+
+
+@media (max-width: 600px) {
+
+
+    .Acard-Img {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        padding-top: 0;
+        margin-top: 0;
+        margin: auto;
+    }
+
+    .Acard-BodyText {
+        width: 100%;
+        margin: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        /*margin-left: 1rem;*/
+        /*margin-right: 1rem;*/
+    }
+
+}
+
+/*.Acard-Body h4, h6, p {*/
+    /*display: inline;*/
+/*}*/
+
+/*.Acard-Body p,*/
