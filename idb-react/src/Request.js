@@ -131,16 +131,19 @@ function getProvidersID(id) {
 // Search Functions
 function getPodcastSearch(term, page=1) {
     var http_request = new XMLHttpRequest();
-    var url = "http://allthegreatshows.com/api/search/podcast/" + term+ "?page=" + page;
+    //var url = "http://allthegreatshows.com/api/search/podcast/" + term+ "?page=" + page;
+    var url = "http://allthegreatshows.com/api/podcast?q={%22filters%22:[{%22or%22:[{%22op%22:%22ilike%22,%22name%22:%22title%22,%22val%22:%22%"+term+"%%22}]}]}&page=" + page;
     http_request.open("GET", url, false);
     http_request.send(null);
     var response = JSON.parse(http_request.responseText);
+    console.log("***********");    
     console.log(response);
+    console.log("***********");
     return response;
 }
 function getEpisodeSearch(term, page=1) {
     var http_request = new XMLHttpRequest();
-    var url = "http://allthegreatshows.com/api/search/episode/" + term +"?page=" + page;
+    var url = "http://allthegreatshows.com/api/episode?q={%22filters%22:[{%22or%22:[{%22val%22:%22%"+term+"%%22,%22name%22:%22title%22,%22op%22:%22ilike%22}]}]}&page=" + page;
     http_request.open("GET", url, false);
     http_request.send(null);
     var response = JSON.parse(http_request.responseText);
@@ -149,7 +152,7 @@ function getEpisodeSearch(term, page=1) {
 }
 function getGenreSearch(term, page=1) {
     var http_request = new XMLHttpRequest();
-    var url = "http://allthegreatshows.com/api/search/genre/" + term + "?page=" + page;
+    var url = "http://allthegreatshows.com/api/genre?q={%22filters%22:[{%22or%22:[{%22name%22:%22name%22,%22op%22:%22ilike%22,%22val%22:%22%"+term+"%%22}]}]}&page=" + page;
     http_request.open("GET", url, false);
     http_request.send(null);
     var response = JSON.parse(http_request.responseText);
@@ -158,7 +161,7 @@ function getGenreSearch(term, page=1) {
 }
 function getProviderSearch(term, page=1) {
     var http_request = new XMLHttpRequest();
-    var url = "http://allthegreatshows.com/api/search/provider/" + term + "?page=" + page;
+    var url = "http://allthegreatshows.com/api/provider?q={%22filters%22:[{%22or%22:[{%22name%22:%22name%22,%22op%22:%22ilike%22,%22val%22:%22%"+term+"%%22}]}]}&page=" + page;
     http_request.open("GET", url, false);
     http_request.send(null);
     var response = JSON.parse(http_request.responseText);
