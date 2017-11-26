@@ -4,12 +4,6 @@ from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
 from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
 import unittest
 
-#driver = webdriver.Firefox(executable_path=r"C:\Users\sanat\Downloads\geckodriver-v0.19.1-win64\geckodriver.exe")
-        # get the home page
-#driver.get("http://allthegreatshows.com")
-
-#print("Quit")
-#driver.quit()
 class Test(unittest.TestCase):
 
     def setUp(self): 
