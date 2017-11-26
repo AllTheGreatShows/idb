@@ -15,7 +15,7 @@ class Test(unittest.TestCase):
     def test_url(self):
         self.assertIn("React App", self.driver.title)
 
-
+    
     def test_podcast_nav(self):
         driver = self.driver
         driver.find_element_by_link_text("Podcasts").click()
@@ -45,15 +45,54 @@ class Test(unittest.TestCase):
         driver.find_element_by_link_text("About").click()
         self.assertEqual("http://allthegreatshows.com/about", driver.current_url)
         driver.back()
-
+    
     def test_episode_nav(self):
         driver = self.driver
         driver.find_element_by_link_text("Episodes").click()
         self.assertEqual("http://allthegreatshows.com/episode/page=1", driver.current_url)
         driver.back()
 
+    def test_paging_podcast(self):
+        driver = self.driver
+        driver.find_element_by_link_text("Podcasts").click()
+        driver.find_element_by_link_text("Next").click()
+        self.assertIn("allthegreatshows.com/podcast/page=2", driver.current_url)
+        driver.find_element_by_link_text("Previous").click()
+        self.assertIn("allthegreatshows.com/podcast/page=1", driver.current_url)
+        self.driver.get("http://allthegreatshows.com")
+
+    def test_paging_provider(self):
+        driver = self.driver
+        driver.find_element_by_link_text("Providers").click()
+        driver.find_element_by_link_text("Next").click()
+        self.assertIn("allthegreatshows.com/provider/page=2", driver.current_url)
+        driver.find_element_by_link_text("Previous").click()
+        self.assertIn("allthegreatshows.com/provider/page=1", driver.current_url)
+        self.driver.get("http://allthegreatshows.com")
+
+    def test_paging_podcast(self):
+        driver = self.driver
+        driver.find_element_by_link_text("Episodes").click()
+        driver.find_element_by_link_text("Next").click()
+        self.assertIn("allthegreatshows.com/episode/page=2", driver.current_url)
+        driver.find_element_by_link_text("Previous").click()
+        self.assertIn("allthegreatshows.com/episode/page=1", driver.current_url)
+        self.driver.get("http://allthegreatshows.com")
+
+    def test_paging_genre(self):
+        driver = self.driver
+        driver.find_element_by_link_text("Genre").click()
+        driver.find_element_by_link_text("Next").click()
+        self.assertIn("allthegreatshows.com/genre/page=2", driver.current_url)
+        driver.find_element_by_link_text("Previous").click()
+        self.assertIn("allthegreatshows.com/genre/page=1", driver.current_url)
+        self.driver.get("http://allthegreatshows.com")
+ 
+
     def tearDown(self):
         self.driver.close()       
+    
+        
 
 if __name__ == "__main__":
     unittest.main()
