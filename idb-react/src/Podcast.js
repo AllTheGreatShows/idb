@@ -33,18 +33,28 @@ class Podcast extends React.Component{
         var sort;
         sort = this.props.match.params.sorttype;
 
+        console.log("sort argument = " + this.props.match.params.sorttype + "which is " + (this.props.match.params.sorttype != null));
         var backButtonCheck = false;
         var forwardButtonCheck = false;
         var boolASC = false;
         var boolDSC = false;
+        var filter = null;
 
         if (this.props.match.params.sorttype == "asc")
-            {
-                console.log("asc bool is true");
-                boolASC = true;
-            }       
-            else if (this.props.match.params.sorttype == "dsc")
-                boolDSC = true;
+        {
+            console.log("asc bool is true");
+            boolASC = true;
+        }
+        else if (this.props.match.params.sorttype == "dsc")
+            boolDSC = true;
+        else if (this.props.match.params.sorttype != null)
+        {
+            if (filter == null) console.log("the filter is null");
+            filter = this.props.match.params.sorttype;
+            if (filter != null) console.log("the filter is not null");
+
+        }
+
 
         if (parseInt(this.page[0]) == 1)
             backButtonCheck=true;
