@@ -4,6 +4,7 @@ import Grid from './Grid';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
 import MyFilter from './Filter';
+import FlavorForm from './Brita';
 class Podcast extends React.Component{
 
     constructor(props){
@@ -90,7 +91,8 @@ class Podcast extends React.Component{
                         }
                     }> Desc </Button>
                     </Link>
-                    <MyFilter getData = {() => this.getChildData()}/>
+                    {/*<MyFilter getData = {() => this.getChildData()}/>*/}
+                    <FlavorForm />
                     <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
                 <Link to={nextURL}>
                     <Button outline color="warning" size="lg" onClick= {() => 
@@ -133,7 +135,8 @@ class Podcast extends React.Component{
                         }
                     }> Desc </Button>
                 </Link>
-                    <MyFilter getData = {() => this.getChildData()}/>
+                    {/*<MyFilter getData = {() => this.getChildData()}/>*/}
+                    <FlavorForm/>
                     <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
                     
                     
@@ -176,7 +179,8 @@ class Podcast extends React.Component{
                     }
                 }> Desc </Button>
                 </Link>
-                <MyFilter getData = {() => this.getChildData()}/>
+                {/*<MyFilter getData = {() => this.getChildData()}/>*/}
+                <FlavorForm/>
                 <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
 
                 
