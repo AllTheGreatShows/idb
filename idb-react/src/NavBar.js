@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Button } from 'reactstrap';
 import Home from './Carousel';
 import About from './About';
 import Podcast from './Podcast';
@@ -10,7 +10,11 @@ import MyMedia from './Media';
 import Provider from './Provider';
 import {getPodcasts, getEpisodes, getGenres, getProviders, getFilterDataPodcasts} from './Request';
 import Grid from './Grid';
-
+import SearchResults from './Search';
+import PodcastSearchGrid from './PodcastSearch';
+import EpisodeSearchGrid from './EpisodeSearch';
+import GenreSearchGrid from './GenreSearch';
+import ProviderSearchGrid from './ProviderSearch';
 
 
 class NavBar extends React.Component {
@@ -19,6 +23,13 @@ class NavBar extends React.Component {
     this.page = Array(1)
     this.page[0] = 1
     this.id = -1;
+    this.state = {text: '' };
+
+    this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+      this.setState({text: event.target.value})
     }
 
 	render () {
@@ -28,26 +39,37 @@ class NavBar extends React.Component {
         <div>
           <Navbar color="black" light>
           <NavbarBrand href="/home">All The Great Shows</NavbarBrand>
-              <Nav justified horizontal>
-                <NavItem Home>
-                  <NavLink><Link to="/home">Home</Link></NavLink>
-                </NavItem>
-                <NavItem Podcasts>
-                  <NavLink><Link to="/podcast/page=1">Podcasts</Link></NavLink>
-                </NavItem>
-                <NavItem Providers>
-                  <NavLink><Link to="/provider/page=1">Providers</Link></NavLink>
-                </NavItem>
-                <NavItem Genre>
-                  <NavLink><Link to="/genre/page=1">Genre</Link></NavLink>
-                </NavItem>
-                <NavItem Episodes>
-                  <NavLink><Link to="/episode/page=1">Episodes</Link></NavLink>
-                </NavItem>
-                <NavItem About>
-                  <NavLink><Link to="/about" >About </Link></NavLink>
-                </NavItem>
-              </Nav>
+            <Nav justified horizontal>
+              <NavItem Home>
+                <NavLink><Link to="/home">Home</Link></NavLink>
+              </NavItem>
+              <NavItem Podcasts>
+                <NavLink><Link to="/podcast/page=1">Podcasts</Link></NavLink>
+              </NavItem>
+              <NavItem Providers>
+                <NavLink><Link to="/provider/page=1">Providers</Link></NavLink>
+              </NavItem>
+              <NavItem Genre>
+                <NavLink><Link to="/genre/page=1">Genre</Link></NavLink>
+              </NavItem>
+              <NavItem Episodes>
+                <NavLink><Link to="/episode/page=1">Episodes</Link></NavLink>
+              </NavItem>
+              <NavItem About>
+                <NavLink><Link to="/about" >About </Link></NavLink>
+              </NavItem>
+            </Nav>
+
+            <div>
+              <input 
+                type="text" placeholder="Search..." value={this.state.text}
+                onChange={this.handleChange}
+              />
+              <Link to={"/search/" + this.state.text}>
+                  <Button color="secondary" size="sm"> Search </Button>
+              </Link>
+            </div>
+
           </Navbar>
           
           <Route exact path="/home" component={Home}/>
@@ -60,6 +82,11 @@ class NavBar extends React.Component {
           <Route path="/genre/sort=:sorttype/page=:pagenum" component={Genre}/>
           <Route path="/episode/page=:pagenum" component={Episode}/>
           <Route path="/:idtype/id=:idnum" component={MyMedia}/>
+          <Route path="/search/:searchterm" component={SearchResults}/>
+          <Route path="/search/:searchterm/podcast/page=:pagenum" component={PodcastSearchGrid}/>
+          <Route path="/search/:searchterm/episode/page=:pagenum" component={EpisodeSearchGrid}/>
+          <Route path="/search/:searchterm/genre/page=:pagenum" component={GenreSearchGrid}/>
+          <Route path="/search/:searchterm/provider/page=:pagenum" component={ProviderSearchGrid}/>
 
         </div>
       </Router>);
