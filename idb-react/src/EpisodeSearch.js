@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from './Grid';
-import {Button} from 'reactstrap';
+import {Button, Label} from 'reactstrap';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {getEpisodeSearch} from './Request';
 
@@ -34,26 +34,35 @@ class EpisodeSearchGrid extends React.Component{
         var backButtonCheck = false;
         var forwardButtonCheck = false;
 
-        if (parseInt(this.page[0]) == 1)
-            backButtonCheck=true;
-        else{
-            backButtonCheck = false;
-            prevURL = "/search/" + term + "/podcast/page=" + (parseInt(this.page[0]) - 1);
-        }
-        if(parseInt(this.page[0]) == 11)
-            forwardButtonCheck = true;
-        else{
-            nextURL = "/search/"+term+"/podcast/page=" + (parseInt(this.page[0]) + 1);
-            forwardButtonCheck = false;
-        }
-
         var data = getEpisodeSearch(term, this.page[0]);
-        //TODO: Add check to see if search returned an empty response
-
+        var totalPages = data["total_pages"];
+        
+        if (parseInt(totalPages) == 0) {
+            return (
+                <div>
+                    <Button outline color="danger" size="lg"> No Results Found </Button>
+                </div>
+            );
+        }
+        else {
+            if (parseInt(this.page[0]) == 1)
+                backButtonCheck=true;
+            else{
+                backButtonCheck = false;
+                prevURL = "/search/" + term + "/episode/page=" + (parseInt(this.page[0]) - 1);
+            }
+            if(parseInt(this.page[0]) == parseInt(totalPages))
+                forwardButtonCheck = true;
+            else{
+                nextURL = "/search/"+term+"/episode/page=" + (parseInt(this.page[0]) + 1);
+                forwardButtonCheck = false;
+            }
+        }
+        
         if(backButtonCheck){
             return (
                 <div>
-                <Grid ref="child" Data={data} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+                <Grid ref="child" Data={data} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]} />
                 <Link to={nextURL}>
                     <Button outline color="warning" size="lg" onClick= {() => 
                         {
@@ -71,7 +80,7 @@ class EpisodeSearchGrid extends React.Component{
         else if (forwardButtonCheck){
             return (
                 <div>
-                <Grid ref="child" Data={data} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+                <Grid ref="child" Data={data} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]} />
                     
                 <Link to={prevURL}>
                     <Button outline color="warning" size="lg" onClick= {() => 
@@ -88,7 +97,7 @@ class EpisodeSearchGrid extends React.Component{
         else{
         return (
             <div>
-            <Grid ref="child" Data={data} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+            <Grid ref="child" Data={data} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]} />
  
             <Link to={prevURL}>
                 <Button outline color="warning" size="lg" onClick= {() => 

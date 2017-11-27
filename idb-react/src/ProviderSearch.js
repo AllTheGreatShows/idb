@@ -34,26 +34,35 @@ class ProviderSearchGrid extends React.Component{
         var backButtonCheck = false;
         var forwardButtonCheck = false;
 
-        if (parseInt(this.page[0]) == 1)
-            backButtonCheck=true;
-        else{
-            backButtonCheck = false;
-            prevURL = "/search/" + term + "/podcast/page=" + (parseInt(this.page[0]) - 1);
-        }
-        if(parseInt(this.page[0]) == 11)
-            forwardButtonCheck = true;
-        else{
-            nextURL = "/search/"+term+"/podcast/page=" + (parseInt(this.page[0]) + 1);
-            forwardButtonCheck = false;
-        }
-
         var data = getProviderSearch(term, this.page[0]);
-        //TODO: Add check to see if search returned an empty response
+        var totalPages = data["total_pages"];
+        console.log(totalPages + "\n\n\n\n");
+        if (parseInt(totalPages) == 0) {
+            return (
+                <div>
+                    <Button outline color="danger" size="lg"> No Results Found </Button>
+                </div>
+            );
+        }
+        else {
+            if (parseInt(this.page[0]) == 1)
+                backButtonCheck=true;
+            else{
+                backButtonCheck = false;
+                prevURL = "/search/" + term + "/provider/page=" + (parseInt(this.page[0]) - 1);
+            }
+            if(parseInt(this.page[0]) == parseInt(totalPages))
+                forwardButtonCheck = true;
+            else{
+                nextURL = "/search/"+term+"/provider/page=" + (parseInt(this.page[0]) + 1);
+                forwardButtonCheck = false;
+            }
+        }
 
         if(backButtonCheck){
             return (
                 <div>
-                <Grid ref="child" Data={data} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+                <Grid ref="child" Data={data} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page[0]} />
                 <Link to={nextURL}>
                     <Button outline color="warning" size="lg" onClick= {() => 
                         {
@@ -71,7 +80,7 @@ class ProviderSearchGrid extends React.Component{
         else if (forwardButtonCheck){
             return (
                 <div>
-                <Grid ref="child" Data={data} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+                <Grid ref="child" Data={data} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page[0]} />
                     
                 <Link to={prevURL}>
                     <Button outline color="warning" size="lg" onClick= {() => 
@@ -88,7 +97,7 @@ class ProviderSearchGrid extends React.Component{
         else{
         return (
             <div>
-            <Grid ref="child" Data={data} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+            <Grid ref="child" Data={data} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page[0]} />
  
             <Link to={prevURL}>
                 <Button outline color="warning" size="lg" onClick= {() => 

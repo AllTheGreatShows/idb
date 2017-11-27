@@ -34,21 +34,30 @@ class PodcastSearchGrid extends React.Component{
         var backButtonCheck = false;
         var forwardButtonCheck = false;
 
-        if (parseInt(this.page[0]) == 1)
-            backButtonCheck=true;
-        else{
-            backButtonCheck = false;
-            prevURL = "/search/" + term + "/podcast/page=" + (parseInt(this.page[0]) - 1);
-        }
-        if(parseInt(this.page[0]) == 11)
-            forwardButtonCheck = true;
-        else{
-            nextURL = "/search/"+term+"/podcast/page=" + (parseInt(this.page[0]) + 1);
-            forwardButtonCheck = false;
-        }
-
         var data = getPodcastSearch(term, this.page[0]);
-        //TODO: Add check to see if search returned an empty response
+        var totalPages = data["total_pages"];
+        
+        if (parseInt(totalPages) == 0) {
+            return (
+                <div>
+                    <Button outline color="danger" size="lg"> No Results Found </Button>
+                </div>
+            );
+        }
+        else {
+            if (parseInt(this.page[0]) == 1)
+                backButtonCheck=true;
+            else{
+                backButtonCheck = false;
+                prevURL = "/search/" + term + "/podcast/page=" + (parseInt(this.page[0]) - 1);
+            }
+            if(parseInt(this.page[0]) == parseInt(totalPages))
+                forwardButtonCheck = true;
+            else{
+                nextURL = "/search/"+term+"/podcast/page=" + (parseInt(this.page[0]) + 1);
+                forwardButtonCheck = false;
+            }
+        }
 
         if(backButtonCheck){
             return (
