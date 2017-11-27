@@ -51,7 +51,7 @@ class GenreSearchGrid extends React.Component{
                 backButtonCheck = false;
                 prevURL = "/search/" + term + "/genre/page=" + (parseInt(this.page[0]) - 1);
             }
-            if(parseInt(this.page[0]) == this.parseInt(totalPages))
+            if(parseInt(this.page[0]) == parseInt(totalPages))
                 forwardButtonCheck = true;
             else{
                 nextURL = "/search/"+term+"/genre/page=" + (parseInt(this.page[0]) + 1);
