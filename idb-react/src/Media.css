@@ -1,0 +1,21 @@
+.PodcastCard {
+    margin: auto;
+    max-width: 1000px;
+}
+
+.Detail-Img {
+    /*max-width: 300px;*/
+    float: left;
+    margin: 1em 1em;
+    width: 40%;
+    max-width: 300px;
+}
+
+.Detail-Body {
+    overflow: hidden;
+}
+
+.Detail-BodyText {
+    margin: 1em 2em;
+    overflow: auto;
+}
