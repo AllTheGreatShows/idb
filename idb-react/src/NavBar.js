@@ -11,8 +11,10 @@ import Provider from './Provider';
 import {getPodcasts, getEpisodes, getGenres, getProviders, getFilterDataPodcasts} from './Request';
 import Grid from './Grid';
 import SearchResults from './Search';
-import SearchGrid from './SearchGrid';
-
+import PodcastSearchGrid from './PodcastSearch';
+import EpisodeSearchGrid from './EpisodeSearch';
+import GenreSearchGrid from './GenreSearch';
+import ProviderSearchGrid from './ProviderSearch';
 
 
 class NavBar extends React.Component {
@@ -81,7 +83,10 @@ class NavBar extends React.Component {
           <Route path="/episode/page=:pagenum" component={Episode}/>
           <Route path="/:idtype/id=:idnum" component={MyMedia}/>
           <Route path="/search/:searchterm" component={SearchResults}/>
-          <Route path="/search/:searchterm/:searchtype/page=:pagenum" component={SearchGrid}/>
+          <Route path="/search/:searchterm/podcast/page=:pagenum" component={PodcastSearchGrid}/>
+          <Route path="/search/:searchterm/episode/page=:pagenum" component={EpisodeSearchGrid}/>
+          <Route path="/search/:searchterm/genre/page=:pagenum" component={GenreSearchGrid}/>
+          <Route path="/search/:searchterm/provider/page=:pagenum" component={ProviderSearchGrid}/>
 
         </div>
       </Router>);
