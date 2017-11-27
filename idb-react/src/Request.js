@@ -136,9 +136,6 @@ function getPodcastSearch(term, page=1) {
     http_request.open("GET", url, false);
     http_request.send(null);
     var response = JSON.parse(http_request.responseText);
-    console.log("***********");    
-    console.log(response);
-    console.log("***********");
     return response;
 }
 function getEpisodeSearch(term, page=1) {
@@ -147,7 +144,6 @@ function getEpisodeSearch(term, page=1) {
     http_request.open("GET", url, false);
     http_request.send(null);
     var response = JSON.parse(http_request.responseText);
-    console.log(response);
     return response;
 }
 function getGenreSearch(term, page=1) {
@@ -156,7 +152,6 @@ function getGenreSearch(term, page=1) {
     http_request.open("GET", url, false);
     http_request.send(null);
     var response = JSON.parse(http_request.responseText);
-    console.log(response);
     return response;
 }
 function getProviderSearch(term, page=1) {
@@ -165,7 +160,6 @@ function getProviderSearch(term, page=1) {
     http_request.open("GET", url, false);
     http_request.send(null);
     var response = JSON.parse(http_request.responseText);
-    console.log(response);
     return response;
 }
 
