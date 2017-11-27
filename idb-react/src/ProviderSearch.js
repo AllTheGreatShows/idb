@@ -58,8 +58,14 @@ class ProviderSearchGrid extends React.Component{
                 forwardButtonCheck = false;
             }
         }
-
-        if(backButtonCheck){
+        if(totalPages == 1){
+            return (
+                <div>
+                <Grid ref="child" Data={data} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page[0]} />
+                </div>
+            )
+        }
+        else if(backButtonCheck){
             return (
                 <div>
                 <Grid ref="child" Data={data} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page[0]} />

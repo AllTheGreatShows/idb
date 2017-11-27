@@ -59,7 +59,14 @@ class EpisodeSearchGrid extends React.Component{
             }
         }
         
-        if(backButtonCheck){
+        if(totalPages == 1){
+            return (
+                <div>
+                   <Grid ref="child" Data={data} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]} />
+                </div>
+            )
+        }
+        else if(backButtonCheck){
             return (
                 <div>
                 <Grid ref="child" Data={data} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]} />

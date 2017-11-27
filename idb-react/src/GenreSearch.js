@@ -59,8 +59,15 @@ class GenreSearchGrid extends React.Component{
             }
         }
 
+        if(totalPages == 1){
+            return (
+                <div>
+                    <Grid ref="child" Data={data} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page[0]} />
+                </div>
+            )
+        }
 
-        if(backButtonCheck){
+        else if(backButtonCheck){
             return (
                 <div>
                 <Grid ref="child" Data={data} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page[0]} />
