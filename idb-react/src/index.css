@@ -16,11 +16,12 @@ body {
 /*}*/
 
 .Acard .card-img-top {
-	max-width: 300px;
+	max-width: 350px;
 }
 
 .card-deck .card {
-    max-width: 300px;
+    margin-left: 50px;
+    max-width: 350px;
 }
 
 	.carousel {
@@ -91,12 +92,20 @@ a:hover {
     text-decoration: underline;
 }
 
-.SearchButton, .SortButton, .NextButton, .Button {
+.SearchButton, .NextButton, .Button {
     border: white solid 1px;
     background: mediumpurple;
 }
 
-.SearchButton:hover, .SortButton:hover, .NextButton:hover, .Button:hover {
+.SortButton {
+    border: white solid 1px;
+    background: green;
+}
+.SortButton:hover {
+    background: darkgreen;
+    border: white solid 1px;
+}
+.SearchButton:hover, .NextButton:hover, .Button:hover {
     border: white solid 1px;
     background: rebeccapurple;
 }
@@ -105,6 +114,7 @@ a:hover {
     color: black;
     margin-top: 15px;
     margin-bottom: 15px;
+    margin-left: 50px;
     /*this is purposeful for other buttons*/
 }
 
