@@ -1,32 +1,41 @@
-sep=;
-Story Title;Estimate;Vote Started;Voting Duration;Avg Voting Time;Fastest;Slowest;
-As a developer I want to see documentation on how the search was set up.;?;10/11/2017 03:18:40;00:00:10;00:00:06;Will K;Sanat;
-As a visitor I want a reasonable result my search does not bring up any exact result match.;?;10/11/2017 03:18:18;00:00:12;00:00:08;Will K;Sanat;
-As a visitor I want to be able to search a specific podcast using multiple keyword argument;?;10/11/2017 03:18:03;00:00:12;00:00:08;Will K;Sanat;
-As a visitor I want to be able to search a specific podcast using a single keyword argument;?;10/11/2017 03:17:50;00:00:11;00:00:07;Will K;Sanat;
-As a visitor I want to get reasonable search results back from my search queries.;?;10/11/2017 03:17:39;00:00:10;00:00:06;Will K;Sanat;
-As a visitor I want a google-like search tool that is intuitive and easy to use.;?;10/11/2017 03:17:28;00:00:05;00:00:02;Will K;Sanat;
-As a developer I want to access an open source API to get data for my own application.;?;10/11/2017 03:17:14;00:00:09;00:00:06;Will K;Sanat;
-As a visitor I want to be able to filter the results to find what I want.;?;10/11/2017 03:17:01;00:00:11;00:00:07;Will K;Sanat;
-As a visitor I want to view the instances of the models with pages for a better viewing experience.;?;10/11/2017 03:16:43;00:00:16;00:00:11;Will K;Sanat;
-As a visitor I want to be able to use search on the website to find details about a podcast, episode, genre, or host.;?;10/11/2017 03:14:39;00:02:02;00:01:46;Will K;Sanat;
-As a visitor I want to be able to use the navigation bar from anywhere in the site;100;23/10/2017 16:58:39;00:00:26;00:00:14;Will K;Sanat;
-As a visitor I want to be able to see featured podcasts when I visit the site;8;23/10/2017 16:58:21;00:00:17;00:00:10;Will K;Sanat;
-As a developer I want to be able to view an UML diagram in the project report to learn about the database design for the website;13;23/10/2017 16:58:05;00:00:11;00:00:08;Will K;Sanat;
-As a developer I want to be able to get all the project requirements from a central file;40;23/10/2017 16:57:44;00:00:16;00:00:12;Will K;Sanat;
-As a developer I want to be able to interpret a json file from the backend api request;100;23/10/2017 16:54:28;00:00:37;00:00:26;Will K;Sanat;
-As a developer I want to be able to view source code and run the app quickly and across different platforms with reactjs;?;23/10/2017 16:54:08;00:00:15;00:00:10;Will K;Sanat;
-As a visitor I want to view a website with styling for viewing enjoyment;?;23/10/2017 16:53:51;00:00:14;00:00:09;Will K;Sanat;
-As a developer I want to query a database to get back data.;40;23/10/2017 16:53:41;00:00:08;00:00:06;Will K;Sanat;
-As a developer I want to read the project report to learn about the development process for creating the website;?;23/10/2017 16:53:29;00:00:10;00:00:06;Will K;Sanat;
-As a viewer I want to see a modern website design for readability and ease of use;100;23/10/2017 16:53:15;00:00:11;00:00:07;Will K;Sanat;
-As a developer I want a stable GCP server instance so that I can reliably access the website;100;23/10/2017 16:53:04;00:00:09;00:00:06;Will K;Sanat;
-As a visitor I want to be able to see GitHub statistics about the development team that worked on the website;?;23/10/2017 16:52:47;00:00:13;00:00:08;Will K;Sanat;
-As a visitor I want to be able to see rich content media about podcasts;5;23/10/2017 16:52:27;00:00:14;00:00:09;Will K;Sanat;
-As a visitor I want to view various podcast pages to learn about them;20;23/10/2017 16:52:14;00:00:10;00:00:06;Will K;Sanat;
-As a developer I want to query api data that comes from multiple sources;40;23/10/2017 16:51:34;00:00:36;00:00:30;Will K;Sanat;
-As a visitor I want to view podcast information in a structured way;?;23/10/2017 16:50:57;00:00:19;00:00:07;Will K;Sanat;
-As a visitor I want to understand the team info in an ordered way;1;23/10/2017 16:50:42;00:00:13;00:00:07;Will K;Sanat;
-As a visitor I want to view 5 different podcast attributes so that I can learn more about a podcast;½;23/10/2017 16:50:16;00:00:23;00:00:16;Will K;Sanat;
-As a visitor I want to click on the about to learn more about the team.;1;23/10/2017 16:49:55;00:00:18;00:00:10;Will K;Sanat;
-As a developer I want to view documentation to query my own requests to get data;5;23/10/2017 16:27:16;00:22:35;00:21:54;Will K;Sanat;
+Story Title,Estimate,Estimated Time,Actual Completion Time,Vote Started,Voting Duration,Avg Voting Time,Fastest,Slowest
+As a developer I want to be able to view an updated UML diagram of the website.,13,25,25,28/11/2017 17:16:07,0:00:06,0:00:05,Claire,Ashay
+As a user I want to be able to run search with many terms and receive results.,20,120,240,28/11/2017 17:16:00,0:00:05,0:00:04,Will,Will
+As a developer I want to be able to view refined data on many instances of each model.,10,60,60,28/11/2017 17:15:53,0:00:06,0:00:04,Ashay,Claire
+As a developer I want to be able to reference cleaner code in the website's repository.,5,120,150,28/11/2017 17:15:45,0:00:07,0:00:05,Will,Jesse
+As a user I want to view a nicer looking website.,10,75,120,28/11/2017 17:15:32,0:00:08,0:00:05,Sanat,Sanat
+As a developer I want to be able to test the RESTful API using Postman.,20,45,45,28/11/2017 17:15:24,0:00:06,0:00:04,Jesse,Sanat
+As a user I want to see reviews about other groups' websites in the technical report and presentation.,40,20,20,28/11/2017 17:15:10,0:00:09,0:00:07,Ashay,Sanat
+As a developer I want to be able to view a presentation about the process development that went into making this website.,40,120,90,28/11/2017 17:14:57,0:00:10,0:00:08,Jesse,Will
+As a user I want to be able to visualize another group's API on this website.,10,60,100,28/11/2017 17:14:48,0:00:06,0:00:04,Claire,Will
+As a developer I want to be able to run tests with Selenium to test the GUI.,8,180,200,28/11/2017 17:14:27,0:00:17,0:00:12,Claire,Sanat
+As a developer I want to see documentation on how the search was set up.,8,30,30,10/11/17 3:18,0:00:10,0:00:06,Ashay,Will
+As a visitor I want a reasonable result my if search does not bring up any exact result match.,5,45,60,10/11/17 3:18,0:00:12,0:00:08,Sanat,Will
+As a visitor I want to be able to search a specific podcast using multiple keyword argument,2,100,150,10/11/17 3:18,0:00:12,0:00:08,Will,Claire
+As a visitor I want to be able to search a specific podcast using a single keyword argument,10,180,300,10/11/17 3:17,0:00:11,0:00:07,Sanat,Sanat
+As a visitor I want to get reasonable search results back from my search queries.,3,180,300,10/11/17 3:17,0:00:10,0:00:06,Ashay,Sanat
+As a visitor I want a google-like search tool that is intuitive and easy to use.,10,50,50,10/11/17 3:17,0:00:05,0:00:02,Ashay,Will
+As a developer I want to access an open source API to get data for my own application.,40,15,30,10/11/17 3:17,0:00:09,0:00:06,Sanat,Jesse
+As a visitor I want to be able to filter the results to find what I want.,5,120,840,10/11/17 3:17,0:00:11,0:00:07,Claire,Jesse
+As a visitor I want to view the instances of the models with pages for a better viewing experience.,10,60,120,10/11/17 3:16,0:00:16,0:00:11,Will,Sanat
+"As a visitor I want to be able to use search on the website to find details about a podcast, episode, genre, or host.",13,180,300,10/11/17 3:14,0:02:02,0:01:46,Ashay,Claire
+As a visitor I want to be able to use the navigation bar from anywhere in the site,13,120,240,23/10/2017 16:58:39,0:00:26,0:00:14,Jesse,Ashay
+As a visitor I want to be able to see featured podcasts when I visit the site,40,30,45,23/10/2017 16:58:21,0:00:17,0:00:10,Sanat,Claire
+As a developer I want to be able to view an UML diagram in the project report to learn about the database design for the website,20,30,30,23/10/2017 16:58:05,0:00:11,0:00:08,Jesse,Will
+As a developer I want to be able to get all the project requirements from a central file,40,10,10,23/10/2017 16:57:44,0:00:16,0:00:12,Claire,Will
+As a developer I want to be able to interpret a json file from the backend api request,2,45,60,23/10/2017 16:54:28,0:00:37,0:00:26,Will,Ashay
+As a developer I want to be able to view source code and run the app quickly and across different platforms with reactjs,40,5,15,23/10/2017 16:54:08,0:00:15,0:00:10,Sanat,Will
+As a visitor I want to view a website with styling for viewing enjoyment,20,180,300,23/10/2017 16:53:51,0:00:14,0:00:09,Jesse,Sanat
+As a developer I want to query a database to get back data.,5,120,240,23/10/2017 16:53:41,0:00:08,0:00:06,Jesse,Claire
+As a developer I want to read the project report to learn about the development process for creating the website,8,300,600,23/10/2017 16:53:29,0:00:10,0:00:06,Jesse,Jesse
+As a viewer I want to see a modern website design for readability and ease of use,3,240,360,23/10/2017 16:53:15,0:00:11,0:00:07,Jesse,Ashay
+As a developer I want a stable GCP server instance so that I can reliably access the website,40,30,120,23/10/2017 16:53:04,0:00:09,0:00:06,Ashay,Claire
+As a visitor I want to be able to see GitHub statistics about the development team that worked on the website,20,5,5,23/10/2017 16:52:47,0:00:13,0:00:08,Sanat,Sanat
+As a visitor I want to be able to see rich content media about podcasts,5,45,120,23/10/2017 16:52:27,0:00:14,0:00:09,Will,Sanat
+As a visitor I want to view various podcast pages to learn about them,5,45,45,23/10/2017 16:52:14,0:00:10,0:00:06,Claire,Sanat
+As a developer I want to query api data that comes from multiple sources,8,30,45,23/10/2017 16:51:34,0:00:36,0:00:30,Jesse,Will
+As a visitor I want to view podcast information in a structured way,8,30,50,23/10/2017 16:50:57,0:00:19,0:00:07,Sanat,Sanat
+As a visitor I want to understand the team info in an ordered way,2,15,30,23/10/2017 16:50:42,0:00:13,0:00:07,Will,Ashay
+As a visitor I want to view 5 different podcast attributes so that I can learn more about a podcast,1,20,60,23/10/2017 16:50:16,0:00:23,0:00:16,Sanat,Ashay
+As a visitor I want to click on the about to learn more about the team.,40,15,15,23/10/2017 16:49:55,0:00:18,0:00:10,Sanat,Ashay
+As a developer I want to view documentation to query my own requests to get data,20,60,75,23/10/2017 16:27:16,0:22:35,0:21:54,Jesse,Sanat
