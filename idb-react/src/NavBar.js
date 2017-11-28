@@ -37,7 +37,7 @@ class NavBar extends React.Component {
 		return (
       <Router>
         <div>
-          <Navbar color="black" light>
+          <Navbar className={"Navbar"}>
           <NavbarBrand href="/home">All The Great Shows</NavbarBrand>
             <Nav justified horizontal>
               <NavItem Home>
@@ -66,7 +66,7 @@ class NavBar extends React.Component {
                 onChange={this.handleChange}
               />
               <Link to={"/search/" + this.state.text}>
-                  <Button color="secondary" size="sm"> Search </Button>
+                  <Button className={"SearchButton"} size={"sm"}> Search </Button>
               </Link>
             </div>
 

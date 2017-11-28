@@ -117,12 +117,12 @@ renderCard(i) {
 
 render() {
 	return (
-		<div className={"AboutUs"}>
+		<div className={"notNav"}>
 			<h1>About Us</h1>
 			<h2>CS373 Fall 2017 Group-13</h2>
 			<h2>All the Great Shows: A podcast database for everyone</h2>
 			<p>All The Great Shows is a podcast database that allows users to search and discover popular podcasts on the internet.  It scrapes data from popular platforms in the podcast community such as the iTunes Store API and the Mixcloud API.  Users can discover new podcast series by genre as well as query results by artist, location, and and topic.
-				Our website is designed to be used by anyone and we do mean anyone.  We truly believe that there is a podcast series out there for everyone to discover and learn something new.  Podcasts can be listened to in the car, during a break at work, while waiting in line, or to wind down after a long day.  Podcasts range in subjects from politics to arts, entertainment. innovation, travel, and practically any topic that you can think of.</p>
+				Our website is designed to be used by anyone and we do mean anyone.  We truly believe that there is a podcast series out there for everyone to discover and learn something new.  Podcasts can be listened to in the car, during a break at work, while waiting in line, or to wind down after a long day.  Podcasts range in subjects from politics to arts, entertainment, innovation, travel, and practically any topic that you can think of.</p>
 
 			<h2>Meet our Team</h2>
 			{this.renderCard(0)}
@@ -131,7 +131,7 @@ render() {
 			{this.renderCard(3)}
 			{this.renderCard(4)}
 
-			<h2>Phase 1 Statistics</h2>
+			<h2>Phase 1/2/3/4 Statistics</h2>
 			<ul>
 				<li>Total number of commits: {this.totalCommits}</li>
 				<li>Total number of issues: 15</li>
@@ -151,7 +151,7 @@ render() {
 					<p>Data from the top 100 trending podcasts was scraped from the Mixcloud API.  An example search being http://api.mixcloud.com/popular/</p>
 			</ul>
 
-			<h2>Phase 1 Tools Used</h2>
+			<h2>Phase 1/2/3/4 Tools Used</h2>
 				<h3>Project Planning Tools</h3>
 				<ul>
 					<li>Github</li>
