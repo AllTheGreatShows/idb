@@ -20,7 +20,7 @@ function renderPodcast(obj) {
     console.log(val["genres"].length);
     for (var i = 0; i < val["genres"].length; i++) {
         // l[i] = val["genres"][i]["name"].toString();
-        l.push(<div><Link to={"/genre/id=" + pod[i]["id"]}> {pod[i]["name"]} </Link><br/></div>);
+        l.push(<div><Link className="Link" to={"/genre/id=" + pod[i]["id"]}> {pod[i]["name"]} </Link><br/></div>);
     }
     return (
         <Card className={"PodcastCard"}>
@@ -28,15 +28,16 @@ function renderPodcast(obj) {
             <img className={"Detail-Img"} data-src="holder.js/64x64" src={val.image_url.toString()}
                    alt="Generic placeholder image"/>
 
-            <div className={"Detail-BodyText"}>
+            <div  className={"Detail-BodyText"}>
                 <CardTitle>
                     {val.title.toString()}
                 </CardTitle>
 
-                <CardSubtitle>id: {val.id.toString()} </CardSubtitle>
-                feed_url: <a href={val.feed_url.toString()}> {val.feed_url.toString()}</a> <br/>
-                itunes_id: {val.itunes_id.toString()} <br/>
-                genres: {l} <br/>
+                <CardSubtitle className={"Detail-Subtitle"}>id: {val.id.toString()}
+                <br/> itunes_id: {val.itunes_id.toString()} </CardSubtitle>
+                <p> feed_url: <a href={val.feed_url.toString()}> {val.feed_url.toString()}</a> </p>
+
+                <p>genres: {l} </p>
             </div>
             </div>
         </Card>
