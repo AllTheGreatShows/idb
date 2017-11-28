@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {getEpisodes, getAscending, getDescending, getFilterDataModels} from './Request';
+import {getEpisodes, getAscending, getDescending, getFilterDataPodcast, getFilterDataEpisode, getFilterDataProvider, getFilterDataGenre} from './Request';
 import Grid from './Grid';
+import MyFilter from './Filter';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
 
@@ -10,7 +11,19 @@ class Episode extends React.Component{
         super(props)
         this.page = Array(1)
         this.page[0] = this.props.match.params.pagenum;
+        this.state = {userInput : null};
+        this.getChildData = this.getChildData.bind(this);
+
     }
+
+    getChildData = (childData) => {
+        console.log("In parent and child data is " + childData);
+
+        this.setState({userInput:childData});
+        // don't try to check for updated state here with console log
+        this.forceUpdate();
+    }
+
 
     render () {
         var prevURL;
@@ -23,6 +36,7 @@ class Episode extends React.Component{
         var forwardButtonCheck = false;
         var boolASC = false;
         var boolDSC = false;
+        var filter = (<div><MyFilter child_value = {(childData) => this.getChildData(childData)}/><pre>{JSON.stringify(this.state)}</pre></div>);
 
         if (this.props.match.params.sorttype == "asc")
             {
@@ -78,8 +92,10 @@ class Episode extends React.Component{
                             }
                         }> Descending </Button>
                     </Link>
-                    <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     
-                    
+                    {filter}
+                    {/* <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     */}
+
+                    <Grid ref="child" Data={getFilterDataEpisode(this.state.userInput, this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/> 
                     <Link to={nextURL}>
                         <Button className={"NextButton"} size="lg" onClick= {() =>
                             {this.page[0] = parseInt(this.page[0]) + 1;
@@ -118,7 +134,9 @@ class Episode extends React.Component{
                                 }
                             }> Descending </Button>
                         </Link>
-                        <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     
+                        {filter}
+                        {/* <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     */}
+                        <Grid ref="child" Data={getFilterDataEpisode(this.state.forceUpdate, this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>
                         
                         <Link to={prevURL}>
                             <Button className={"NextButton"} size="lg" onClick= {() =>
@@ -158,7 +176,10 @@ class Episode extends React.Component{
                         }
                     }> Descending </Button>
                 </Link>
-                <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "episode" page={this.page[0]}/>     
+                {filter}
+                {/* <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "episode" page={this.page[0]}/>      */}
+
+                <Grid ref="child" Data={getFilterDataEpisode(this.state.userInput, this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>
                 <Link to={prevURL}>
                     <Button className={"NextButton"} size="lg" onClick= {() =>
                         {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0]) - 1;

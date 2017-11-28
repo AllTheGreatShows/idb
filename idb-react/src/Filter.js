@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, Button, Collapse, Card, CardBody } from 'reactstrap';
-import { getFilterDataPodcasts} from "./Request";
+import { getFilterDataPodcast, getFilterDataEpisode, getFilterDataProvider, getFilterDataGenre} from "./Request";
 
 class CheckBox extends React.Component {
 
@@ -36,7 +36,6 @@ class CheckBox extends React.Component {
         const squares = this.state.value.slice();
         squares[i] = !squares[i];
         this.setState({value: squares});
-        // this.forceUpdate();
     }
 
 

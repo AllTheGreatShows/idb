@@ -1,5 +1,5 @@
 import React, { Component, Rerender} from 'react';
-import {getPodcasts, getAscending, getDescending, getFilterDataPodcasts} from './Request';
+import {getPodcasts, getAscending, getDescending, getFilterDataPodcast, getFilterDataEpisode, getFilterDataProvider, getFilterDataGenre} from './Request';
 import Grid from './Grid';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
@@ -20,7 +20,7 @@ class Podcast extends React.Component{
         console.log("In parent and child data is " + childData);
 
         this.setState({userInput:childData});
-        // console.log("note may be misleading. state set to " + this.state.userInput);
+        // don't try to check for updated state here with console log
         this.forceUpdate();
     }
 
@@ -90,10 +90,8 @@ class Podcast extends React.Component{
                         }
                     }> Descending </Button>
                     </Link>
-                    {/* <MyFilter getData = {() => this.getChildData()}/> */}
                     {filter}
-                    {/* <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} /> */}
-                    <Grid ref="child" Data={getFilterDataPodcasts(this.state.userInput, this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+                    <Grid ref="child" Data={getFilterDataPodcast(this.state.userInput, this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
                 <Link to={nextURL}>
                     <Button className={"NextButton"} size="lg" onClick= {() =>
                         {this.page[0] = parseInt(this.page[0]) + 1;
@@ -135,10 +133,9 @@ class Podcast extends React.Component{
                         }
                     }> Descending </Button>
                 </Link>
-                    {/* <MyFilter getData = {() => this.getChildData()}/> */}
                     {filter}
-                    {/* <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} /> */}
-                    <Grid ref="child" Data={getFilterDataPodcasts(this.state.userInput, this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+                    <Grid ref="child" Data={getFilterDataPodcast(this.state.userInput, this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+
                     
                 <Link to={prevURL}>
                     <Button className={"NextButton"} size="lg" onClick= {() =>
@@ -179,10 +176,8 @@ class Podcast extends React.Component{
                     }
                 }> Descending </Button>
                 </Link>
-                {/* <MyFilter getData = {() => this.getChildData()}/> */}
                 {filter}
-                {/* <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} /> */}
-                <Grid ref="child" Data={getFilterDataPodcasts(this.state.userInput, this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
+                <Grid ref="child" Data={(this.state.userInput, this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
                 
                 
             <Link to={prevURL}>

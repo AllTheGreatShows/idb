@@ -8,7 +8,7 @@ import Episode from './Episode';
 import Genre from './Genre';
 import MyMedia from './Media';
 import Provider from './Provider';
-import {getPodcasts, getEpisodes, getGenres, getProviders, getFilterDataPodcasts} from './Request';
+import {getPodcasts, getEpisodes, getGenres, getProviders, getFilterDataPodcast, getFilterDataEpisode, getFilterDataGenre, getFilterDataProvider} from './Request';
 import Grid from './Grid';
 import SearchResults from './Search';
 import PodcastSearchGrid from './PodcastSearch';

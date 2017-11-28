@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getProviders, getAscending, getDescending} from './Request';
+import {getProviders, getAscending, getDescending, getFilterDataPodcast, getFilterDataEpisode, getFilterDataProvider, getFilterDataGenre} from './Request';
 import Grid from './Grid';
 import MyFilter from './Filter';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -12,16 +12,24 @@ class Provider extends React.Component{
         this.page = Array(1)
         this.page[0] = this.props.match.params.pagenum;
         this.getChildData = this.getChildData.bind(this);
+        this.state = {userInput : null};
     }
-    getChildData = (childData) => {
-        // console.log("In parent and child data is " + childData);
-        console.log("state originally set to " + this.state.userInput);
-        console.log(childData);
+    // getChildData = (childData) => {
+    //     // console.log("In parent and child data is " + childData);
+    //     console.log("state originally set to " + this.state.userInput);
+    //     console.log(childData);
 
+    //     this.setState({userInput:childData});
+    //     this.forceUpdate();
+    //     console.log("STATE NOW SET TO: " + this.state.userInput);
+    // }
+
+    getChildData = (childData) => {
+        console.log("In parent and child data is " + childData);
         this.setState({userInput:childData});
         this.forceUpdate();
-        console.log("STATE NOW SET TO: " + this.state.userInput);
     }
+
     render () {
         var nextURL;
         var prevURL;
@@ -33,6 +41,7 @@ class Provider extends React.Component{
         var forwardButtonCheck = false;
         var boolASC = false;
         var boolDSC = false;
+        var filter = (<div><MyFilter child_value = {(childData) => this.getChildData(childData)}/><pre>{JSON.stringify(this.state)}</pre></div>);
 
         console.log(this.props.match.params.sorttype);
         if (this.props.match.params.sorttype == "asc")
@@ -86,8 +95,9 @@ class Provider extends React.Component{
                             }
                         }> Descending </Button>
                 </Link>
-                <MyFilter getData = {() => this.getChildData()}/>
-                    <Grid ref="child" Data={getProviders(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page}/>
+                {/* <MyFilter getData = {() => this.getChildData()}/> */}
+                {filter}
+                    <Grid ref="child" Data={getFilterDataProvider(this.state.userInput, this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page}/>
                     <Link to={nextURL}>
                         <Button className={"NextButton"} size="lg" onClick= {() =>
                             {this.page[0] = parseInt(this.page[0]) + 1;
@@ -125,8 +135,8 @@ class Provider extends React.Component{
                             }
                         }> Descending </Button>
                 </Link>
-                <MyFilter getData = {() => this.getChildData()}/>
-                    <Grid ref="child" Data={getProviders(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page}/>
+                {/* <MyFilter getData = {() => this.getChildData()}/> */}
+                    <Grid ref="child" Data={getFilterDataProvider(this.state.userInput, this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page}/>
 
                     <Link to={prevURL}>
                         <Button className={"NextButton"} size="lg" onClick= {() =>
@@ -165,8 +175,8 @@ class Provider extends React.Component{
                             }
                         }> Descending </Button>
                 </Link>
-                <MyFilter getData = {() => this.getChildData()}/>
-                <Grid ref="child" Data={getProviders(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page}/>
+                {/* <MyFilter getData = {() => this.getChildData()}/> */}
+                <Grid ref="child" Data={getFilterDataProvider(this.state.userInput, this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page}/>
 
                 <Link to={prevURL}>
                     <Button className={"NextButton"} size="lg" onClick= {() =>

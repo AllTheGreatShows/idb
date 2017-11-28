@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getGenres, getAscending, getDescending, getFilterDataModels} from './Request';
+import {getGenres, getAscending, getDescending, getFilterDataPodcast, getFilterDataEpisode, getFilterDataProvider, getFilterDataGenre} from './Request';
 import Grid from './Grid';
 import MyFilter from './Filter';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ class Genre extends React.Component{
         this.page = Array(1)
         this.page[0] = this.props.match.params.pagenum;
         this.getChildData = this.getChildData.bind(this);
+        this.state = {userInput : null};
     }
 
     getChildData = (childData) => {
@@ -31,6 +32,8 @@ class Genre extends React.Component{
         var forwardButtonCheck = false;
         var boolASC = false;
         var boolDSC = false;
+
+        var filter = (<div><MyFilter child_value = {(childData) => this.getChildData(childData)}/><pre>{JSON.stringify(this.state)}</pre></div>);
 
         console.log(this.props.match.params.sorttype);
         if (this.props.match.params.sorttype == "asc")
@@ -83,8 +86,10 @@ class Genre extends React.Component{
                             }
                         }> Descending </Button>
                 </Link>
-                <MyFilter getData = {() => this.getChildData()}/>
-                     <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
+
+                {/* <MyFilter getData = {() => this.getChildData()}/> */}
+                {filter}
+                     <Grid ref="child" Data={getFilterDataGenre(this.state.userInput, this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
                      <Link to={nextURL}>
                         <Button className={"NextButton"} size="lg" onClick= {() =>
                             {this.page[0] = parseInt(this.page[0]) + 1;
@@ -122,8 +127,11 @@ class Genre extends React.Component{
                             }
                         }> Descending </Button>
                 </Link>
-                <MyFilter getData = {() => this.getChildData()}/>
-                     <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
+                {/* <MyFilter getData = {() => this.getChildData()}/> */}
+                {filter}
+                     {/* <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/> */}
+
+                     <Grid ref="child" Data={getFilterDataGenre(this.state.userInput, this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
     
                     <Link to={prevURL}>
                         <Button className={"NextButton"} size="lg" onClick= {() =>
@@ -162,8 +170,10 @@ class Genre extends React.Component{
                             }
                         }> Descending </Button>
                 </Link>
-                <MyFilter getData = {() => this.getChildData()}/>
-                 <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
+                {/* <MyFilter getData = {() => this.getChildData()}/> */}
+                {filter}
+                 {/* <Grid ref="child" Data={getGenres(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/> */}
+                 <Grid ref="child" Data={getFilterDataGenre(this.state.userInput, this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "genre" page={this.page}/>
 
                 <Link to={prevURL}>
                     <Button className={"NextButton"} size="lg" onClick= {() =>
