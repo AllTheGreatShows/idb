@@ -81,6 +81,7 @@ class NavBar extends React.Component {
           <Route path="/genre/page=:pagenum" component={Genre}/>
           <Route path="/genre/sort=:sorttype/page=:pagenum" component={Genre}/>
           <Route path="/episode/page=:pagenum" component={Episode}/>
+          <Route path="/episode/sort=:sorttype/page=:pagenum" component={Episode}/>
           <Route path="/:idtype/id=:idnum" component={MyMedia}/>
           <Route path="/search/:searchterm" component={SearchResults}/>
           <Route path="/search/:searchterm/podcast/page=:pagenum" component={PodcastSearchGrid}/>

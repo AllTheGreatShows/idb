@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {getEpisodes, getAscending, getDescending, getFilterDataModels} from './Request';
 import Grid from './Grid';
-import MyFilter from './Filter';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
 
@@ -11,17 +10,6 @@ class Episode extends React.Component{
         super(props)
         this.page = Array(1)
         this.page[0] = this.props.match.params.pagenum;
-        this.getChildData = this.getChildData.bind(this);
-    }
-
-    getChildData = (childData) => {
-        // console.log("In parent and child data is " + childData);
-        console.log("state originally set to " + this.state.userInput);
-        console.log(childData);
-
-        this.setState({userInput:childData});
-        this.forceUpdate();
-        console.log("STATE NOW SET TO: " + this.state.userInput);
     }
 
     render () {
@@ -45,8 +33,10 @@ class Episode extends React.Component{
                 boolDSC = true;
 
         
-        if (parseInt(this.page[0]) == 1)
+        console.log("Page: " + this.page[0])
+        if (parseInt(this.page[0]) == 1){
             backButtonCheck=true;
+        }
         else{
             backButtonCheck = false;
             if (boolASC)
@@ -69,6 +59,8 @@ class Episode extends React.Component{
         }
 
         if(backButtonCheck){
+            console.log("REacign hereeeeeeeeeeeeeeeeeeee")            
+            console.log("Reaching here")
             return (
                 <div className={"notNav"}>
                     {"Sort: "}
@@ -76,6 +68,8 @@ class Episode extends React.Component{
                         <Button className={"SortButton"} onClick= {() =>
                             {this.page[0] = 1;
                             var data = getAscending("title", "episode",1);
+                            console.log("GETTING DATA")
+                            console.log(data)
                             this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
                             }
                         }> Ascending </Button>
@@ -89,7 +83,6 @@ class Episode extends React.Component{
                             }
                         }> Descending </Button>
                     </Link>
-                    <MyFilter getData = {() => this.getChildData()}/>
                     <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     
                     
                     <Link to={nextURL}>
@@ -130,7 +123,6 @@ class Episode extends React.Component{
                                 }
                             }> Descending </Button>
                         </Link>
-                        <MyFilter getData = {() => this.getChildData()}/>
                         <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     
                         
                         <Link to={prevURL}>
@@ -171,8 +163,7 @@ class Episode extends React.Component{
                         }
                     }> Descending </Button>
                 </Link>
-                <MyFilter getData = {() => this.getChildData()}/>
-                <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     
+                <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "episode" page={this.page[0]}/>     
                 <Link to={prevURL}>
                     <Button className={"NextButton"} size="lg" onClick= {() =>
                         {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0]) - 1;

@@ -70,6 +70,7 @@ class Podcast extends React.Component{
         console.log("rendering on the url")
   
         if(backButtonCheck){
+            console.log("REacign hereeeeeeeeeeeeeeeeeeee")
             return (
                 <div className={"notNav"}>
                     {"Sort: "}
