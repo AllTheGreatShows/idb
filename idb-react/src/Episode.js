@@ -33,7 +33,6 @@ class Episode extends React.Component{
                 boolDSC = true;
 
         
-        console.log("Page: " + this.page[0])
         if (parseInt(this.page[0]) == 1){
             backButtonCheck=true;
         }
@@ -59,8 +58,6 @@ class Episode extends React.Component{
         }
 
         if(backButtonCheck){
-            console.log("REacign hereeeeeeeeeeeeeeeeeeee")            
-            console.log("Reaching here")
             return (
                 <div className={"notNav"}>
                     {"Sort: "}
@@ -68,8 +65,6 @@ class Episode extends React.Component{
                         <Button className={"SortButton"} onClick= {() =>
                             {this.page[0] = 1;
                             var data = getAscending("title", "episode",1);
-                            console.log("GETTING DATA")
-                            console.log(data)
                             this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
                             }
                         }> Ascending </Button>

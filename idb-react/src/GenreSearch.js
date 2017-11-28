@@ -17,13 +17,8 @@ class GenreSearchGrid extends React.Component{
 
 
     getChildData = (childData) => {
-        // console.log("In parent and child data is " + childData);
-        console.log("state originally set to " + this.state.userInput);
-        console.log(childData);
-
         this.setState({userInput:childData});
         this.forceUpdate();
-        console.log("STATE NOW SET TO: " + this.state.userInput);
     }
 
     render () {

@@ -16,12 +16,8 @@ class Genre extends React.Component{
 
     getChildData = (childData) => {
         // console.log("In parent and child data is " + childData);
-        console.log("state originally set to " + this.state.userInput);
-        console.log(childData);
-
         this.setState({userInput:childData});
         this.forceUpdate();
-        console.log("STATE NOW SET TO: " + this.state.userInput);
     }
 
     render () {
@@ -39,7 +35,6 @@ class Genre extends React.Component{
         console.log(this.props.match.params.sorttype);
         if (this.props.match.params.sorttype == "asc")
         {
-            console.log("asc bool is true");
             boolASC = true;
         }       
         else if (this.props.match.params.sorttype == "dsc")
