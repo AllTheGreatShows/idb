@@ -17,9 +17,10 @@ class Podcast extends React.Component{
 
 
     getChildData = (childData) => {
-        // console.log("In parent and child data is " + childData);
+        console.log("In parent and child data is " + childData);
 
         this.setState({userInput:childData});
+        console.log("note may be misleading. state set to" + this.state.userInput);
         this.forceUpdate();
     }
 
@@ -33,6 +34,8 @@ class Podcast extends React.Component{
         var forwardButtonCheck = false;
         var boolASC = false;
         var boolDSC = false;
+
+        var filter = (<div><MyFilter child_value = {(childData) => this.getChildData(childData)}/><pre>{JSON.stringify(this.state)}</pre></div>);
 
         if (this.props.match.params.sorttype == "asc")
             {
@@ -87,7 +90,8 @@ class Podcast extends React.Component{
                         }
                     }> Descending </Button>
                     </Link>
-                    <MyFilter getData = {() => this.getChildData()}/>
+                    {/* <MyFilter getData = {() => this.getChildData()}/> */}
+                    {filter}
                     <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
                 <Link to={nextURL}>
                     <Button className={"NextButton"} size="lg" onClick= {() =>
@@ -130,7 +134,8 @@ class Podcast extends React.Component{
                         }
                     }> Descending </Button>
                 </Link>
-                    <MyFilter getData = {() => this.getChildData()}/>
+                    {/* <MyFilter getData = {() => this.getChildData()}/> */}
+                    {filter}
                     <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
                     
                     
@@ -173,7 +178,8 @@ class Podcast extends React.Component{
                     }
                 }> Descending </Button>
                 </Link>
-                <MyFilter getData = {() => this.getChildData()}/>
+                {/* <MyFilter getData = {() => this.getChildData()}/> */}
+                {filter}
                 <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
 
                 

@@ -70,19 +70,25 @@ class MyFilter extends React.Component {
         // this.getData = this.getData.bind(this);
         }
 
+    // getData = (childData) => {
+    //     console.log("CHILD DATA IS " + childData);
+    //     this.props.child_value(childData);
+    // }
+
     getData = (childData) => {
+        console.log("CHILD DATA IS " + childData);
         this.props.child_value(childData);
     }
 
     render() {
         return (
           <div>
-            <Button className={"SortButton"} onClick={this.toggle} style={{ marginBottom: '1rem' }}>Click me to filter!</Button>
+            <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Click me to filter!</Button>
             <Collapse isOpen={this.state.collapse}>
               <Card>
                 <CardBody>
                     {/* put checkbox here */}
-                    <CheckBox sendData={() => this.getData}/>
+                    <CheckBox sendData={(childData) => this.props.child_value(childData)}/>
                     
                     
                 </CardBody>
