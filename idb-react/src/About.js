@@ -10,7 +10,7 @@ var members = [
 	 "https://utexas.box.com/shared/static/rg7h5drt8osqbb7t3klh703t0ad9mz40.jpg",
 	 "Bio: Sanat is a junior in computer science who is passionate about creating change in the world through tech. He enjoys learning about new concepts in tech (recently working on computer vision and machine learning), singing and watching soccer.",
 	 "Managed the group workflow",
-	 "Worked on frontend and backend development",
+	 "Worked on frontend and backend development, including api requests, pagination, sorting, python flask",
 	 "Searched through iTunes Store API for raw data.",
 	 "SanatSharma", 9, 0],
 	["Jesse Tipton",
