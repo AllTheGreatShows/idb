@@ -60,20 +60,42 @@ function getDescending(val, type, page=1) {
     var response = JSON.parse(http_request.responseText);
     return response;
 }
-
-function getFilterDataPodcasts(val){
-    var url = "http://allthegreatshows.com/api/podcast?q={%22filters%22:[%20{%22name%22:%20%22genres%22,%20%22op%22:%20%22any%22,%20%22val%22:{%22name%22:%20%22name%22,%20%22op%22:%20%22ilike%22,%20%22val%22:%20%22" + val +"%22%20}%20}]}";
+// *******************************
+// function getFilterDataPodcasts(val){
+//     var url = "http://allthegreatshows.com/api/podcast?q={%22filters%22:[%20{%22name%22:%20%22genres%22,%20%22op%22:%20%22any%22,%20%22val%22:{%22name%22:%20%22name%22,%20%22op%22:%20%22ilike%22,%20%22val%22:%20%22" + val +"%22%20}%20}]}";
+//     var http_request = new XMLHttpRequest();
+//     http_request.open("GET", url, false);
+//     http_request.send(null);
+//     try {
+//         var response = JSON.parse(http_request.responseText);
+//     }
+//     catch(err) {
+//         var response="";
+//     }
+//     return response;
+// }
+function getFilterDataPodcasts(val, page=1){
+    console.log("hey i'm being called");
+    console.log("val is: " + val);
+    if (val == null) {
+        return getPodcasts(page);
+    }
+    // one word starts with the letter
+    var url = "http://allthegreatshows.com/api/podcast?q={%22filters%22:[{%22or%22:[{%22val%22:%22% " + val + "%%22,%22name%22:%22title%22,%22op%22:%22ilike%22}]}]}&page=1";
+    console.log("querying url " + url);
     var http_request = new XMLHttpRequest();
     http_request.open("GET", url, false);
     http_request.send(null);
+    var response = "";
     try {
-        var response = JSON.parse(http_request.responseText);
+        response = JSON.parse(http_request.responseText);
+        console.log(response);
     }
     catch(err) {
-        var response="";
     }
     return response;
 }
+// *******************************
 
 function getFilterDataModels(type, val){
     if(type == "provider" || type == "genre")

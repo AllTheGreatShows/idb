@@ -82,6 +82,7 @@ class Grid extends React.Component {
 
 	render () {
 		console.log("rendering Grid");
+		console.log(this.state.content);
 		return (
 				<div>{this.state.content}</div>
 			);

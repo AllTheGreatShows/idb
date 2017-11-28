@@ -25,7 +25,7 @@ class CheckBox extends React.Component {
             }
         }
         console.log("reached the submit handler");
-        console.log("you picked: " + userInput);
+        // console.log("you picked: " + userInput);
         this.props.sendData(userInput);
         
         // alert("you picked: " + this.state.userInput);
