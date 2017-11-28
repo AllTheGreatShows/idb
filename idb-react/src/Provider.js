@@ -68,28 +68,28 @@ class Provider extends React.Component{
         }
         if(backButtonCheck){
             return (
-                <div className={"notNav"}>
+                <div>
                 {"Sort: "}
                 <Link to={"/provider/sort=asc/page=1"}>
-                    <Button className={"SortButton"} onClick= {() =>
+                    <Button color="success" size="lg" onClick= {() => 
                             {this.page[0] = 1;
                             var data = getAscending("name", "provider", 1);
                             this.refs.child.changeState(data,"name" ,"image_url" ,"provider", 1, true);
                             }
-                        }> Ascending </Button>{' '}
+                        }> Asc </Button>{' '}
                 </Link>
                 <Link to={"/provider/sort=dsc/page=1"}>
-                    <Button className={"SortButton"} onClick= {() =>
+                    <Button color="success" size="lg" onClick= {() => 
                             {this.page[0] = 1;
                             var data = getDescending("name", "provider",1);
                             this.refs.child.changeState(data,"name" ,"image_url" ,"provider", 1);
                             }
-                        }> Descending </Button>
+                        }> Desc </Button>
                 </Link>
                 <MyFilter getData = {() => this.getChildData()}/>
                     <Grid ref="child" Data={getProviders(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page}/>
                     <Link to={nextURL}>
-                        <Button className={"NextButton"} size="lg" onClick= {() =>
+                        <Button outline color="warning" size="lg" onClick= {() => 
                             {this.page[0] = parseInt(this.page[0]) + 1;
                             var data;
                             if (boolASC)
@@ -107,29 +107,29 @@ class Provider extends React.Component{
         }
         else if(forwardButtonCheck){
             return (
-                <div className={"notNav"}>
+                <div>
                 {"Sort: "}
                 <Link to={"/provider/sort=asc/page=1"}>
-                    <Button className={"SortButton"} onClick= {() =>
+                    <Button color="success" size="lg" onClick= {() => 
                             {this.page[0] = 1;
                             var data = getAscending("name", "provider", 1);
                             this.refs.child.changeState(data,"name" ,"image_url" ,"provider", 1, true);
                             }
-                        }> Ascending </Button>{' '}
+                        }> Asc </Button>{' '}
                 </Link>
                 <Link to={"/provider/sort=dsc/page=1"}>
-                    <Button className={"SortButton"} onClick= {() =>
+                    <Button color="success" size="lg" onClick= {() => 
                             {this.page[0] = 1;
                             var data = getDescending("name", "provider",1);
                             this.refs.child.changeState(data,"name" ,"image_url" ,"provider", 1);
                             }
-                        }> Descending </Button>
+                        }> Desc </Button>
                 </Link>
                 <MyFilter getData = {() => this.getChildData()}/>
                     <Grid ref="child" Data={getProviders(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page}/>
 
                     <Link to={prevURL}>
-                        <Button className={"NextButton"} size="lg" onClick= {() =>
+                        <Button outline color="warning" size="lg" onClick= {() => 
                             {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0]) - 1;
                                 var data;
                                 if (boolASC)
@@ -147,29 +147,29 @@ class Provider extends React.Component{
         }
         else{
         return (
-            <div className={"notNav"}>
+            <div>
             {"Sort: "}
                 <Link to={"/provider/sort=asc/page=1"}>
-                    <Button className={"SortButton"} onClick= {() =>
+                    <Button color="success" size="lg" onClick= {() => 
                             {this.page[0] = 1;
                             var data = getAscending("name", "provider", 1);
                             this.refs.child.changeState(data,"name" ,"image_url" ,"provider", 1, true);
                             }
-                        }> Ascending </Button>{' '}
+                        }> Asc </Button>{' '}
                 </Link>
                 <Link to={"/provider/sort=dsc/page=1"}>
-                    <Button className={"SortButton"} onClick= {() =>
+                    <Button color="success" size="lg" onClick= {() => 
                             {this.page[0] = 1;
                             var data = getDescending("name", "provider",1);
                             this.refs.child.changeState(data,"name" ,"image_url" ,"provider", 1);
                             }
-                        }> Descending </Button>
+                        }> Desc </Button>
                 </Link>
                 <MyFilter getData = {() => this.getChildData()}/>
                 <Grid ref="child" Data={getProviders(this.page[0])} CardTitle={"name"} ImageField={""} MediaType = "provider" page={this.page}/>
 
                 <Link to={prevURL}>
-                    <Button className={"NextButton"} size="lg" onClick= {() =>
+                    <Button outline color="warning" size="lg" onClick= {() => 
                         {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0]) - 1;
                             var data;
                             if (boolASC)
@@ -184,7 +184,7 @@ class Provider extends React.Component{
                 </Link>
                 {' '}
                 <Link to={nextURL}>
-                    <Button className={"NextButton"} size="lg" onClick= {() =>
+                    <Button outline color="warning" size="lg" onClick= {() => 
                         {this.page[0] = parseInt(this.page[0]) + 1;
                             var data;
                             if (boolASC)

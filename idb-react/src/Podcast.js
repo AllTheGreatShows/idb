@@ -71,29 +71,29 @@ class Podcast extends React.Component{
   
         if(backButtonCheck){
             return (
-                <div className={"notNav"}>
-                    {"Sort: "}
+                <div>
+                {"Sort: "}
                 <Link to={"/podcast/sort=asc/page=1"}>
-                <Button className={"SortButton"}  onClick= {() =>
+                <Button color="success" size="lg" onClick= {() => 
                         {this.page[0] = 1;
                         var data = getAscending("title", "podcast",1);
                         this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
                         }
-                    }> Ascending </Button>
+                    }> Asc </Button>
                 </Link>
                 {' '}
                 <Link to={"/podcast/sort=dsc/page=1"}>
-                <Button className={"SortButton"} onClick= {() =>
+                <Button color="success" size="lg" onClick= {() => 
                         {this.page[0] = 1;
                         var data = getDescending("title", "podcast",1);
                         this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
                         }
-                    }> Descending </Button>
+                    }> Desc </Button>
                     </Link>
                     <MyFilter getData = {() => this.getChildData()}/>
                     <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
                 <Link to={nextURL}>
-                    <Button className={"NextButton"} size="lg" onClick= {() =>
+                    <Button outline color="warning" size="lg" onClick= {() => 
                         {this.page[0] = parseInt(this.page[0]) + 1;
                             var data;
                             if (boolASC){
@@ -114,31 +114,31 @@ class Podcast extends React.Component{
         }
         else if (forwardButtonCheck){
             return (
-                <div className={"notNav"}>
+                <div>
                 {"Sort: "}
                 <Link to={"/podcast/sort=asc/page=1"}>
-                <Button className={"SortButton"} onClick= {() =>
+                <Button color="success" size="lg" onClick= {() => 
                         {this.page[0] = 1;
                         var data = getAscending("title", "podcast");
                         this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
                         }
-                    }> Ascending </Button>
+                    }> Asc </Button>
                 </Link>
                 {' '}
                 <Link to={"/podcast/sort=dsc/page=1"}>
-                <Button className={"SortButton"} onClick= {() =>
+                <Button color="success" size="lg" onClick= {() => 
                         {this.page[0] = 1;
                         var data = getDescending("title", "podcast");
                         this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
                         }
-                    }> Descending </Button>
+                    }> Desc </Button>
                 </Link>
                     <MyFilter getData = {() => this.getChildData()}/>
                     <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
                     
                     
                 <Link to={prevURL}>
-                    <Button className={"NextButton"} size="lg" onClick= {() =>
+                    <Button outline color="warning" size="lg" onClick= {() => 
                         {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0])- 1;
                             var data;
                             if (boolASC)
@@ -157,24 +157,24 @@ class Podcast extends React.Component{
         }
         else{
         return (
-            <div className={"notNav"}>
+            <div>
             {"Sort: "}
             <Link to={"/podcast/sort=asc/page=1"}>
-            <Button className={"SortButton"} onClick= {() =>
+            <Button color="success" size="lg" onClick= {() => 
                     {this.page[0] = 1;
                     var data = getAscending("title", "podcast");
                     this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
                     }
-                }> Ascending </Button>
+                }> Asc </Button>
             </Link>
             {' '}
             <Link to={"/podcast/sort=dsc/page=1"}>
-            <Button className={"SortButton"} onClick= {() =>
+            <Button color="success" size="lg" onClick= {() => 
                     {this.page[0] = 1;
                     var data = getDescending("title", "podcast");
                     this.refs.child.changeState(data,"title" ,"image_url" ,"podcast", 1);
                     }
-                }> Descending </Button>
+                }> Desc </Button>
                 </Link>
                 <MyFilter getData = {() => this.getChildData()}/>
                 <Grid ref="child" Data={getPodcasts(this.page[0])} CardTitle={"title"} ImageField={"image_url"} MediaType = "podcast" page={this.page[0]} />
@@ -182,7 +182,7 @@ class Podcast extends React.Component{
                 
                 
             <Link to={prevURL}>
-                <Button className={"NextButton"} size="lg" onClick= {() =>
+                <Button outline color="warning" size="lg" onClick= {() => 
                     {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0])- 1;
                         var data;
                         if (boolASC)
@@ -197,7 +197,7 @@ class Podcast extends React.Component{
             </Link>
             {'  '}
             <Link to={nextURL}>
-                <Button className={"NextButton"} size="lg" onClick= {() =>
+                <Button outline color="warning" size="lg" onClick= {() => 
 
                     {this.page[0] = parseInt(this.page[0]) + 1;
                         var data;

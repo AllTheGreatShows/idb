@@ -9,21 +9,18 @@ import {
 
 const items = [
   {
-    // src: "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png",
-src: "https://i.ytimg.com/vi/Gb1-MuRcgsc/maxresdefault.jpg",
-      altText: "",//"The Joe Rogan Experience",
-    caption: ""//"The Joe Rogan Experience"
+    src: "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png",
+    altText: "The Joe Rogan Experience",
+    caption: "The Joe Rogan Experience"
   },
   {
-    // src: "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg",
-    src: "https://www.nextpittsburgh.com/wp-content/uploads/2016/02/marta2.jpg",
-      altText: "",//"The Splendid Table",
-    caption: ""//"The Splendid Table"
+    src: "http://is3.mzstatic.com/image/thumb/Music71/v4/1a/36/4e/1a364eba-792c-09c3-545b-1382c7b01a94/source/200x200bb.jpg",
+    altText: "The Splendid Table",
+    caption: "The Splendid Table"
   },
   {
-    // src: "http://is1.mzstatic.com/image/thumb/Music118/v4/f4/d2/18/f4d218f7-cc28-e9f2-69f6-958abc6cd9b0/source/200x200bb.png",
-    src: "https://assets.entrepreneur.com/content/3x2/1300/20170907190559-GettyImages-722208887.jpeg",
-      altText: "Rough Translation",
+    src: "http://is1.mzstatic.com/image/thumb/Music118/v4/f4/d2/18/f4d218f7-cc28-e9f2-69f6-958abc6cd9b0/source/200x200bb.png",
+    altText: "Rough Translation",
     caption: "Rough Translation"
   }
 ];
@@ -79,7 +76,7 @@ class Mycarousel extends Component {
           src={item.src}
           altText={item.altText}
         >
-          {/*<CarouselCaption captionHeader={item.caption} />*/}
+          <CarouselCaption captionHeader={item.caption} />
         </CarouselItem>
       );
       //captionText={item.caption} 

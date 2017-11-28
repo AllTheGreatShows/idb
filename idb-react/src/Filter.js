@@ -77,7 +77,7 @@ class MyFilter extends React.Component {
     render() {
         return (
           <div>
-            <Button className={"SortButton"} onClick={this.toggle} style={{ marginBottom: '1rem' }}>Click me to filter!</Button>
+            <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Click me to filter!</Button>
             <Collapse isOpen={this.state.collapse}>
               <Card>
                 <CardBody>
