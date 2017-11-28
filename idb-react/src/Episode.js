@@ -70,30 +70,30 @@ class Episode extends React.Component{
 
         if(backButtonCheck){
             return (
-                <div>
+                <div className={"notNav"}>
                     {"Sort: "}
                     <Link to={"/episode/sort=asc/page=1"}>
-                        <Button color="success" size="lg" onClick= {() => 
+                        <Button className={"SortButton"} onClick= {() =>
                             {this.page[0] = 1;
                             var data = getAscending("title", "episode",1);
                             this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
                             }
-                        }> Asc </Button>
+                        }> Ascending </Button>
                     </Link>
                     {' '}
                     <Link to={"/episode/sort=dsc/page=1"}>
-                        <Button color="success" size="lg" onClick= {() => 
+                        <Button className={"SortButton"} onClick= {() =>
                             {this.page[0] = 1;
                             var data = getDescending("title", "episode",1);
                             this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
                             }
-                        }> Desc </Button>
+                        }> Descending </Button>
                     </Link>
                     <MyFilter getData = {() => this.getChildData()}/>
                     <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     
                     
                     <Link to={nextURL}>
-                        <Button outline color="warning" size="lg" onClick= {() => 
+                        <Button className={"NextButton"} size="lg" onClick= {() =>
                             {this.page[0] = parseInt(this.page[0]) + 1;
                             var data;
                             if (boolASC)
@@ -111,30 +111,30 @@ class Episode extends React.Component{
         }
         else if (forwardButtonCheck){
             return (
-                    <div>
+                    <div className={"notNav"}>
                         {"Sort: "}
                         <Link to={"/episode/sort=asc/page=1"}>
-                            <Button color="success" size="lg" onClick= {() => 
+                            <Button className={"SortButton"} onClick= {() =>
                                 {this.page[0] = 1;
                                 var data = getAscending("title", "episode",1);
                                 this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
                                 }
-                            }> Asc </Button>
+                            }> Ascending </Button>
                         </Link>
                         {' '}
                         <Link to={"/episode/sort=dsc/page=1"}>
-                        <Button color="success" size="lg" onClick= {() => 
+                        <Button className={"SortButton"} onClick= {() =>
                                 {this.page[0] = 1;
                                 var data = getDescending("title", "episode",1);
                                 this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
                                 }
-                            }> Desc </Button>
+                            }> Descending </Button>
                         </Link>
                         <MyFilter getData = {() => this.getChildData()}/>
                         <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     
                         
                         <Link to={prevURL}>
-                            <Button outline color="warning" size="lg" onClick= {() => 
+                            <Button className={"NextButton"} size="lg" onClick= {() =>
                                 {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0]) - 1;
                                 var data;
                                 if (boolASC)
@@ -152,29 +152,29 @@ class Episode extends React.Component{
         }
         else{
         return (
-            <div>
+            <div className={"notNav"}>
                 {"Sort: "}
                 <Link to={"/episode/sort=asc/page=1"}>
-                    <Button color="success" size="lg" onClick= {() => 
+                    <Button className={"SortButton"} onClick= {() =>
                         {this.page[0] = 1;
                         var data = getAscending("title", "episode",1);
                         this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
                         }
-                    }> Asc </Button>
+                    }> Ascending </Button>
                 </Link>
                 {' '}
                 <Link to={"/episode/sort=dsc/page=1"}>
-                <Button color="success" size="lg" onClick= {() => 
+                <Button className={"SortButton"} onClick= {() =>
                         {this.page[0] = 1;
                         var data = getDescending("title", "episode",1);
                         this.refs.child.changeState(data,"title" ,"image_url" ,"episode", 1);
                         }
-                    }> Desc </Button>
+                    }> Descending </Button>
                 </Link>
                 <MyFilter getData = {() => this.getChildData()}/>
                 <Grid ref="child" Data={getEpisodes(this.page[0])} CardTitle={"title"} ImageField={""} MediaType = "episode" page={this.page[0]}/>     
                 <Link to={prevURL}>
-                    <Button outline color="warning" size="lg" onClick= {() => 
+                    <Button className={"NextButton"} size="lg" onClick= {() =>
                         {this.page[0] = (parseInt(this.page[0]) == 1)? 1: parseInt(this.page[0]) - 1;
                         var data;
                         if (boolASC)
@@ -189,7 +189,7 @@ class Episode extends React.Component{
                 </Link>
                 {' '}
                 <Link to={nextURL}>
-                    <Button outline color="warning" size="lg" onClick= {() => 
+                    <Button className={"NextButton"} size="lg" onClick= {() =>
                         {this.page[0] = parseInt(this.page[0]) + 1;
                             var data;
                             if (boolASC)
