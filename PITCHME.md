@@ -32,7 +32,7 @@ Friday, December 1st
 ## Project Statistics
 - 322 total commits
 - 60 issues
-- 25 tests
+- 52 tests
 
 ---
 
@@ -76,7 +76,24 @@ Tools Used
 
 +++
 ## What did we learn?
+- Scraping Data
+- SQLAlchemy Database
+- RESTful API
+- Python Flask
+- React JS
+- unittesting
 +++
+
+## More Things We Learned
+- Time Management
+- Working simultaneously
+    - Github
+    - Trello
+    - PlanItPoker
+- Merge Conflicts
+- GCP TLC
+---
+
 ## Technologies We Used
 <!-- can we left adjust this? -->
 Backend Tools
@@ -90,37 +107,52 @@ Frontend Tools
 Hosting
 - GCP App Engine
 
+Testing
+- Postman
+- Selenium
+- Python unittest
+
 +++
 ## What did we do well?
-
+- Navigation
+- Search
+- Sorting
 +++
 ## What can we do better?
-
+- More responsive website
+- More rich media and embedded content
 +++
 ## What puzzles us?
-
+- Making reactstrap flexible
+- GCP credits
 ---
 
-## Group XX Critque
+## Group 15 Critque
+[Marvelus](marvelus.me/events)
 
 +++
 ## What did they do well?
-
+- Rich Media
+- Intuitive Navigating
+- Hyperlinks
 +++
 ## What can we learn from their website?
+- How actors, characters, and events are connected to movies, TV shows, and comic series.
+
 
 +++
 ## What can they do better?
-
+- More responsive website layout
+- Meaningful attributes (e.g. Adult category)
+- Filtering
 +++
 ## What puzzles us about their website?
-
+- Search Results
 ---
 
-## Group XX API Visualization
+## Group 15 API Visualization
 +++
-![logo](/images/empty_visualization.jpg)
-+++
-## Visualiation Insights
+<!-- ![logo](/images/empty_visualization.jpg) -->
+[link](marvelus.me)
 ---
 ## The End
