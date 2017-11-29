@@ -32,7 +32,7 @@ Friday, December 1st
 ## Project Statistics
 - 322 total commits
 - 60 issues
-- 52 tests
+- 35 tests
 
 ---
 
