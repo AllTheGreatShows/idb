@@ -17,7 +17,6 @@ class EpisodeSearchGrid extends React.Component{
 
 
     getChildData = (childData) => {
-        // console.log("In parent and child data is " + childData);
         console.log("state originally set to " + this.state.userInput);
         console.log(childData);
 

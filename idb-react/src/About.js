@@ -12,7 +12,7 @@ var members = [
 	 "Managed the group workflow",
 	 "Worked on frontend and backend development, including api requests, pagination, sorting, python flask",
 	 "Searched through iTunes Store API for raw data.",
-	 "SanatSharma", 9, 0],
+	 "SanatSharma", 9, 15],
 	["Jesse Tipton",
 	 "Phase 2 Team Lead",
 	 "https://utexas.box.com/shared/static/ntda5bgjr5ghhf8k5i65vidvu0npoxu8.jpg", "Bio: Jesse is a senior in computer science who also works as a part time iOS developer. He is involved with the Mobile Application Development and teaches their iOS workshops.",

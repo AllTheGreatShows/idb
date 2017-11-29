@@ -15,8 +15,6 @@ class Grid extends React.Component {
 
 
     changeState(data, pages, stateChange=true){
-		console.log(data);
-		console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
 		const squaresT = Array(9);//Titles
 		const squaresI = Array(9).fill("");//Images
 		const squaresD = Array(9);
@@ -70,11 +68,7 @@ class Grid extends React.Component {
 
 
 	renderCard (i) {
-		i = i-1;
 		if(this.state.squares[i]==undefined) return <div></div>;
-		console.log(i)
-		var there = "/" + this.props.MediaType + "/id=" + parseInt(this.props.Data["objects"][i]["id"]);
-		console.log(there);
 		return <Link to={"/" + this.props.MediaType + "/id=" + parseInt(this.state.theIDs[i])}> <Fcard
 			title={String(this.state.squares[i])}
 			image={String(this.state.images[i])}/> </Link>;

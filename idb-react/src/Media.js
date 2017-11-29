@@ -11,7 +11,6 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 // episode
 // genre
 
-// PODCASTS, runs when media_type == "podcast"
 function renderPodcast(obj) {
     var val = obj;
     console.log(val);
@@ -19,7 +18,6 @@ function renderPodcast(obj) {
     var l = [];
     console.log(val["genres"].length);
     for (var i = 0; i < val["genres"].length; i++) {
-        // l[i] = val["genres"][i]["name"].toString();
         l.push(<div><Link className="Link" to={"/genre/id=" + pod[i]["id"]}> {pod[i]["name"]} </Link><br/></div>);
     }
     return (
@@ -50,10 +48,6 @@ function renderProvider(obj) {
     console.log(val);
 
     var provider_podcasts = "";
-    // for (i = 0; i < val.podcasts.length; i++) { 
-    //     provider_podcasts += val.podcasts[i].title + ", ";
-    // }
-
     var pod = val["podcasts"];
     console.log(pod.length);
     var c = []
@@ -79,7 +73,6 @@ function renderProvider(obj) {
                     </CardTitle>
                     <CardSubtitle className={"Detail-Subtitle"}>id: {val.id.toString()}
                         <br/> itunes id: {val.podcasts[0].itunes_id.toString()} </CardSubtitle>
-                {/*name: {val.name.toString()} <br/>*/}
                     <p>feed_url: <a href={val.podcasts[0].feed_url.toString()}> {val.podcasts[0].feed_url.toString()}</a></p>
                     <p>Podcast titles: {c} </p>
                 </div>
@@ -91,12 +84,9 @@ function renderProvider(obj) {
 // GENRE, runs when media_type == "genre"
 function renderGenre(obj) {
     var val = obj;
-    console.log(val);
     var pod = val["podcasts"];
-    console.log(pod.length);
     var c = []
     for (var i = 0; i < pod.length; i++) {
-        // c[i] = pod[i]["title"].toString();
         c.push(<div><Link to={"/podcast/id=" + pod[i]["id"]}> {pod[i]["title"]} </Link><br/></div>);
     }
     var d = []
@@ -106,7 +96,6 @@ function renderGenre(obj) {
     }
     var p = pod[0];
 
-    console.log(c);
     return (
         <Card className={"GenreCard"}>
             <div className={"Detail-Body"}>
@@ -130,7 +119,6 @@ function renderGenre(obj) {
 // EPISODES, runs when media_type == "episode"
 function renderEpisode(obj) {
     var val = obj;
-    console.log(val);
     return (
         <Card>
             <div className={"Detail-Body"}>
