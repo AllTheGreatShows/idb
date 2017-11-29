@@ -45,9 +45,7 @@ Friday, December 1st
 ## Setting up our database
 Tools Used
 - PostgreSQL database
-- psycopg2
 - SQLAlchemy
-
 
 ---
 ## Our Models
@@ -96,21 +94,21 @@ Tools Used
 
 ## Technologies We Used
 <!-- can we left adjust this? -->
-Backend Tools
-- Python Flask
+- Backend Tools
+    - Python Flask
 
-Frontend Tools
-- ReactJS
-- Reactstrap
-- Reactrouter
+- Frontend Tools
+    - ReactJS
+    - Reactstrap
+    - Reactrouter
 
-Hosting
-- GCP App Engine
+- Hosting
+    - GCP App Engine
 
-Testing
-- Postman
-- Selenium
-- Python unittest
+- Testing
+    - Postman
+    - Selenium
+    - Python unittest
 
 +++
 ## What did we do well?
@@ -128,7 +126,7 @@ Testing
 ---
 
 ## Group 15 Critque
-[Marvelus](marvelus.me/events)
+[Marvelus.me](marvelus.me/events)
 
 +++
 ## What did they do well?
@@ -151,8 +149,7 @@ Testing
 ---
 
 ## Group 15 API Visualization
-+++
 <!-- ![logo](/images/empty_visualization.jpg) -->
-[link](marvelus.me)
+[link](https://utexas.box.com/shared/static/3pjy7in8uv9ukvxtp82g1eao800rxx1s.pdf)
 ---
 ## The End
