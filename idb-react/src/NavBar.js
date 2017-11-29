@@ -36,7 +36,7 @@ class NavBar extends React.Component {
     console.log("render");
 		return (
       <Router>
-        <div>
+        <div className={"outer"}>
           <Navbar className={"Navbar"}>
           <NavbarBrand href="/home">All The Great Shows</NavbarBrand>
             <Nav justified horizontal>
@@ -60,8 +60,8 @@ class NavBar extends React.Component {
               </NavItem>
             </Nav>
 
-            <div>
-              <input 
+            <div className={"search"}>
+              <input name="search-input"
                 type="text" placeholder="Search..." value={this.state.text}
                 onChange={this.handleChange}
               />

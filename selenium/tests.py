@@ -11,11 +11,11 @@ class Test(unittest.TestCase):
         self.driver = webdriver.Firefox(executable_path=r"C:\Users\sanat\Downloads\geckodriver-v0.19.1-win64\geckodriver.exe")
         # get the home page
         self.driver.get("http://allthegreatshows.com")
-
+    
     def test_url(self):
         self.assertIn("React App", self.driver.title)
 
-    
+       
     def test_podcast_nav(self):
         driver = self.driver
         driver.find_element_by_link_text("Podcasts").click()
@@ -87,7 +87,48 @@ class Test(unittest.TestCase):
         driver.find_element_by_link_text("Previous").click()
         self.assertIn("allthegreatshows.com/genre/page=1", driver.current_url)
         self.driver.get("http://allthegreatshows.com")
- 
+    
+    def test_empty_search(self):
+        driver = self.driver
+        driver.find_element_by_link_text("Search").click()
+        self.assertIn("allthegreatshows.com/search", driver.current_url)
+        driver.back()
+    
+    def test_query_search(self):
+        driver = self.driver
+        driver.get("https://allthegreatshows.com")
+        driver.find_element_by_name("search-input").send_keys("life")
+        driver.find_element_by_link_text("Search").click()
+        self.assertIn("allthegreatshows.com/search/life", driver.current_url)
+        self.driver.get("http://allthegreatshows.com")
+
+    def test_query_search_podcast(self):
+        driver = self.driver
+        driver.get("https://allthegreatshows.com")
+        driver.find_element_by_name("search-input").send_keys("life")
+        driver.find_element_by_link_text("Search").click()
+        driver.find_element_by_partial_link_text("Podcast Search").click()
+        self.assertIn("allthegreatshows.com/search/life/podcast/page=1", driver.current_url)
+        self.driver.get("http://allthegreatshows.com")
+    
+    def test_query_search_genre(self):
+        driver = self.driver
+        driver.get("https://allthegreatshows.com")
+        driver.find_element_by_name("search-input").send_keys("life")
+        driver.find_element_by_link_text("Search").click()
+        driver.find_element_by_partial_link_text("Genre Search").click()
+        self.assertIn("allthegreatshows.com/search/life/genre/page=1", driver.current_url)
+        self.driver.get("http://allthegreatshows.com")
+
+    def test_query_search_provider(self):
+        driver = self.driver
+        driver.get("https://allthegreatshows.com")
+        driver.find_element_by_name("search-input").send_keys("life")
+        driver.find_element_by_link_text("Search").click()
+        driver.find_element_by_partial_link_text("Provider Search").click()
+        self.assertIn("allthegreatshows.com/search/life/provider/page=1", driver.current_url)
+        self.driver.get("http://allthegreatshows.com")
+
 
     def tearDown(self):
         self.driver.close()       
