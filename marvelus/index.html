@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Marvelus API</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='data.json') }}"></script>
+	<script type="text/javascript">
+		function getCounts() {
+			var ctx = document.getElementById("model-instance-count-chart");
+			var myChart = new Chart(ctx, {
+			    type: 'horizontalBar',
+			    data: {
+			        labels: ["Actors", "Characters", "Comic Series", "Events", "Movies", "TV Shows"],
+			        datasets: [{
+			            data: [actorList.length, characterList.length, comicSeriesList.length, eventList.length, movieList.length, tvShowList.length],
+			            backgroundColor: [
+			                'rgba(255, 99, 132, 0.2)',
+			                'rgba(54, 162, 235, 0.2)',
+			                'rgba(255, 206, 86, 0.2)',
+			                'rgba(75, 192, 192, 0.2)',
+			                'rgba(153, 102, 255, 0.2)',
+			                'rgba(255, 159, 64, 0.2)'
+			            ],
+			            borderColor: [
+			                'rgba(255,99,132,1)',
+			                'rgba(54, 162, 235, 1)',
+			                'rgba(255, 206, 86, 1)',
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(153, 102, 255, 1)',
+			                'rgba(255, 159, 64, 1)'
+			            ],
+			            borderWidth: 1
+			        }]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero:true
+			                }
+			            }]
+			        },
+			      	legend: {
+			        	display: false,
+			        }
+			    }
+			});
+		};
+		var dynamicColors = function() {
+    		var r = Math.floor(Math.random() * 255);
+    		var g = Math.floor(Math.random() * 255);
+    		var b = Math.floor(Math.random() * 255);
+    		return "rgb(" + r + "," + g + "," + b + ")";
+		};
+		function color(r, g, b, a) {
+    		return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+		};
+		function randomColors(quantity) {
+			var colors = [];
+			for (var i = 0; i < quantity; ++i) {
+				colors.push(dynamicColors());
+			}
+			return colors;
+		};
+		function frequency(e, elements) {
+			var i = 0;
+			for (var index = 0; index < elements.length; ++index) {
+				if (e == elements[index]) {
+					++i;
+				}
+			}
+			return i;
+		}
+		function getMovieReleaseDates() {
+			var ctx = document.getElementById("movie-release-date-distribution");
+			var release_dates = [];
+			for (var i = 0; i < movieList.length; ++i) {
+				release_dates.push(movieList[i].release_date.substring(0, 4));
+			}
+			
+			release_dates.sort();
+			
+			var labels = Array.from(new Set(release_dates));
+
+			var data = [];
+			for (var i = 0; i < labels.length; ++i) {
+				data.push(frequency(labels[i], release_dates));
+			}
+
+			var myChart = new Chart(ctx, {
+			    type: 'bar',
+			    data: {
+			    	labels: labels,
+			    	datasets: [
+			    		{
+			    			label: "# of Movies",
+			    			data: data,
+			    			backgroundColor: 'rgba(75, 192, 192, 0.2)',
+			    			borderColor: 'rgba(75, 192, 192, 1)',
+			    			borderWidth: 1,
+			    		}
+			    	]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero: true
+			                }
+			            }]
+			        }
+			    }
+			});
+		};
+
+		function getAdultMovies() {
+			var adultCount = 0;
+			var nonAdultCount = 0;
+			for (var i = 0; i < movieList.length; ++i) {
+				if (movieList[i].adult) {
+					++adultCount;
+				} else {
+					++nonAdultCount;
+				}
+			}
+
+			var ctx = document.getElementById("adult-movies-chart");
+			var myChart = new Chart(ctx, {
+				type: 'pie',
+				data: {
+					labels: ["Adult", "Non-adult"],
+					datasets: [
+						{
+							label: "blah",
+							data: [adultCount, nonAdultCount],
+							backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+							borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+							borderWidth: 1,
+						}
+					]
+				},
+				options: {}
+			});
+		};
+
+		function getActorBirthdays() {
+			var birthdays = [];
+			for (var i = 0; i < actorList.length; ++i) {
+				birthdays.push(actorList[i].birthday.substring(0, 4));
+			}
+			birthdays.sort();
+
+			var labels = Array.from(new Set(birthdays));
+
+			var data = [];
+			for (var i = 0; i < labels.length; ++i) {
+				data.push(frequency(labels[i], birthdays));
+			}
+
+			var ctx = document.getElementById("actor-birthday-chart");
+			var myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: labels,
+					datasets: [
+						{
+							label: "Birthdays",
+							data: data,
+							backgroundColor: 'rgba(153, 102, 255, 0.2)',
+							borderColor: 'rgba(153, 102, 255, 1)',
+							borderWidth: 1,
+						}
+					]
+				},
+				options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero: true
+			                }
+			            }]
+			        }
+				}
+			});
+		};
+
+		function getTvShowNumberOfSeasons() {
+			var numberOfSeasons = [];
+			for (var i = 0; i < tvShowList.length; ++i) {
+				numberOfSeasons.push(tvShowList[i].num_seasons);
+			}
+			numberOfSeasons.sort();
+
+			var labels = Array.from(new Set(numberOfSeasons));
+
+			var data = [];
+			for (var i = 0; i < labels.length; ++i) {
+				data.push(frequency(labels[i], numberOfSeasons));
+			}
+
+			var colors = ['red', 'orange', 'yellow', 'green', 'blue'];
+
+			var ctx = document.getElementById("tv-show-number-of-seasons-chart");
+			var myChart = new Chart(ctx, {
+				type: 'pie',
+				data: {
+					labels: labels,
+					datasets: [
+						{
+							label: "# of Seasons",
+							data: data,
+							backgroundColor: [
+								'rgba(255, 99, 132, 0.2)',
+				                'rgba(54, 162, 235, 0.2)',
+				                'rgba(255, 206, 86, 0.2)',
+				                'rgba(75, 192, 192, 0.2)',
+				                'rgba(153, 102, 255, 0.2)',
+							],
+							borderColor: [
+				                'rgba(255, 99, 132, 1)',
+				                'rgba(54, 162, 235, 1)',
+				                'rgba(255, 206, 86, 1)',
+				                'rgba(75, 192, 192, 1)',
+				                'rgba(153, 102, 255, 1)',
+							],
+							borderWidth: 1,
+						}
+					]
+				},
+				options: {}
+			});
+		};
+
+		function getComicSeriesDuration() {
+			var ctx = document.getElementById("comic-series-duration-chart");
+			var characterCounts = [];
+			for (var i = 0; i < comicSeriesList.length; ++i) {
+				var numberOfCharacters = comicSeriesList[i].characters.length;
+				if (numberOfCharacters > 0) {
+					characterCounts.push(numberOfCharacters);
+				}
+			}
+			
+			characterCounts.sort(function(a, b) {
+				return a - b;
+			});
+			
+			var labels = Array.from(new Set(characterCounts));
+
+			var data = [];
+			for (var i = 0; i < labels.length; ++i) {
+				data.push(frequency(labels[i], characterCounts));
+			}
+
+			var myChart = new Chart(ctx, {
+			    type: 'bar',
+			    data: {
+			    	labels: labels,
+			    	datasets: [
+			    		{
+			    			label: "# of Comic Series",
+			    			data: data,
+			    			backgroundColor: 'rgba(255, 159, 64, 0.2)',
+			    			borderColor: 'rgba(255, 159, 64, 1)',
+			    			borderWidth: 1,
+			    		}
+			    	]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero: true
+			                }
+			            }]
+			        }
+			    }
+			});
+		};
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h1>Marvelus API</h1>
+
+		<div>
+			<h3>Model Instance Counts</h2>
+			<canvas id="model-instance-count-chart"></canvas>
+		</div>
+
+		<div>
+			<h3>Movie Release Dates</h2>
+			<canvas id="movie-release-date-distribution" width="400" height="200"></canvas>
+		</div>
+
+		<div>
+			<h3>Adult Movies</h3>
+			<canvas id="adult-movies-chart"></canvas>
+		</div>
+
+		<div>
+			<h3>Actor Birthdays</h3>
+			<canvas id="actor-birthday-chart" width="400" height="200"></canvas>
+		</div>
+
+		<div>
+			<h3>TV Show Number of Seasons</h3>
+			<canvas id="tv-show-number-of-seasons-chart" width="400" height="200"></canvas>
+		</div>
+
+		<div>
+			<h3># of Characters in a Comic Series</h3>
+			<canvas id="comic-series-duration-chart" width="400"></canvas>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		getCounts();
+		getMovieReleaseDates();
+		getAdultMovies();
+		getActorBirthdays();
+		getTvShowNumberOfSeasons();
+		getComicSeriesDuration();
+	</script>
+</body>
+</html>
