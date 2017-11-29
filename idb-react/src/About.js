@@ -131,11 +131,11 @@ render() {
 			{this.renderCard(3)}
 			{this.renderCard(4)}
 
-			<h2>Phase 1/2/3/4 Statistics</h2>
+			<h2>Phase 4 Statistics</h2>
 			<ul>
 				<li>Total number of commits: {this.totalCommits}</li>
-				<li>Total number of issues: 15</li>
-				<li>Total number of unit tests: n/a</li>
+				<li>Total number of issues: 60</li>
+				<li>Total number of unit tests: 50</li>
 				<li><a href="http://docs.allthegreatshows.apiary.io"> Apiary API </a></li>
 				<li><a href="https://github.com/AllTheGreatShows/allthegreatshows"> Github Repository </a></li>
 				<li><a href="https://trello.com/b/4b1Aqi5c/idb2-project"> Trello </a> </li>
@@ -151,7 +151,7 @@ render() {
 					<p>Data from the top 100 trending podcasts was scraped from the Mixcloud API.  An example search being http://api.mixcloud.com/popular/</p>
 			</ul>
 
-			<h2>Phase 1/2/3/4 Tools Used</h2>
+			<h2>Phase 4 Tools Used</h2>
 				<h3>Project Planning Tools</h3>
 				<ul>
 					<li>Github</li>
