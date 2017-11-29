@@ -8,7 +8,8 @@ class Test(unittest.TestCase):
 
     def setUp(self): 
         # Create a new instance of the Firefox driver
-        self.driver = webdriver.Firefox(executable_path=r"C:\Users\sanat\Downloads\geckodriver-v0.19.1-win64\geckodriver.exe")
+       # self.driver = webdriver.Firefox(executable_path=r"C:\Users\sanat\Downloads\geckodriver-v0.19.1-win64\geckodriver.exe")
+        self.driver = webdriver.Firefox()
         # get the home page
         self.driver.get("http://allthegreatshows.com")
     
