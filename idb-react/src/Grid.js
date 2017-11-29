@@ -68,6 +68,7 @@ class Grid extends React.Component {
 
 
 	renderCard (i) {
+		i = i-1;
 		if(this.state.squares[i]==undefined) return <div></div>;
 		return <Link to={"/" + this.props.MediaType + "/id=" + parseInt(this.state.theIDs[i])}> <Fcard
 			title={String(this.state.squares[i])}
