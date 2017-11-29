@@ -186,7 +186,8 @@ render() {
 						<p>Google docs played a useful role in collaborating on the project report.</p>
 					</li>
 				</ul>
-			<h2><a href="https://sanatsharma.gitbooks.io/allthegreatshows-idb"> Link to the Project GitBook</a></h2>
+			<h4><a href="https://sanatsharma.gitbooks.io/allthegreatshows-idb"> Link to the Project GitBook</a></h4>
+			<h4><a href="https://gitpitch.com/allthegreatshows/idb/master"> Link to Presentation</a></h4>
 		</div>
 	);
 }
