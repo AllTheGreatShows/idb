@@ -37,7 +37,7 @@ var members = [
 	 "Collated project data for about page",
 	 "cdubiel", 9, 0],
 	["Will Kuglen",
-	 "", 
+	 "Phase 4 Team Lead", 
 	 "https://utexas.box.com/shared/static/jf3oow4mlova0oy7pn2bl11g6547f0pd.png",
 	 "Bio: Will Kuglen is a third year computer science and design double major at The University of Texas at Austin. He is interested in both software and hardware, artificial intelligence, and robotics. He also has a passion for typography, industrial design, and UI/UX.",
 	 "Frontend and main React developer",
@@ -131,7 +131,7 @@ render() {
 			{this.renderCard(3)}
 			{this.renderCard(4)}
 
-			<h2>Phase 4 Statistics</h2>
+			<h2>Phase 1 - 4 Statistics</h2>
 			<ul>
 				<li>Total number of commits: {this.totalCommits}</li>
 				<li>Total number of issues: 60</li>
@@ -151,7 +151,7 @@ render() {
 					<p>Data from the top 100 trending podcasts was scraped from the Mixcloud API.  An example search being http://api.mixcloud.com/popular/</p>
 			</ul>
 
-			<h2>Phase 4 Tools Used</h2>
+			<h2>Phase 1 - 4 Tools Used</h2>
 				<h3>Project Planning Tools</h3>
 				<ul>
 					<li>Github</li>
