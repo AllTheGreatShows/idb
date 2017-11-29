@@ -135,7 +135,7 @@ render() {
 			<ul>
 				<li>Total number of commits: {this.totalCommits}</li>
 				<li>Total number of issues: 60</li>
-				<li>Total number of unit tests: 50</li>
+				<li>Total number of unit tests: 35</li>
 				<li><a href="http://docs.allthegreatshows.apiary.io"> Apiary API </a></li>
 				<li><a href="https://github.com/AllTheGreatShows/allthegreatshows"> Github Repository </a></li>
 				<li><a href="https://trello.com/b/4b1Aqi5c/idb2-project"> Trello </a> </li>
