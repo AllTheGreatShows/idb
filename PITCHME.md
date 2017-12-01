@@ -2,7 +2,7 @@
 Group-13 
 Friday, December 1st
 
-[AlltheGreatShows.com](http://allthegreatshows.com)
+[allthegreatshows.com](http://allthegreatshows.com)
 
 ---
 
@@ -28,111 +28,57 @@ Friday, December 1st
 
 # Jesse Tipton
 
-+++
-## Project Statistics
-- 322 total commits
-- 60 issues
-- 35 tests
-
 ---
 
-## Databases We Scraped From
-- iTunes Store API
-- MixCloud API
+## Demo
+[allthegreatshows.com](http://allthegreatshows.com)
 
----
-
-## Setting up our database
-Tools Used
-- PostgreSQL database
-- SQLAlchemy
-
----
-## Our Models
-- Podcast
-- Episode
-- Host
-- Genre
-
-+++
-<!-- spacing is off -->
-## UML Diagram
-![logo](/images/uml.jpg)
-
----
-
-## AlltheGreatShows API
-[apiary](http://docs.allthegreatshows.apiary.io/)
----
-
-## Demonstation
-[Allthegreatshows.com](http://allthegreatshows.com)
 
 ---
 
 ## Self Critique
 
 +++
-## What did we learn?
-- Scraping Data
-- SQLAlchemy Database
-- RESTful API
-- Python Flask
-- React JS
-- unittesting
-+++
 
-## More Things We Learned
-- Time Management
-- Working simultaneously
-    - Github
-    - Trello
-    - PlanItPoker
-- Merge Conflicts
-- GCP TLC
----
-
-## Technologies We Used
-<!-- can we left adjust this? -->
-- Backend Tools
-    - Python Flask
-
-- Frontend Tools
-    - ReactJS
-    - Reactstrap
-    - Reactrouter
-
-- Hosting
-    - GCP App Engine
-
-- Testing
-    - Postman
-    - Selenium
-    - Python unittest
-
-+++
 ## What did we do well?
-- Navigation
-- Search
-- Sorting
+- Distributing tasks
+- Crunch time development
+- Stable backend
+
+
 +++
+## What did we learn?
+- How podcasts are distributed
+- Modern website architecture
+- Working simultaneously
+- Not to be afraid of merge conflicts
+
++++
+
 ## What can we do better?
-- More responsive website
+- Faster, more responsive website
 - More rich media and embedded content
+- Better time estimates
+- Human-centered design
+
 +++
+
 ## What puzzles us?
-- Making reactstrap flexible
-- GCP credits
+- GCP
+- React state changes
+- Larger Flask app architecture
 ---
 
 ## Group 15 Critque
-[Marvelus.me](marvelus.me/events)
+[Marvelus.me](marvelus.me/)
 
 +++
 ## What did they do well?
-- Rich Media
-- Intuitive Navigating
-- Hyperlinks
+- Rich media
+- Intuitive navigating
+- Well integrated models
+- Comic book inspired style
+- Well organized GitHub repository
 +++
 ## What can we learn from their website?
 - How actors, characters, and events are connected to movies, TV shows, and comic series.
@@ -141,15 +87,17 @@ Tools Used
 +++
 ## What can they do better?
 - More responsive website layout
-- Meaningful attributes (e.g. Adult category)
-- Filtering
+- Meaningful attributes
+- Loading time
+- Image stretching 
 +++
 ## What puzzles us about their website?
 - Search Results
+- Agreement between models
 ---
 
 ## Group 15 API Visualization
 <!-- ![logo](/images/empty_visualization.jpg) -->
 [link](https://utexas.box.com/shared/static/3pjy7in8uv9ukvxtp82g1eao800rxx1s.pdf)
 ---
-## The End
+## Questions?
