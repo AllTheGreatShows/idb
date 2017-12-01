@@ -8,7 +8,7 @@ Friday, December 1st
 
 ## Who We Are
 
-+++?image=/images/Screen Shot 2017-12-01 at 9.57.23 AM.png&size=custom-size-config
++++?image=/images/sanat2.jpg&size=custom-size-config
 
 # Sanat Sharma
 
