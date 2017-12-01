@@ -80,6 +80,7 @@ Friday, December 1st
 - Comic book inspired style
 - Well organized GitHub repository
 +++
+
 ## What can we learn from their website?
 - How actors, characters, and events are connected to movies, TV shows, and comic series.
 
@@ -92,12 +93,11 @@ Friday, December 1st
 - Image stretching 
 +++
 ## What puzzles us about their website?
-- Search Results
+- Filtering ease of use
 - Agreement between models
 ---
 
 ## Group 15 API Visualization
-<!-- ![logo](/images/empty_visualization.jpg) -->
-[link](https://utexas.box.com/shared/static/3pjy7in8uv9ukvxtp82g1eao800rxx1s.pdf)
+
 ---
 ## Questions?
